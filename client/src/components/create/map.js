@@ -2,11 +2,11 @@ import React from 'react';
 
 import ReactMapboxGl, { Layer, Feature } from 'react-mapbox-gl';
 
-const Map = ReactMapboxGl({
-  accessToken: ''
-});
-
 const MapContainer = props => {
+  const Map = ReactMapboxGl({
+    accessToken: props.apikey,
+  });
+
   return (
     <Map
       // eslint-disable-next-line

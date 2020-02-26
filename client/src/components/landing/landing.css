@@ -1,0 +1,41 @@
+#signup {
+    border-radius: 5px;
+    margin: 20vh auto;
+    width: 800px;
+    height: 600px;
+    display: flex;
+    overflow: hidden;
+    box-shadow: 12px 12px 10px 2px rgba(0, 0, 0, .1);
+}
+
+#signup div {
+    width: 50%;
+    height: 100%;
+    position: relative
+}
+
+#splash {
+    background-image: url('.//landing.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+#splash h1 {
+    color: white;
+    font-size: 10rem;
+    font-weight: bold;
+    font-style: italic;
+    position: absolute;
+    bottom: -10px;
+    right: -45px;
+}
+
+#form__holder {
+    background: white;
+}
+
+#form__holder form {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}

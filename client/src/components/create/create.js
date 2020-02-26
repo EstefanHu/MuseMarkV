@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import './create.css';
 import Map from './map';
+import Loading from '../Layout/loading';
 
 class Create extends Component {
   constructor(props) {
@@ -9,12 +10,13 @@ class Create extends Component {
     this.state = {
       latitude: 0.0,
       longitude: 0.0,
-      geoFetched: false,
+      loading: false,
       api: '',
     }
   }
 
   componentWillMount() {
+    this.setState({ loading: true });
     navigator
     .geolocation
     .getCurrentPosition(position => {
@@ -23,7 +25,6 @@ class Create extends Component {
       this.setState({
         latitude: latitude,
         longitude: longitude,
-        geoFetched: true,
       });
     }, error => {
       console.log(error);
@@ -31,26 +32,29 @@ class Create extends Component {
   }
 
   componentDidMount() {
-    console.log('mounted');
     fetch('http://localhost:4000/api')
       .then(res => res.json())
-      .then(res => this.setState({api: res}))
+      .then(res => {
+        this.setState({
+          api: res,
+          loading: false,
+        })
+      })
+      .then(console.log(this.state.api))
       .catch(console.error);
   }
 
   render() {
-    return this.state.geoFetched ? (
+    return !this.state.loading ? (
       <div>
-        {/* <Map
+        <Map
           longitude={ this.state.longitude }
           latitude={ this.state.latitude }
           apikey={ this.state.api }
-        /> */}
+        />
       </div>
     ) : (
-      <div>
-        Loading...
-      </div>
+      <Loading />
     )
   }
 }
