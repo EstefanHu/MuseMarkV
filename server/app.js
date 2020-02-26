@@ -10,9 +10,11 @@ app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 
-app.get('/', (req, res) => {
+require('dotenv').config()
+
+app.get('/api', (req, res) => {
   try {
-    console.log('hello');
+    res.json(process.env.MAPBOX_ACCESS_TOKEN);
   } catch(error) {
     res.type('text').status(500).send('Error:' + error);
   }
