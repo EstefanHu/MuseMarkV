@@ -9,7 +9,8 @@ class Create extends Component {
     this.state = {
       latitude: 0.0,
       longitude: 0.0,
-      geoFetched: false
+      geoFetched: false,
+      api: '',
     }
   }
 
@@ -32,12 +33,19 @@ class Create extends Component {
   componentDidMount() {
     console.log('mounted');
     fetch('http://localhost:4000/api')
+      .then(res => res.json())
+      .then(res => this.setState({api: res}))
+      .catch(console.error);
   }
 
   render() {
     return this.state.geoFetched ? (
       <div>
-        <Map longitude={ this.state.longitude } latitude={ this.state.latitude } />
+        {/* <Map
+          longitude={ this.state.longitude }
+          latitude={ this.state.latitude }
+          apikey={ this.state.api }
+        /> */}
       </div>
     ) : (
       <div>
