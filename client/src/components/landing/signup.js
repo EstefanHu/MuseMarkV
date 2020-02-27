@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const Signup = () => {
   const [firstName, setFirstName] = useState('');
@@ -18,7 +19,9 @@ const Signup = () => {
         <h1>Muse</h1>
       </div>
       <div id='form__holder'>
-        <h2>Join Project Muse</h2>
+        <h2>Join Muse.</h2>
+        <h3>Create an account and engage with</h3>
+        <h3>your communities stories</h3>
         <form onSubmit={ handleSubmit }>
           <input
             className='signup__form--input'
@@ -57,6 +60,8 @@ const Signup = () => {
           />
           <input type='submit' value='Register' />
         </form>
+        <p>Click "Register" above to accept Muse's</p>
+        <p><Link to='/terms'>Terms of Service</Link> & <Link to='/privacy'>Privacy Policy.</Link></p>
       </div>
     </section>
   )

@@ -10,6 +10,8 @@ import './App.css';
 import Landing from './components/landing/landing';
 import Dashboard from './components/dashboard/dashboard';
 import Map from './components/create/create';
+import Terms from './components/terms/terms';
+import Privacy from './components/privacy/privacy';
 
 function App() {
   return (
@@ -23,6 +25,12 @@ function App() {
         </Route>
         <Route path='/' exact>
           <Map />
+        </Route>
+        <Route path='/terms' exact>
+          <Terms />
+        </Route>
+        <Route path='/privacy' exact>
+          <Privacy />
         </Route>
       </Switch>
     </Router>

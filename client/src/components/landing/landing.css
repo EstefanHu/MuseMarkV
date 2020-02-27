@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Heebo:400,700&display=swap');
+
 #landing {
   overflow: auto;
   width: 100vw;
@@ -42,10 +44,18 @@
 }
 
 #form__holder h2 {
+    font-family: 'Heebo';
     text-align: center;
     margin-top: 30px;
     font-weight: bold;
     font-size: 2rem;
+}
+
+#form__holder h3 {
+  text-align: center;
+  color: grey;
+  font-weight: 600;
+  margin-top: 3px;
 }
 
 #form__holder form {
@@ -54,15 +64,15 @@
     flex-direction: column;
     padding: 20px;
     width: 340px;
+    padding-top: 18px;
+    padding-bottom: 30px;
 }
 
 .signup__form--input {
     border: none;
     border-bottom: 1px solid grey;
-    font-size: 1.5rem;
-    /* font-weight: 300; */
-    margin-top: 20px;
-    /* height: 35px; */
+    font-size: 1.4rem;
+    margin-bottom: 20px;
     padding: 5px 10px;
     outline: 0;
 }
@@ -78,9 +88,25 @@
     border-radius: 5px;
     font-weight: bold;
     color: white;
-    background: rgb(255, 85, 85);
+    background: rgb(255, 50, 50);
     font-size: 1.5rem;
-    margin-top: 20px;
+    margin-top: 10px;
     padding: 10px;
     outline: 0;
+}
+
+#form__holder input[type='submit']:focus,
+#form__holder input[type='submit']:hover {
+  background: rgb(255, 85, 85);
+}
+
+#form__holder p {
+  text-align: center;
+  color: grey;
+  font-size: .9rem;
+  font-weight: 500;
+}
+
+#form__holder a {
+  color: grey;
 }
