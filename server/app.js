@@ -16,9 +16,17 @@ app.get('/api', (req, res) => {
   try {
     res.json(process.env.MAPBOX_ACCESS_TOKEN);
   } catch(error) {
-    res.type('text').status(500).send('Error:' + error);
+    res.type('text').status(500).send('Error: ' + error);
   }
-})
+});
+
+app.post('/register', (rqe, res) => {
+  try {
+    res.json('Noice');
+  } catch(error) {
+    res.type('text').status(500).send('Error: ' + error);
+  }
+});
 
 const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => {

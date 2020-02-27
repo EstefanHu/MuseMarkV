@@ -10,7 +10,22 @@ const Signup = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(firstName + ' ' + lastName);
+
+    fetch('http://localhost:4000/register', {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            firstName: firstName,
+            lastName: lastName,
+            email: email,
+            password: password
+        })
+      })
+      .then(res => res.json())
+      .catch(console.error);
   }
 
   return (
