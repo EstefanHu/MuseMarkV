@@ -10,7 +10,7 @@ class Create extends Component {
     this.state = {
       latitude: 0.0,
       longitude: 0.0,
-      loading: false,
+      loading: true,
       api: '',
     }
   }
