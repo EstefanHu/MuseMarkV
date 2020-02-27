@@ -16,6 +16,7 @@ const MapContainer = props => {
         width: '100vw'
       }}
       center={[props.longitude, props.latitude]}
+      zoom={[14]}
     >
       <Layer type="symbol" id="marker" layout={{ 'icon-image': 'marker-15' }}>
         <Feature coordinates={[props.longitude, props.latitude]} />
