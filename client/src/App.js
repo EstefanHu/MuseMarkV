@@ -20,10 +20,10 @@ function App() {
         <Route path='/landing' exact>
           <Landing />
         </Route>
-        <Route path='/dash' exact>
-          <Dashboard/>
+        <Route path='/dashboard' exact>
+          <Dashboard />
         </Route>
-        <Route path='/' exact>
+        <Route path='/create' exact>
           <Map />
         </Route>
         <Route path='/terms' exact>
