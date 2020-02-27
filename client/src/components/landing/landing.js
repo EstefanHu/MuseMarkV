@@ -6,9 +6,9 @@ import Signup from './signup';
 class Landing extends Component {
   render() {
     return (
-      <div>
+      <main id='landing'>
         <Signup />
-      </div>
+      </main>
     )
   }
 }

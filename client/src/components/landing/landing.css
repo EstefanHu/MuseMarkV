@@ -1,6 +1,13 @@
+#landing {
+  overflow: auto;
+  width: 100vw;
+  height: 100vh;
+  background: rgb(248, 248, 248);
+}
+
 #signup {
     border-radius: 5px;
-    margin: 20vh auto;
+    margin: 15vh auto;
     width: 800px;
     height: 600px;
     display: flex;
