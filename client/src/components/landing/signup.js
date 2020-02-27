@@ -9,6 +9,7 @@ const Signup = props => {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
 
+  // TODO: INSTALL FORM CHECK
   const handleSubmit = e => {
     e.preventDefault();
 

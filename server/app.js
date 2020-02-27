@@ -20,6 +20,7 @@ app.get('/api', (req, res) => {
   }
 });
 
+//TODO: Form Check
 app.post('/register', (req, res) => {
   try {
     console.log(req.body);
