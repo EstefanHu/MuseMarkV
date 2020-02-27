@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import './create.css';
+import Nav from '../Layout/nav';
 import Map from './map';
 import Loading from '../Layout/loading';
 
@@ -10,16 +11,21 @@ class Create extends Component {
     this.state = {
       latitude: 0.0,
       longitude: 0.0,
-      loading: true,
       api: '',
     }
   }
 
-  componentWillMount() {
-    this.setState({ loading: true });
-    navigator
-    .geolocation
-    .getCurrentPosition(position => {
+  componentDidMount() {
+    this.geoLocate();
+    fetch('http://localhost:4000/api')
+      .then(res => res.json())
+      .then(res => this.setState({ api: res }))
+      .catch(console.error);
+  }
+
+  geoLocate() {
+    navigator.geolocation
+      .getCurrentPosition(position => {
       const latitude = position.coords.latitude;
       const longitude = position.coords.longitude;
       this.setState({
@@ -31,28 +37,16 @@ class Create extends Component {
     });
   }
 
-  componentDidMount() {
-    fetch('http://localhost:4000/api')
-      .then(res => res.json())
-      .then(res => {
-        this.setState({
-          api: res,
-          loading: false,
-        })
-      })
-      .then(console.log(this.state.api))
-      .catch(console.error);
-  }
-
   render() {
-    return !this.state.loading ? (
-      <div>
+    return this.state.api !== '' ? (
+      <>
+        <Nav />
         <Map
           longitude={ this.state.longitude }
           latitude={ this.state.latitude }
           apikey={ this.state.api }
         />
-      </div>
+      </>
     ) : (
       <Loading />
     )
