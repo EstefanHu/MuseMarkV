@@ -1,14 +1,12 @@
 import React from 'react';
-import ReactMapboxGl, { Layer, Feature } from 'react-mapbox-gl';
+import ReactMapboxGl from 'react-mapbox-gl';
+
+import MapLayer from './mapLayer';
 
 const MapContainer = props => {
   const Map = ReactMapboxGl({
     accessToken: props.apikey,
   });
-
-  const test = () => {
-    console.log('Testing');
-  }
 
   return (
     <Map
@@ -20,11 +18,11 @@ const MapContainer = props => {
       }}
       center={[props.longitude, props.latitude]}
       zoom={[14]}
-      onClick={test}
     >
-      <Layer type="symbol" id="marker" layout={{ 'icon-image': 'marker-15' }}>
-        <Feature coordinates={[props.longitude, props.latitude]} />
-      </Layer>
+      <MapLayer
+        longitude={ props.longitude }
+        latitude={ props.latitude }
+      />
     </Map>
   )
 }

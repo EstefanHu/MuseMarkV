@@ -9,8 +9,8 @@ class Create extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      latitude: 0.0,
-      longitude: 0.0,
+      latitude: 47.655548,
+      longitude: -122.303200,
       api: '',
     }
   }
@@ -23,7 +23,7 @@ class Create extends Component {
       .catch(console.error);
   }
 
-  geoLocate() {
+  geoLocate(times) {
     navigator.geolocation
       .getCurrentPosition(position => {
       const latitude = position.coords.latitude;
@@ -33,8 +33,16 @@ class Create extends Component {
         longitude: longitude,
       });
     }, error => {
-      console.log(error);
-    });
+      if (error.code === 3) {
+        if (times === 5) {
+          console.log('Recursion failed...');
+        }
+        console.log('Recurring...\n');
+        this.geoLocate(times + 1);
+      } else {
+        console.log(error);
+      }
+    }, { timeout: 2000 });
   }
 
   render() {
