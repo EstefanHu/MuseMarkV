@@ -20,8 +20,9 @@ app.get('/api', (req, res) => {
   }
 });
 
-app.post('/register', (rqe, res) => {
+app.post('/register', (req, res) => {
   try {
+    console.log(req.body);
     res.json('Noice');
   } catch(error) {
     res.type('text').status(500).send('Error: ' + error);

@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
-const Signup = () => {
+const Signup = props => {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = e => {
     e.preventDefault();
 
     fetch('http://localhost:4000/register', {
@@ -26,6 +27,8 @@ const Signup = () => {
       })
       .then(res => res.json())
       .catch(console.error);
+
+    props.history.push('/dashboard');
   }
 
   return (
@@ -82,4 +85,4 @@ const Signup = () => {
   )
 }
 
-export default Signup;
+export default withRouter(Signup);
