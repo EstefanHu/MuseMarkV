@@ -8,7 +8,7 @@ import {
 import './App.css';
 
 import Landing from './components/landing/landing';
-import Dashboard from './components/dashboard/dashboard';
+import Dashboard from './components/dashboard/dashboardContainer';
 import Map from './components/create/create';
 import Terms from './components/terms/terms';
 import Privacy from './components/privacy/privacy';

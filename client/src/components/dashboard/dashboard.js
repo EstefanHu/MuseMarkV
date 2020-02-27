@@ -1,19 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-import './dashboard.css';
-
-import Nav from '../Layout/nav';
-import Feed from './feed';
-
-class Dashboard extends Component {
-  render() {
+const Dashboard = () => {
     return (
-      <>
-        <Nav />
-        <Feed />
-      </>
+        <section id='dashboard'>
+        </section>
     )
-  }
 }
 
 export default Dashboard;

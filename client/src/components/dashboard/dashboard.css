@@ -1,0 +1,25 @@
+#dashboard__container {
+  width: 100vw;
+  height: 100vh;
+  padding-left: 300px;
+}
+
+#dashboard {
+  margin: 0 auto;
+  width: 800px;
+  height: 100vh;
+}
+
+@media only screen and (max-width: 1200px) {
+}
+@media only screen and (max-width: 900px) {
+}
+
+@media only screen and (max-width: 600px) {
+  #dashboard {
+    width: 100vw;
+  }
+}
+
+@media only screen and (max-width: 480px) {}
+@media only screen and (max-width: 320px) {}
