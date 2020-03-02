@@ -18,6 +18,7 @@
   overflow: hidden;
   position: relative;
   background: black;
+  text-decoration: none;
 }
 
 #dashboard__map::before {
