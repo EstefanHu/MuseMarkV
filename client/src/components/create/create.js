@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import './create.css';
 import Nav from '../Layout/nav';
-import Map from './map';
+import Map from './mapComponents/map';
 import Loading from '../Layout/loading';
 
 class Create extends Component {
