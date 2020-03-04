@@ -1,17 +1,12 @@
 nav {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    width: 200px;
+    position: fixed;
+    width: 5rem; height: 100vh;
     background: white;
     border-right: 1px solid rgb(228, 228, 228);
     z-index: 10;
 }
 
-.openMap {
-    width: 200px;
-}
+
 
 @media only screen and (max-width: 1200px) {}
 @media only screen and (max-width: 900px) {}
