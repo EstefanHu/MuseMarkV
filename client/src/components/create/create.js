@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import './create.css';
-import Nav from '../Layout/nav';
+import Nav from '../Layout/nav/nav';
 import Map from './mapComponents/map';
 import Loading from '../Layout/loading';
 import NewLayer from './IA/newLayer';

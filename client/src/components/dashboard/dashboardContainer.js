@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import './dashboard.css';
 
-import Nav from '../Layout/nav';
+import Nav from '../Layout/nav/nav';
 import Dashboard from './dashboard';
 
 class DashboardContainer extends Component {
