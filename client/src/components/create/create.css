@@ -13,3 +13,14 @@
     height: 100vh;
     z-index: 10;
 }
+
+#create__newLayer {
+    height: 200px;
+    width: 200px;
+    border: 1px solid lightgrey;
+    border-radius: 50%;
+    background: white;
+    position: absolute;
+    left: 100px;
+    bottom: 100px;
+}

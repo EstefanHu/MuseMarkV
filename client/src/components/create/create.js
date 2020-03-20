@@ -4,6 +4,7 @@ import './create.css';
 import Nav from '../Layout/nav';
 import Map from './mapComponents/map';
 import Loading from '../Layout/loading';
+import NewLayer from './IA/newLayer';
 
 class Create extends Component {
   constructor(props) {
@@ -55,6 +56,7 @@ class Create extends Component {
           latitude={ this.state.latitude }
           apikey={ this.state.api }
         />
+        <NewLayer />
       </>
     ) : (
       <Loading />
