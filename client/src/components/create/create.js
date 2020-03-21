@@ -48,18 +48,19 @@ class Create extends Component {
   // }
 
   render() {
-    return this.state.api !== '' ? (
-      <>
+    return (
+      <main>
         <Nav />
-        <Map
-          longitude={ this.state.longitude }
-          latitude={ this.state.latitude }
-          apikey={ this.state.api }
-        />
-        <NewLayer />
-      </>
-    ) : (
-      <Loading />
+        {this.state.api !== '' ? (
+          <Map
+            longitude={ this.state.longitude }
+            latitude={ this.state.latitude }
+            apikey={ this.state.api }
+          />
+        ) : (
+          <Loading />
+        )}
+      </main>
     )
   }
 }
