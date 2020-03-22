@@ -49,8 +49,7 @@ class Create extends Component {
 
   render() {
     return (
-      <main>
-        <Nav />
+      <>
         {this.state.api !== '' ? (
           <Map
             longitude={ this.state.longitude }
@@ -60,7 +59,7 @@ class Create extends Component {
         ) : (
           <Loading />
         )}
-      </main>
+      </>
     )
   }
 }

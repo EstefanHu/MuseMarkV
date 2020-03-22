@@ -1,13 +1,17 @@
-import React from 'react';
+import React, { Component } from 'react';
+
+import './dashboard.css';
 
 import Map from './items/map';
 
-const Dashboard = () => {
-    return (
-        <section id='dashboard'>
-            <Map />
-        </section>
-    )
+class Dashboard extends Component {
+    render() {
+        return (
+            <section id='dashboard'>
+                <Map />
+            </section>
+        )
+    }
 }
 
 export default Dashboard;
