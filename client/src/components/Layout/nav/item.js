@@ -9,7 +9,7 @@ const Item = props => {
       onMouseLeave={() => setIsShown(false)}
     >
       <span className='nav__open'>
-        <img src={ './icons/'+ props.name + '.png'} />
+        <img src={ require('./icons/'+ props.name + '.png')} />
         <span className='nav__name'>
           <h2>{ props.name }</h2>
         </span>

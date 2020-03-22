@@ -5,7 +5,7 @@ const Map = () => {
   return (
     <Link
       id='dashboard__map'
-      to='/create'
+      to='/app/create'
     >
       <div>
         <h1 id='dashboard__map--header'>Create Your<br/>Interactive Story.</h1>
