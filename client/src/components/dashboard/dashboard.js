@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import './dashboard.css';
 
-import ItemContainer from './itemContainer';
+import ItemContainer from './items/itemContainer';
 
 class Dashboard extends Component {
     render() {

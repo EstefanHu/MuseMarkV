@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Map from './items/map';
+import Map from './map';
 
 const ItemContainer = () => {
   return (
