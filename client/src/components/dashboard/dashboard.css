@@ -41,7 +41,11 @@
   font-size: 2.5rem;
   font-family: 'merienda';
   margin-left: 80px; margin-top: 80px;
+}
 
+#dashboard__itemcontainer--story {
+  width: 380px; height: 280px;
+  background: green;
 }
 
 @media only screen and (max-width: 1200px) {

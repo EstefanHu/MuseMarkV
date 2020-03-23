@@ -30,6 +30,14 @@ app.post('/register', (req, res) => {
   }
 });
 
+app.get('/stories/:id', (req, res) => {
+  try {
+    res.json('jello');
+  } catch(error) {
+    res.type('text').status(500).send('Error: ' + error);
+  }
+})
+
 const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => {
     console.log(`Server listening on port ${PORT}`);
