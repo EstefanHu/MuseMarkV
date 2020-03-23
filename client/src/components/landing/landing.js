@@ -3,7 +3,7 @@ import { Route } from 'react-router-dom';
 
 import './landing.css';
 
-import Index from './components/index';
+import Index from './components/index/index';
 import Register from './components/register';
 import Signin from './components/signin';
 import Privacy from './components/privacy';
