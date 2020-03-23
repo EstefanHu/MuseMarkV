@@ -19,7 +19,7 @@ function App() {
   return (
     <Router>
       <Switch>
-        <Route exact path='/(|register|privacy|terms)' component={Landing} />
+        <Route exact path='/(|register|signin|privacy|terms)' component={Landing} />
         <Route exact path='/app/*' component={PrimaryContainer} />
         <Route render={() => {
           return (
