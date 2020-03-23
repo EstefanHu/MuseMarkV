@@ -10,13 +10,14 @@ const Stories = () => {
     fetch('http://localhost:4000/stories/' + 1)
       .then(res => res.json())
       .then(res => setStoriesMade(res))
-      .then(console.log(storiesMade))
       .catch(console.error);
   }, []);
 
   return storiesMade ? (
     <>
-      {console.log(storiesMade)}
+      {storiesMade.map(item => (
+        <Story key={ item.id } id={ item.id } title={ item.title } />
+      ))}
     </>
   ) : (
     <Loading />

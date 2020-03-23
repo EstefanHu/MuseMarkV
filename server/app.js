@@ -32,7 +32,16 @@ app.post('/register', (req, res) => {
 
 app.get('/stories/:id', (req, res) => {
   try {
-    res.json(['jello']);
+    res.json([
+      {
+        "id": 1,
+        "title": "Hello World"
+      },
+      {
+        "id": 2,
+        "title": "A Brave New World"
+      }
+    ]);
   } catch(error) {
     res.type('text').status(500).send('Error: ' + error);
   }
