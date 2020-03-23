@@ -10,6 +10,7 @@ import './App.css';
 import Landing from './components/landing/landing';
 import Dashboard from './components/dashboard/dashboard';
 import Create from './components/create/create';
+import Story from './components/story/story';
 import More from './components/more/more';
 
 import Nav from './components/layout/nav/nav';
@@ -44,6 +45,7 @@ const PrimaryContainer = () => (
     <main>
       <Route path='/app/dashboard' component={Dashboard} />
       <Route path='/app/create' component={Create} />
+      <Route path='/app/story/:id' component={Story} />
       <Route path='/app/more' component={More} />
     </main>
   </>
