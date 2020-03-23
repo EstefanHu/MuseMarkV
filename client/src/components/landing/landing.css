@@ -22,7 +22,7 @@
 }
 
 #splash {
-    background-image: url('.//landing.jpg');
+    background-image: url('./img/landing.jpg');
     background-size: cover;
     background-position: center;
 }

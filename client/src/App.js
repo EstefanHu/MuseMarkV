@@ -7,7 +7,7 @@ import {
 
 import './App.css';
 
-import Landing from './components/landing/landing';
+import Landing from './components/landing/signup';
 import Dashboard from './components/app/dashboard/dashboard';
 import Create from './components/app/create/create';
 import Story from './components/app/story/story';
