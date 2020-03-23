@@ -9,6 +9,7 @@ import './App.css';
 
 import Landing from './components/landing/landing';
 import Primary from './components/primary/primary';
+import FourOhFour from './components/fourohfour';
 
 function App() {
   return (
@@ -16,12 +17,7 @@ function App() {
       <Switch>
         <Route exact path='/(|register|signin|privacy|terms)' component={Landing} />
         <Route exact path='/app/*' component={Primary} />
-        <Route render={() => {
-          return (
-            <main>
-              404
-            </main>
-        )}}/>
+        <Route component={FourOhFour} />
       </Switch>
     </Router>
   );
