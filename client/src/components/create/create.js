@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 
 import './create.css';
-import Nav from '../layout/nav/nav';
 import Map from './mapComponents/map';
 import Loading from '../layout/loading';
-import NewLayer from './IA/newLayer';
 
 class Create extends Component {
   constructor(props) {

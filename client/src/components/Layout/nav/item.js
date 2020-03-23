@@ -1,25 +1,20 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Item = props => {
-  const [isShown, setIsShown] = useState(false);
-
   return (
-    <li
-      onMouseOver={() => setIsShown(true)}
-      onMouseLeave={() => setIsShown(false)}
+    <Link
+      to={'/app/' + props.name.toLowerCase() }
     >
-      <span className='nav__open'>
-        <img src={ require('./icons/'+ props.name + '.png')} />
-        <span className='nav__name'>
-          <h2>{ props.name }</h2>
+      <li>
+        <span className='nav__open'>
+          <img src={ require('./icons/'+ props.name + '.png')} alt='' />
+          <span className='nav__name'>
+            <h2>{ props.name }</h2>
+          </span>
         </span>
-      </span>
-      {isShown && (
-        <div className='nav__hover'>
-          <p>{ props.name }</p>
-        </div>
-      )}
-    </li>
+      </li>
+    </Link>
   )
 }
 

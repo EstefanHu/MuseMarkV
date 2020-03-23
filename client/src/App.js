@@ -26,7 +26,12 @@ function App() {
           )
         }}/>
         <Route exact path='/app/*' component={PrimaryContainer} />
-        <Route component={FourOhFour} />
+        <Route render={() => {
+          return (
+            <main>
+              404
+            </main>
+        )}}/>
       </Switch>
     </Router>
   );
@@ -42,12 +47,6 @@ const PrimaryContainer = () => (
       <Route path='/app/more' component={More} />
     </main>
   </>
-)
-
-const FourOhFour = () => (
-  <main>
-    404
-  </main>
 )
 
 export default App;

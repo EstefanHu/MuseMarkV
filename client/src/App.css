@@ -1,7 +1,7 @@
 nav {
     position: fixed;
     left: 0;
-    width: 19rem; height: 100vh;
+    width: calc(4rem + 50px); height: 100vh;
     background: white;
     border-right: 1px solid rgb(228, 228, 228);
     z-index: 10;
@@ -9,7 +9,9 @@ nav {
     flex-direction: column;
     justify-content: space-between;
     text-align: center;
-    padding: 0 3rem;
+    padding: 0 2rem;
+    transition: .2s ease-out;
+    overflow: hidden;
 }
 
 nav h1 {
@@ -23,10 +25,18 @@ nav ul {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    text-decoration: none;
 }
 
 nav li {
-    margin-bottom: 3rem;
+    padding: 1.5rem 0;
+    width: 13rem;
+}
+
+nav li:hover * {
+    color: orange;
+    font-weight: 400;
+    cursor: pointer;
 }
 
 .nav__open {
@@ -42,23 +52,22 @@ nav img {
 
 .nav__name {
     width: 100%;
+    display: none;
 }
 
 nav h2 {
+    color: black;
     font-weight: 300;
-}
-
-.nav__hover {
-    text-align: center;
-    width: 100%; height: fit-content;
-    padding-top: 10px;
+    opacity: 0;
+    transition: .15s ease-in;
 }
 
 #more {
     width: 100%;
     height: 40px;
-    color: grey;
+    color: white;
     text-decoration: none;
+    transition: .2s ease-in-out;
 }
 
 #more:hover,
