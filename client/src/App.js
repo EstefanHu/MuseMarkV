@@ -8,19 +8,14 @@ import {
 import './App.css';
 
 import Landing from './components/landing/landing';
-import Dashboard from './components/app/dashboard/dashboard';
-import Create from './components/app/create/create';
-import Story from './components/app/story/story';
-import More from './components/app/more/more';
-
-import Nav from './components/layout/nav/nav';
+import Primary from './components/primary/primary';
 
 function App() {
   return (
     <Router>
       <Switch>
         <Route exact path='/(|register|signin|privacy|terms)' component={Landing} />
-        <Route exact path='/app/*' component={PrimaryContainer} />
+        <Route exact path='/app/*' component={Primary} />
         <Route render={() => {
           return (
             <main>
@@ -31,18 +26,5 @@ function App() {
     </Router>
   );
 }
-
-// TODO: Seperate
-const PrimaryContainer = () => (
-  <>
-    <Nav />
-    <main>
-      <Route path='/app/dashboard' component={Dashboard} />
-      <Route path='/app/create' component={Create} />
-      <Route path='/app/story/:id' component={Story} />
-      <Route path='/app/more' component={More} />
-    </main>
-  </>
-)
 
 export default App;
