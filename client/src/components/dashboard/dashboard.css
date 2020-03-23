@@ -1,12 +1,15 @@
 @import url('https://fonts.googleapis.com/css?family=Merienda:700&display=swap');
 
 #dashboard {
+  width: 100vw; height: 100vh;
+}
+
+#dashboard__itemcontainer {
   display: flex;
   flex-wrap: wrap;
   margin: 0 auto;
-  padding-top: 50px;
-  padding-left: 10rem;
-  width: 100vw; height: 100vh;
+  padding-top: 50px; /* TODO: may need alterations*/
+  width: 800px; height: 100vh;
 }
 
 #dashboard__map {

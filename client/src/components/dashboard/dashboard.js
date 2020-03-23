@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 
 import './dashboard.css';
 
-import Map from './items/map';
+import ItemContainer from './itemContainer';
 
 class Dashboard extends Component {
     render() {
         return (
             <section id='dashboard'>
-                <Map />
+                <ItemContainer />
             </section>
         )
     }
