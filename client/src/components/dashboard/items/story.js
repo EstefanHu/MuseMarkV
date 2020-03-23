@@ -1,9 +1,9 @@
 import React from 'react';
 
-const Story = () => {
+const Story = props => {
   return (
     <article>
-      <h1>Story</h1>
+      <h1>{ props.title }</h1>
     </article>
   )
 }

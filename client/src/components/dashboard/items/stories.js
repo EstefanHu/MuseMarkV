@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
+import Loading from '../../layout/loading';
 import Story from './story';
 
 const Stories = () => {
@@ -10,13 +11,16 @@ const Stories = () => {
       .then(res => res.json())
       .then(res => console.log(res))
       .then(res => setStoriesMade(res))
+      .then(console.log(storiesMade))
       .catch(console.error);
   }, []);
 
-  return(
+  return storiesMade ? (
     <>
-      Stories
+      {console.log(storiesMade)}
     </>
+  ) : (
+    <Loading />
   )
 }
 

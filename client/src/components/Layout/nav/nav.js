@@ -11,9 +11,9 @@ const Nav = () => {
         'Settings'
     ]
 
-    let [menu, setMenu] = useState('');
-    let [navTitles, setNavTitles] = useState([]);
-    let [readMore, setReadMore] = useState('');
+    const [menu, setMenu] = useState('');
+    const [navTitles, setNavTitles] = useState([]);
+    const [readMore, setReadMore] = useState('');
 
     const openMenu = () => {
         menu.style.width = '17rem';

@@ -43,7 +43,7 @@
   margin-left: 80px; margin-top: 80px;
 }
 
-#dashboard__itemcontainer--story {
+#dashboard__itemcontainer article {
   width: 380px; height: 280px;
   background: green;
 }
