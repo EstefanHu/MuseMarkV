@@ -25,6 +25,9 @@ nav ul {
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+
+nav a {
     text-decoration: none;
 }
 
