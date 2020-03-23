@@ -46,7 +46,7 @@ const Nav = () => {
             onMouseEnter={openMenu}
             onMouseLeave={closeMenu}
         >
-            <h1>Muse</h1>
+            <h1>M</h1>
             <ul>
                 {navItems.map(item => (
                     <Item name={ item } key={ item }/>
