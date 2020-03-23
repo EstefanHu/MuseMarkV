@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-import Loading from '../../layout/loading';
+import Loading from '../../../layout/loading';
 import Story from './story';
 
 const Stories = () => {

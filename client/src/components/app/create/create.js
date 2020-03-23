@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import './create.css';
 import Map from './mapComponents/map';
-import Loading from '../layout/loading';
+import Loading from '../../layout/loading';
 
 class Create extends Component {
   constructor(props) {

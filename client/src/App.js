@@ -8,10 +8,10 @@ import {
 import './App.css';
 
 import Landing from './components/landing/landing';
-import Dashboard from './components/dashboard/dashboard';
-import Create from './components/create/create';
-import Story from './components/story/story';
-import More from './components/more/more';
+import Dashboard from './components/app/dashboard/dashboard';
+import Create from './components/app/create/create';
+import Story from './components/app/story/story';
+import More from './components/app/more/more';
 
 import Nav from './components/layout/nav/nav';
 
