@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router-dom';
 
-import './landing.css';
-
 const Landing = props => {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');

@@ -7,7 +7,7 @@ import {
 
 import './App.css';
 
-import Landing from './components/landing/signup';
+import Landing from './components/landing/landing';
 import Dashboard from './components/app/dashboard/dashboard';
 import Create from './components/app/create/create';
 import Story from './components/app/story/story';
@@ -19,13 +19,7 @@ function App() {
   return (
     <Router>
       <Switch>
-        <Route exact path='/(|landing)' render={() => {
-          return (
-            <main id='landing'>
-              <Route exact path='/landing' component={Landing} />
-            </main>
-          )
-        }}/>
+        <Route exact path='/(|register|privacy|terms)' component={Landing} />
         <Route exact path='/app/*' component={PrimaryContainer} />
         <Route render={() => {
           return (
