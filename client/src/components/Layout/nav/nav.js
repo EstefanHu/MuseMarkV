@@ -20,7 +20,9 @@ const Nav = () => {
         for (let i = 0; i < navTitles.length; i++) {
             navTitles[i].style.display = 'block';
             setTimeout(() => {
-                navTitles[i].children[0].style.opacity = '1';
+                if (menu.style.width === '17rem') {
+                    navTitles[i].children[0].style.opacity = '1';
+                }
             }, 150);
         }
         readMore.style.color = 'grey';
