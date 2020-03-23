@@ -11,11 +11,13 @@ const Nav = () => {
         'Settings'
     ]
 
+    const [isOpen, setIsOpen] = useState(false);
     const [menu, setMenu] = useState('');
     const [navTitles, setNavTitles] = useState([]);
     const [readMore, setReadMore] = useState('');
 
     const openMenu = () => {
+        setIsOpen(true);
         menu.style.width = '17rem';
         for (let i = 0; i < navTitles.length; i++) {
             navTitles[i].style.display = 'block';
@@ -29,6 +31,7 @@ const Nav = () => {
     }
     
     const closeMenu = () => {
+        setIsOpen(false);
         menu.style.width = 'calc(4rem + 50px)';
         for (let i = 0; i < navTitles.length; i++) {
             navTitles[i].style.display = 'hidden';
@@ -41,17 +44,22 @@ const Nav = () => {
         setMenu(document.querySelector('nav'));
         setNavTitles(document.querySelectorAll('.nav__name'));
         setReadMore(document.getElementById('more'));
-    }, []);
+    },[]);
     
     return (
         <nav
             onMouseEnter={openMenu}
             onMouseLeave={closeMenu}
         >
-            <h1>M</h1>
+            <div id='nav__logo'>
+                {isOpen 
+                    ? <h3>The Muse Project</h3>
+                    : <h3>M</h3>
+                }
+            </div>
             <ul>
                 {navItems.map(item => (
-                    <Item name={ item } key={ item }/>
+                    <Item name={ item } key={ item } />
                 ))}
             </ul>
             <Link to='/more' id='more'>
