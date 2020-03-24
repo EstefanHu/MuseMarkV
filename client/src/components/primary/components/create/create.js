@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import './create.css';
-import Map from './mapComponents/map';
+import Map from './components/map';
 import Loading from '../../layout/loading';
 
 class Create extends Component {

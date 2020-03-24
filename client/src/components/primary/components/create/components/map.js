@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import ReactMapboxGl, { Marker } from 'react-mapbox-gl';
 
-import MapLayer from './mapLayer';
+import Actions from './actions';
 
 const MapContainer = props => {
   const [selectedLayer, setSelectedLayer] = useState('');
   const Map = ReactMapboxGl({
     accessToken: props.apikey,
   });
+
   const interact = (_, e) => {
     console.log(e.lngLat.wrap());
   }
@@ -24,10 +25,6 @@ const MapContainer = props => {
       zoom={[14]}
       onClick={interact}
     >
-      <MapLayer
-        longitude={ props.longitude }
-        latitude={ props.latitude }
-      />
       <Marker
         coordinates={[ props.longitude, props.latitude]}
         anchor='bottom'
