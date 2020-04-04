@@ -14,7 +14,7 @@ export const Actions = props => {
         <button
           key={ item }
           id='item'
-          onClick={ props.triggerSelectedAction }>
+          onClick={ () => props.triggerSelectAction(item) }>
             { item }
         </button>
       ))}

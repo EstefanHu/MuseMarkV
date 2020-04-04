@@ -14,8 +14,8 @@ export const Map = props => {
     console.log(e.lngLat.wrap());
   }
 
-  const selectAction = () => {
-    console.log('selected an action');
+  const selectAction = action => {
+    console.log('selected the ' + action + ' action');
   }
 
   return (
