@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Map = () => {
+export const Map = () => {
   return (
     <Link
       id='dashboard__map'
@@ -14,5 +14,3 @@ const Map = () => {
     </Link>
   )
 }
-
-export default Map;

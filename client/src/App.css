@@ -82,6 +82,7 @@ nav h2 {
 
 #more:hover,
 #more:focus {
+    height: 40px;
     color: black;
     text-decoration: underline;
 }

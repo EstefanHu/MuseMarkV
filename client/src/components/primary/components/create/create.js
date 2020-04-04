@@ -1,27 +1,22 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect }from 'react';
 
 import './create.css';
 import Map from './components/map';
 import Loading from '../../layout/loading';
 
-class Create extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      latitude: 47.655548,
-      longitude: -122.303200,
-      api: '',
-    }
-  }
+export const Create = props => {
+  const [latitude, setLatitude] = useState(47.655548);
+  const [longitude, setLongitude] = useState(-122.303200);
+  const [api, setApi] = useState('');
 
-  componentDidMount() {
-    // this.geoLocate();
+  useEffect(() => {
     fetch('http://localhost:4000/api')
       .then(res => res.json())
-      .then(res => this.setState({ api: res }))
+      .then(res => setApi(res))
       .catch(console.error);
-  }
+  }, []);
 
+  // TODO: update to functional component
   // For Centering map on Geolocated space of user
   // geoLocate(times) {
   //   navigator.geolocation
@@ -45,21 +40,17 @@ class Create extends Component {
   //   }, { timeout: 2000 });
   // }
 
-  render() {
-    return (
-      <>
-        {this.state.api !== '' ? (
-          <Map
-            longitude={ this.state.longitude }
-            latitude={ this.state.latitude }
-            apikey={ this.state.api }
-          />
-        ) : (
-          <Loading />
-        )}
-      </>
-    )
-  }
+  return (
+    <>
+      {api !== '' ? (
+        <Map
+          longitude={ longitude }
+          latitude={ latitude }
+          apikey={ api }
+        />
+      ) : (
+        <Loading />
+      )}
+    </>
+  )
 }
-
-export default Create;

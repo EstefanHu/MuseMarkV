@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import Loading from '../../../layout/loading';
 import Story from './story';
 
-const Stories = () => {
+export const Stories = () => {
   const [storiesMade, setStoriesMade] = useState([]);
 
   useEffect(() => {
@@ -23,5 +23,3 @@ const Stories = () => {
     <Loading />
   )
 }
-
-export default Stories;

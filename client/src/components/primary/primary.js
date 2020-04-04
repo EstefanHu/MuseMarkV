@@ -2,7 +2,7 @@ import React from 'react';
 import { Route } from 'react-router-dom';
 
 import Dashboard from './components/dashboard/dashboard';
-import Create from './components/create/create';
+import { Create } from './components/create/create';
 import Story from './components/story/story';
 import More from './components/more/more';
 
