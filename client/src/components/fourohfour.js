@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const FourOhFour = () => (
+export const FourOhFour = () => (
     <main>
         <Link
             to='/app/dashboard'
@@ -10,5 +10,3 @@ const FourOhFour = () => (
         </Link>
     </main>
 )
-
-export default FourOhFour;

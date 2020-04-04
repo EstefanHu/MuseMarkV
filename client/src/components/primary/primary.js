@@ -8,7 +8,7 @@ import More from './components/more/more';
 
 import Nav from './layout/nav/nav';
 
-const Primary = () => (
+export const Primary = () => (
     <>
         <Nav />
         <main>
@@ -19,5 +19,3 @@ const Primary = () => (
         </main>
     </>
 )
-
-export default Primary;
