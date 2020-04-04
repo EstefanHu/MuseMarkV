@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Actions = () => {
+export const Actions = props => {
   const options = [
     'Add',
     'Connect',
@@ -11,10 +11,13 @@ const Actions = () => {
   return (
     <div id='actions'>
       {options.map(item => (
-        <button id='item'>{ item }</button>
+        <button
+          key={ item }
+          id='item'
+          onClick={ props.triggerSelectedAction }>
+            { item }
+        </button>
       ))}
     </div>
   )
 }
-
-export default Actions;
