@@ -1,11 +1,9 @@
 import React from 'react';
 
-const Hero = () => {
+export const Hero = () => {
   return(
     <section id='hero'>
-      
+      <h1>Welcome to the Muse Project</h1>
     </section>
   )
 }
-
-export default Hero;

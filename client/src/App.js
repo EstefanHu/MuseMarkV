@@ -7,7 +7,7 @@ import {
 
 import './App.css';
 
-import Landing from './components/landing/landing';
+import { Landing } from './components/landing/landing';
 import Primary from './components/primary/primary';
 import FourOhFour from './components/fourohfour';
 
