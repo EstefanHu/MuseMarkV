@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import ReactMapGl, { Source, Layer, Marker } from 'react-map-gl';
+import ReactMapGl from 'react-map-gl';
 
 import '../create.css';
 import { Actions } from './actions';
+import { LineString } from './lineString';
 import { Example } from './example';
 
 export const Map = props => {
@@ -14,8 +15,15 @@ export const Map = props => {
     zoom: 15
   });
 
+  const [coords, setCoords] = useState([]);
+
   const selectAction = action => {
     console.log('selected the ' + action + ' action');
+  }
+
+  const interact = e => {
+    setCoords([...coords, e.lngLat]);
+    console.log(coords);
   }
 
   return (
@@ -27,67 +35,12 @@ export const Map = props => {
         onViewportChange={viewport => {
           setViewport(viewport)
         }}
+        onClick={interact}
       >
-        <Source type='geojson' data={geoData}>
-          <Layer
-            type='line'
-            paint={{'line-width': 10, 'line-color': '#007cbf'}}
-          />
-        </Source>
+        <LineString coords={ coords } />
         <Example longitude={viewport.longitude} latitude={viewport.latitude} />
       </ReactMapGl>
       <Actions triggerAction={ selectAction } />
     </>
   )
-}
-
-const geoData = {
-  "type": "FeatureCollection",
-  "features": [
-    {
-      "type": "Feature",
-      "properties": {},
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [
-            -122.3093318939209,
-            47.650558661252184
-          ],
-          [
-            -122.30980396270753,
-            47.65385429078146
-          ],
-          [
-            -122.30499744415282,
-            47.65012501030461
-          ],
-          [
-            -122.30499744415282,
-            47.655820005858786
-          ],
-          [
-            -122.31482505798338,
-            47.65605126159118
-          ],
-          [
-            -122.30165004730223,
-            47.65897077712389
-          ],
-          [
-            -122.30031967163085,
-            47.653998831175294
-          ],
-          [
-            -122.30426788330077,
-            47.650645391009625
-          ],
-          [
-            -122.3032808303833,
-            47.65532858402682
-          ]
-        ]
-      }
-    }
-  ]
 }
