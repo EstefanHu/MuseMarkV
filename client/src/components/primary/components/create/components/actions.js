@@ -5,7 +5,7 @@ export const Actions = props => {
     'Add',
     'Connect',
     'Edit',
-    'remove'
+    'Remove'
   ]
 
   return (
@@ -13,8 +13,7 @@ export const Actions = props => {
       {options.map(item => (
         <button
           key={ item }
-          id='item'
-          onClick={ () => props.triggerSelectAction(item) }>
+          onClick={ () => props.triggerAction(item) }>
             { item }
         </button>
       ))}

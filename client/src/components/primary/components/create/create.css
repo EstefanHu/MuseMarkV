@@ -1,6 +1,25 @@
 #actions {
   display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 400px; height: 48px;
   position: absolute;
   bottom: 10px;
-  margin: 10px auto;
+  left: 50%;
+  margin-left: -200px;
+  background: white;
+  border-radius: 5px;
+}
+
+#actions button {
+  border: none;
+  border-radius: 5px;
+  width: 80px; height: 34px;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+#actions button:hover,
+#actions button:focus {
+  background-color: rgb(245, 245, 245);
 }

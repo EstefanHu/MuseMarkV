@@ -1,8 +1,8 @@
 import React, { useState, useEffect }from 'react';
 
 import './create.css';
-import { Map } from './components/map';
 import Loading from '../../layout/loading';
+import { Map } from './components/map';
 
 export const Create = props => {
   const [latitude, setLatitude] = useState(47.655548);
@@ -43,7 +43,7 @@ export const Create = props => {
   return (
     <>
       {api !== '' ? (
-        <Map longitude={ longitude } latitude={ latitude } apikey={ api } />
+        <Map />
       ) : (
         <Loading />
       )}
