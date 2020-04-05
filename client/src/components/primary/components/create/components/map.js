@@ -16,12 +16,13 @@ export const Map = props => {
   });
 
   const [coords, setCoords] = useState([]);
-  const [action, setAction] = useState('');
+  const [action, setAction] = useState();
 
   const interact = e => {
     switch (action) {
       case 'Add':
         setCoords([...coords, e.lngLat]);
+        setAction(null);
         break;
       case 'Edit':
         console.log('Edit');
