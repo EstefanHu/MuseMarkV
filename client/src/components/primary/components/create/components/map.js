@@ -15,13 +15,25 @@ export const Map = props => {
   });
 
   const [coords, setCoords] = useState([]);
-
-  const selectAction = action => {
-    console.log('selected the ' + action + ' action');
-  }
+  const [action, setAction] = useState('');
 
   const interact = e => {
-    setCoords([...coords, e.lngLat]);
+    switch (action) {
+      case 'Add':
+        setCoords([...coords, e.lngLat]);
+        break;
+      case 'Edit':
+        console.log('Edit');
+        break;
+      case 'Connect':
+        console.log('Connect');
+        break;
+      case 'Delete':
+        console.log('Delete');
+        break;
+      default: 
+        console.log('hello');
+    }
   }
 
   return (
@@ -37,7 +49,7 @@ export const Map = props => {
       >
         <LineString coords={ coords } />
       </ReactMapGl>
-      <Actions triggerAction={ selectAction } />
+      <Actions triggerAction={ chosenAction => setAction(chosenAction) } />
     </>
   )
 }
