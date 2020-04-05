@@ -3,7 +3,8 @@ import ReactMapGl from 'react-map-gl';
 
 import '../create.css';
 import { Actions } from './actions';
-import { LineString } from './lineString';
+import { StoryPoints } from './storyPoints';
+import { StoryRoute } from './storyRoute';
 
 export const Map = props => {
   const [viewport, setViewport] = useState({
@@ -31,8 +32,6 @@ export const Map = props => {
       case 'Delete':
         console.log('Delete');
         break;
-      default: 
-        console.log('hello');
     }
   }
 
@@ -47,7 +46,8 @@ export const Map = props => {
         }}
         onClick={interact}
       >
-        <LineString coords={ coords } />
+        <StoryPoints coords={ coords } />
+        <StoryRoute coords={ coords } />
       </ReactMapGl>
       <Actions triggerAction={ chosenAction => setAction(chosenAction) } />
     </>
