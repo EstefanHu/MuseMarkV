@@ -3,6 +3,7 @@ import { Marker } from 'react-map-gl';
 
 export const StoryPoints = props => (
   <>
+  {/* TODO: Change id to title of the work */}
   {props.coords.map((point, index) => (
     <Marker key={index} latitude={point[1]} longitude={point[0]}>
       <h1>POINT!!</h1>
