@@ -4,7 +4,6 @@ import ReactMapGl from 'react-map-gl';
 import '../create.css';
 import { Actions } from './actions';
 import { LineString } from './lineString';
-import { Example } from './example';
 
 export const Map = props => {
   const [viewport, setViewport] = useState({
@@ -23,7 +22,6 @@ export const Map = props => {
 
   const interact = e => {
     setCoords([...coords, e.lngLat]);
-    console.log(coords);
   }
 
   return (
@@ -38,7 +36,6 @@ export const Map = props => {
         onClick={interact}
       >
         <LineString coords={ coords } />
-        <Example longitude={viewport.longitude} latitude={viewport.latitude} />
       </ReactMapGl>
       <Actions triggerAction={ selectAction } />
     </>
