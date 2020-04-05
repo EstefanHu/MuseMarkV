@@ -5,6 +5,7 @@ import {
   Route,
 } from 'react-router-dom';
 
+import 'mapbox-gl/dist/mapbox-gl.css';
 import './App.css';
 
 import { Landing } from './components/landing/landing';
