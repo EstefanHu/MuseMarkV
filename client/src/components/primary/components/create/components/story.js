@@ -14,7 +14,7 @@ export const Story = props => {
       <span id='storytracker__header'>
         <IoIosArrowDown className='storytracker__header--icon' />
         <h1>Story Nodes</h1>
-  <span id='storytracker__header--count'><p>{ props.nodes.length }</p></span>
+        <span id='storytracker__header--count'><p>{ props.nodes.length }</p></span>
       </span>
       {props.nodes.map(node => (
         <article>
