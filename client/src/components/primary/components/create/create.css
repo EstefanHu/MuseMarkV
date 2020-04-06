@@ -34,7 +34,6 @@
   position: absolute;
   right: 2vh; top: 2vh;
   box-shadow: 4px 4px 10px grey;
-  cursor: pointer;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -47,6 +46,7 @@
 }
 
 #storytracker__header {
+  cursor: pointer;
   padding: 7px;
   display: flex;
   justify-content: space-between;
@@ -79,12 +79,32 @@
   font-weight: bold;
 }
 
-#storytracker article {
+.storytracker__node {
   height: 60px;
-  background: pink;
-  margin-top: 10px;
   display: flex;
+  justify-content: flex-start;
   align-items: center;
+  border-top: 1px solid rgb(232, 232, 232);
+}
+
+.storytracker__node:first-of-type {
+  margin-top: 10px;
+}
+
+.storytracker__node:last-of-type {
+  border-bottom: 1px solid rgb(232, 232, 232);
+}
+
+.storytracker__node--title {
+  margin-left: 10px;
+  width: 234px; 
+}
+
+.storytracker__node--title h2 {
+  font-weight: 400;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .map__icon {

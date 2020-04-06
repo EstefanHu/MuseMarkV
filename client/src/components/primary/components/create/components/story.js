@@ -35,9 +35,11 @@ export const Story = props => {
         <span id='storytracker__header--count'><p>{ props.nodes.length }</p></span>
       </span>
       {props.nodes.map(node => (
-        <article key={node.title}>
+        <article key={node.title} className='storytracker__node'>
           <GiHamburgerMenu className='storytracker__header--icon' />
-          <h2>{node.title}</h2>
+          <div className='storytracker__node--title'>
+            <h2>{node.title}</h2>
+          </div>
         </article>
       ))}
     </section>
