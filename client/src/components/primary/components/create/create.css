@@ -59,9 +59,13 @@
   background: rgb(240, 240, 240);
 }
 
-.storytracker__header--icon {
+.storytracker__icon {
   width: 40px; height: 30px;
   margin-top: 5px;
+}
+
+.storytracker__icon--dragger {
+  cursor: row-resize;
 }
 
 #storytracker h1 {
@@ -98,6 +102,7 @@
 .storytracker__node--title {
   margin-left: 10px;
   width: 234px; 
+  cursor: pointer;
 }
 
 .storytracker__node--title h2 {

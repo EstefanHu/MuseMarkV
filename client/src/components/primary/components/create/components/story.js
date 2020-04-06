@@ -27,16 +27,16 @@ export const Story = props => {
     <section id='storytracker' className='storytracker'>
       <span id='storytracker__header'>
         {!isOpen ? (
-          <IoIosArrowDown className='storytracker__header--icon' />
+          <IoIosArrowDown className='storytracker__icon' />
         ) : (
-          <IoIosArrowUp className='storytracker__header--icon' />
+          <IoIosArrowUp className='storytracker__icon' />
         )}
         <h1>Story Nodes</h1>
         <span id='storytracker__header--count'><p>{ props.nodes.length }</p></span>
       </span>
       {props.nodes.map(node => (
         <article key={node.title} className='storytracker__node'>
-          <GiHamburgerMenu className='storytracker__header--icon' />
+          <GiHamburgerMenu className='storytracker__icon storytracker__icon--dragger' />
           <div className='storytracker__node--title'>
             <h2>{node.title}</h2>
           </div>
