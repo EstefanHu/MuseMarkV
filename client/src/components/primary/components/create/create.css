@@ -9,6 +9,7 @@
   margin-left: -200px;
   background: white;
   border-radius: 5px;
+  box-shadow: 4px 4px 10px grey;
 }
 
 #actions button {
@@ -17,6 +18,7 @@
   width: 80px; height: 34px;
   font-size: 1rem;
   font-weight: 600;
+  cursor: pointer;
 }
 
 #actions button:hover,
@@ -24,11 +26,20 @@
   background-color: rgb(245, 245, 245);
 }
 
+#story__thumbnail {
+  border-radius: 5px;
+  background: white;
+  width: 300px; height: 100px;
+  position: absolute;
+  right: 2vh; top: 2vh;
+  cursor: pointer;
+}
+
 #story {
   border-radius: 5px;
   background: white;
   width: 300px; height: 95vh;
   position: absolute;
-  right: 2vh;
-  top: 2vh;
+  right: 2vh; top: 2vh;
+  box-shadow: 4px 4px 10px grey;
 }
