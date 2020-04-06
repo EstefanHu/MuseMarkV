@@ -8,10 +8,15 @@ export const Write = props => {
 
   useEffect(()=> {
     const modal = document.getElementById('writeModal');
-    modal.addEventListener('click', e => {
+    const modalToggle = e => {
       if (e.target === modal) {
         props.toggleIsWriting();
       }
+    }
+    modal.addEventListener('click', modalToggle);
+
+    return (() => {
+      modal.removeEventListener('click', modalToggle);
     });
   });
 
