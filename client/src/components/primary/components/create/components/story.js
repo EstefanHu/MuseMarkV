@@ -36,7 +36,7 @@ export const Story = props => {
       </span>
       {props.nodes.map(node => (
         <article key={node.title}>
-          <GiHamburgerMenu />
+          <GiHamburgerMenu className='storytracker__header--icon' />
           <h2>{node.title}</h2>
         </article>
       ))}

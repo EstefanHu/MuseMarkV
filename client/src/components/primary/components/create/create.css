@@ -80,7 +80,11 @@
 }
 
 #storytracker article {
-
+  height: 60px;
+  background: pink;
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
 }
 
 .map__icon {
