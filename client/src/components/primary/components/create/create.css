@@ -38,11 +38,12 @@
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  transition: all .2s ease-in-out;
 }
 
 .storytracker--open {
-  height: fit-content;
-  overflow: visible;
+  height: 95vh;
+  overflow-x: scroll;
 }
 
 #storytracker__header {

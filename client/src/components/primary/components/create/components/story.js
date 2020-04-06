@@ -6,13 +6,21 @@ import {
 
 export const Story = props => {
   const [isOpen, setIsOpen] = useState(false);
+
   useEffect(() => {
     const tracker = document.getElementById('storytracker');
-    document.getElementById('storytracker__header').addEventListener('click', () => {
-      tracker.classList.toggle('storytracker--open');
+    const opentracker = () => {
       setIsOpen(isOpen => !isOpen);
-    });
-  }, []);
+      tracker.classList.toggle('storytracker--open');
+    }
+    document.getElementById('storytracker__header')
+      .addEventListener('click', opentracker);
+
+    return () => {
+      document.getElementById('storytracker__header')
+        .removeEventListener('click', opentracker);
+    }
+  });
 
   return (
     <section id='storytracker' className='storytracker'>
