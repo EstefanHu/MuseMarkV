@@ -74,48 +74,63 @@
   width: 50px; height: 50px;
 }
 
-#storypoint__form {
-  width: 500px; height: fit-content;
+#storyNode__form {
+  width: 700px; height: fit-content;
   background: white;
+  font-size: 1rem;
 }
 
-#storypoint__form h1 {
+#storyNode__form h1 {
   text-align: center;
+  margin: 10px 0 20px 0;
 }
 
-#storypoint__form form {
+#storyNode__form form {
   display: flex;
   flex-direction: column;
 }
 
-.storypoint__input {
-  height: 35px; 
-  max-width: 100%;
-  min-width: 100%;
+.storyNode__input {
+  height: 45px; width: 100%;
   font-size: 1rem;
   padding: 2px 8px;
-  margin: 10px;
+  margin-bottom: 20px;
   border: 1px solid lightgrey;
   border-radius: 5px;
   outline: 0;
 }
 
-.storypoint__input:focus {
+.storyNode__input:focus {
   border: 1px solid black;
 }
 
-#storypoint__form input:last-of-type {
-  font-size: 1.1rem;
-  font-weight: bold;
-  color: white;
-  background-color: rgb(255, 50, 50);
-  border-radius: 5px;
-  border: none;
-  padding: 10px 0;
-  text-transform: uppercase;
+.storyNode__horizontal {
+  display: flex;
+  justify-content: space-between;
 }
 
-#storypoint__form input:last-of-type:hover,
-#storypoint__form input:last-of-type:focus {
+#createNode,
+#cancelNode {
+  font-size: 1.1rem;
+  font-weight: bold;
+  border-radius: 5px;
+  padding: 10px 0;
+  text-transform: uppercase;
+  width: 49%;
+}
+
+#createNode {
+  background-color: rgb(255, 50, 50);
+  color: white;
+  border: none;
+}
+
+#createNode:hover,
+#createNode:focus {
   background-color: rgb(255, 85, 85);
+}
+
+#cancelNode:hover,
+#cancelNode:focus {
+  background-color: rgb(240, 240, 240);
 }
