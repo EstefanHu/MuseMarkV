@@ -19,6 +19,7 @@ export const Write = props => {
     e.preventDefault();
 
     console.log('submitted');
+    props.toggleIsWriting();
   }
 
   return (
