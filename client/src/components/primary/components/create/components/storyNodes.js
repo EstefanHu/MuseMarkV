@@ -4,7 +4,6 @@ import { MdLocationOn } from 'react-icons/md';
 
 export const StoryNodes = props => (
   <>
-  {/* TODO: Change id to title of the work */}
   {props.nodes.map(node => (
     <Marker key={node.title}
       latitude={node.coords[1]} longitude={node.coords[0]}
