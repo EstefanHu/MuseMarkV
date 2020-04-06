@@ -14,7 +14,6 @@ export const Map = props => {
     height: '100vh',
     zoom: 15
   });
-
   const [coords, setCoords] = useState([]);
   const [action, setAction] = useState();
 
@@ -22,7 +21,7 @@ export const Map = props => {
     switch (action) {
       case 'Add':
         setCoords([...coords, e.lngLat]);
-        setAction(null);
+
         break;
       case 'Edit':
         console.log('Edit');
@@ -30,10 +29,11 @@ export const Map = props => {
       case 'Connect':
         console.log('Connect');
         break;
-      case 'Delete':
-        console.log('Delete');
+      case 'Remove':
+        console.log('Remove');
         break;
     }
+    setAction(null);
   }
 
   return (
