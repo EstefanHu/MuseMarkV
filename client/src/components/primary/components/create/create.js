@@ -48,5 +48,3 @@ export const Create = props => {
     </>
   )
 }
-
-// TODO: compress map.js with create.js
