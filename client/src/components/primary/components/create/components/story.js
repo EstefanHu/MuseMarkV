@@ -1,11 +1,16 @@
 import React, { useEffect } from 'react';
 
 export const Story = () => {
-  
+  useEffect(() => {
+
+  }, []);
 
   return (
-    <section id='story'>
-      <h1>HELLO</h1>
+    <section id='storytracker'>
+      <span>
+        <h1>Story Nodes</h1>
+
+      </span>
     </section>
   )
 }
