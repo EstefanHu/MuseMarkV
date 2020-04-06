@@ -27,7 +27,6 @@ export const Write = props => {
       "content": content,
       "coords": [longitude, latitude]
     }
-    console.log(newNode);
     props.addNodeToStory(newNode);
     props.toggleIsWriting();
   }

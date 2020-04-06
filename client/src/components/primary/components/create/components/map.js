@@ -17,16 +17,14 @@ export const Map = props => {
     zoom: 15
   });
   const [nodes, setNodes] = useState([]);
-  const [coords, setCoords] = useState([]);
-  const [tempCoords, setTempCoords] = useState(null);
+  const [coords, setCoords] = useState(null);
   const [action, setAction] = useState(null);
   const [isWriting, setIsWriting] = useState(false);
 
   const  interactWithMap = e => {
     switch (action) {
       case 'Add':
-        setTempCoords(e.lngLat);
-        setCoords([...coords, e.lngLat]);
+        setCoords(e.lngLat);
         toggleIsWriting();
         break;
       case 'Edit':
@@ -60,14 +58,14 @@ export const Map = props => {
         onViewportChange={viewport => {
           setViewport(viewport)
         }}
-        onClick={ interactWithMap}
+        onClick={ interactWithMap }
       >
         <StoryNodes nodes={ nodes } />
         <StoryRoute nodes={ nodes } />
       </ReactMapGl>
       <Actions triggerAction={ chosenAction => setAction(chosenAction) } />
       <Story />
-      {isWriting && <Write coords={ tempCoords } toggleIsWriting={ toggleIsWriting } addNodeToStory={ addNodeToStory } />}
+      {isWriting && <Write coords={ coords } toggleIsWriting={ toggleIsWriting } addNodeToStory={ addNodeToStory } />}
     </>
   )
 }

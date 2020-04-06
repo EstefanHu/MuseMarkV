@@ -2,12 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Source, Layer } from 'react-map-gl';
 
 export const StoryRoute = props => {
-  const [coords, setCoords] = useState();
-  useEffect(() => {
-    for (let i = 0; i < props.nodes.length; i++) {
-      setCoords(coords => [...coords, props.nodes[i].coords]);
-    }
-  }, [props]);
+  const [storyNode, setStoryNodes] = useState([]);
+
   return (
     <Source type='geojson' data={{
       "type": "FeatureCollection",
@@ -16,7 +12,7 @@ export const StoryRoute = props => {
           "type": "Feature",
           "geometry": {
             "type": "LineString",
-            "coordinates": coords
+            "coordinates": storyNode
           }
         }
       ]
