@@ -1,29 +1,35 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Source, Layer } from 'react-map-gl';
 
-export const StoryRoute = props => {
-  const [storyNode, setStoryNodes] = useState([]);
-
-  return (
-    <Source type='geojson' data={{
-      "type": "FeatureCollection",
-      "features": [
-        {
-          "type": "Feature",
-          "geometry": {
-            "type": "LineString",
-            "coordinates": storyNode
+export const StoryRoute = props => (
+  <>
+    {props.nodes.map((node, index) => (
+      props.nodes[index + 1] &&
+      <Source type='geojson' 
+        key={node.title}
+        data={{
+        "type": "FeatureCollection",
+        "features": [
+          {
+            "type": "Feature",
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                node.coords,
+                props.nodes[index + 1].coords
+              ]
+            }
           }
-        }
-      ]
-    }} >
-      <Layer
-        type='line'
-        paint={{
-          'line-width': 4,
-          'line-color': '#007cbf'
-        }}
-      />
-    </Source>
-  )
-}
+        ]
+      }} >
+        <Layer
+          type='line'
+          paint={{
+            'line-width': 4,
+            'line-color': '#007cbf'
+          }}
+        />
+      </Source>
+    ))}
+  </>
+)
