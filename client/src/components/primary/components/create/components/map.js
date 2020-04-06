@@ -44,6 +44,10 @@ export const Map = props => {
     setIsWriting(isWriting => !isWriting);
   }
 
+  const cancelNode = () => {
+    
+  }
+
   return (
     <>
       <ReactMapGl
