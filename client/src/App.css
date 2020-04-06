@@ -101,16 +101,18 @@ nav h2 {
 }
 
 .modal-content {
+    position: relative;
     background-color: #fefefe;
     margin: 15% auto;
     padding: 20px;
-    /* maybe not.... TODO: */
-    border: 1px solid #888;
+    border-radius: 5px;
 }
 
 .close {
     color: #aaa;
-    float: right;
+    position: absolute;
+    right: 12px;
+    top: 5px;
     font-size: 28px;
     font-weight: bold;
 }

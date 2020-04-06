@@ -79,7 +79,41 @@
   background: white;
 }
 
+#storypoint__form h1 {
+  text-align: center;
+}
+
 #storypoint__form form {
   display: flex;
   flex-direction: column;
+}
+
+.storypoint__input {
+  height: 35px;
+  font-size: 1rem;
+  padding: 2px 8px;
+  margin: 10px;
+  border: 1px solid lightgrey;
+  border-radius: 5px;
+  outline: 0;
+}
+
+.storypoint__input:focus {
+  border: 1px solid black;
+}
+
+#storypoint__form input:last-of-type {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: white;
+  background-color: rgb(255, 50, 50);
+  border-radius: 5px;
+  border: none;
+  padding: 10px 0;
+  text-transform: uppercase;
+}
+
+#storypoint__form input:last-of-type:hover,
+#storypoint__form input:last-of-type:focus {
+  background-color: rgb(255, 85, 85);
 }
