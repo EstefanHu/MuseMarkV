@@ -13,7 +13,7 @@ export const Write = props => {
         props.toggleIsWriting();
       }
     });
-  }, []);
+  });
 
   const handleSubmit = e => {
     e.preventDefault();
