@@ -31,7 +31,7 @@ export const Write = props => {
             onChange={e => setTitle(e.target.value)}
             placeholder='Title Node'
           />
-          <input
+          <textarea
             className='storypoint__input'
             type='text'
             value={ content }
