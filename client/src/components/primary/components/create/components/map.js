@@ -64,7 +64,7 @@ export const Map = props => {
         <StoryRoute nodes={ nodes } />
       </ReactMapGl>
       <Actions triggerAction={ chosenAction => setAction(chosenAction) } />
-      <Story />
+      <Story nodes={ nodes } />
       {isWriting && <Write coords={ coords } toggleIsWriting={ toggleIsWriting } addNodeToStory={ addNodeToStory } />}
     </>
   )
