@@ -23,6 +23,7 @@ export const Write = props => {
   const handleSubmit = e => {
     e.preventDefault();
     const newNode = {
+      "position": props.tempNode.position,
       "title": title,
       "content": content,
       "coords": [longitude, latitude]

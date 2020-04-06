@@ -35,11 +35,12 @@ export const Story = props => {
         <span id='storytracker__header--count'><p>{ props.nodes.length }</p></span>
       </span>
       {props.nodes.map(node => (
-        <article key={node.title} className='storytracker__node'>
+        <article key={node.position} className='storytracker__node'>
           <GiHamburgerMenu className='storytracker__icon storytracker__icon--dragger' />
           <div className='storytracker__node--title' onClick={() => props.editNode(node) } >
             <h2>{node.title}</h2>
           </div>
+          <p>{node.position}</p>
         </article>
       ))}
     </section>

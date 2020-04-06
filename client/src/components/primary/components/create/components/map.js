@@ -25,6 +25,7 @@ export const Map = props => {
     switch (action) {
       case 'Add':
         setTempNode({
+          "position": nodes.length,
           "title": '',
           "content": '',
           "coords": e.lngLat
@@ -74,7 +75,8 @@ export const Map = props => {
       </ReactMapGl>
       <Actions triggerAction={ chosenAction => setAction(chosenAction) } />
       <Story nodes={ nodes } editNode={ editNode } />
-      {isWriting && <Write tempNode={ tempNode } toggleIsWriting={ toggleIsWriting } addNodeToStory={ addNodeToStory } />}
+      {isWriting &&
+      <Write tempNode={ tempNode } toggleIsWriting={ toggleIsWriting } addNodeToStory={ addNodeToStory } />}
     </>
   )
 }

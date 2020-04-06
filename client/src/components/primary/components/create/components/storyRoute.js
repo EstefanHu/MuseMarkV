@@ -6,7 +6,7 @@ export const StoryRoute = props => (
     {props.nodes.map((node, index) => (
       props.nodes[index + 1] &&
       <Source type='geojson' 
-        key={node.title}
+        key={node.position}
         data={{
         "type": "FeatureCollection",
         "features": [
