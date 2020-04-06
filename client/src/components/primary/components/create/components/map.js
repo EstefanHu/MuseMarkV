@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ReactMapGl from 'react-map-gl';
 
 import '../create.css';
@@ -6,6 +6,7 @@ import { Actions } from './actions';
 import { Story } from './story';
 import { StoryPoints } from './storyPoints';
 import { StoryRoute } from './storyRoute';
+import { Write } from './write';
 
 export const Map = props => {
   const [viewport, setViewport] = useState({
@@ -17,12 +18,18 @@ export const Map = props => {
   });
   const [coords, setCoords] = useState([]);
   const [action, setAction] = useState();
+  const [isWriting, setIsWriting] = useState(true);
+  let modal;
+
+  useEffect(() => {
+    modal = document.getElementById('write__modal');
+  }, []);
 
   const interact = e => {
     switch (action) {
       case 'Add':
         setCoords([...coords, e.lngLat]);
-
+        startStoryPoint(e.lngLat);
         break;
       case 'Edit':
         console.log('Edit');
@@ -36,6 +43,10 @@ export const Map = props => {
       default:
     }
     setAction(null);
+  }
+
+  const startStoryPoint = props => {
+    console.log(props);
   }
 
   return (
@@ -54,6 +65,7 @@ export const Map = props => {
       </ReactMapGl>
       <Actions triggerAction={ chosenAction => setAction(chosenAction) } />
       <Story />
+      <Write modal={ modal } />
     </>
   )
 }

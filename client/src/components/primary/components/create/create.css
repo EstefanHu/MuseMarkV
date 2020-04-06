@@ -73,3 +73,13 @@
 .map__icon {
   width: 50px; height: 50px;
 }
+
+#storypoint__form {
+  width: 500px; height: fit-content;
+  background: white;
+}
+
+#storypoint__form form {
+  display: flex;
+  flex-direction: column;
+}
