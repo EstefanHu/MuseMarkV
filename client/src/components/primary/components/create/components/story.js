@@ -3,6 +3,7 @@ import {
   IoIosArrowDown,
   IoIosArrowUp
 } from 'react-icons/io';
+import { GiHamburgerMenu } from 'react-icons/gi';
 
 export const Story = props => {
   const [isOpen, setIsOpen] = useState(false);
@@ -35,6 +36,7 @@ export const Story = props => {
       </span>
       {props.nodes.map(node => (
         <article key={node.title}>
+          <GiHamburgerMenu />
           <h2>{node.title}</h2>
         </article>
       ))}
