@@ -1,23 +1,32 @@
-import React, { useEffect } from 'react';
-import { IoIosArrowDown } from 'react-icons/io';
+import React, { useState, useEffect } from 'react';
+import {
+  IoIosArrowDown,
+  IoIosArrowUp
+} from 'react-icons/io';
 
 export const Story = props => {
+  const [isOpen, setIsOpen] = useState(false);
   useEffect(() => {
     const tracker = document.getElementById('storytracker');
-    tracker.addEventListener('click', () => {
-      tracker.style.height = 'fit-content';
+    document.getElementById('storytracker__header').addEventListener('click', () => {
+      tracker.classList.toggle('storytracker--open');
+      setIsOpen(isOpen => !isOpen);
     });
   }, []);
 
   return (
-    <section id='storytracker'>
+    <section id='storytracker' className='storytracker'>
       <span id='storytracker__header'>
-        <IoIosArrowDown className='storytracker__header--icon' />
+        {!isOpen ? (
+          <IoIosArrowDown className='storytracker__header--icon' />
+        ) : (
+          <IoIosArrowUp className='storytracker__header--icon' />
+        )}
         <h1>Story Nodes</h1>
         <span id='storytracker__header--count'><p>{ props.nodes.length }</p></span>
       </span>
       {props.nodes.map(node => (
-        <article>
+        <article key={node.title}>
           <h2>{node.title}</h2>
         </article>
       ))}

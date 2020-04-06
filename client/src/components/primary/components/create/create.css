@@ -26,7 +26,7 @@
   background-color: rgb(245, 245, 245);
 }
 
-#storytracker {
+.storytracker {
   padding: 8px;
   border-radius: 5px;
   background: white;
@@ -37,6 +37,12 @@
   cursor: pointer;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
+}
+
+.storytracker--open {
+  height: fit-content;
+  overflow: visible;
 }
 
 #storytracker__header {
@@ -73,7 +79,7 @@
 }
 
 #storytracker article {
-  
+
 }
 
 .map__icon {
