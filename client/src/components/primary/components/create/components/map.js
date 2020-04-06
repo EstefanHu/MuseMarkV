@@ -25,7 +25,6 @@ export const Map = props => {
   const  interactWithMap = e => {
     switch (action) {
       case 'Add':
-        console.log(e.lngLat);
         setTempCoords(e.lngLat);
         setCoords([...coords, e.lngLat]);
         toggleIsWriting();
@@ -64,7 +63,7 @@ export const Map = props => {
         onClick={ interactWithMap}
       >
         <StoryNodes nodes={ nodes } />
-        <StoryRoute coords={ coords } />
+        <StoryRoute nodes={ nodes } />
       </ReactMapGl>
       <Actions triggerAction={ chosenAction => setAction(chosenAction) } />
       <Story />
