@@ -1,10 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 export const Write = props => {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const [longitude, setLongitude] = useState(props.lng);
   const [latitude, setLatitude] = useState(props.lat);
+
+  useEffect(()=> {
+    const modal = document.getElementById('writeModal');
+    modal.addEventListener('click', e => {
+      if (e.target === modal) {
+        props.toggleIsWriting();
+      }
+    });
+  }, []);
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -13,7 +22,7 @@ export const Write = props => {
   }
 
   return (
-    <div className='modal' id='write__modal'>
+    <div className='modal' id='writeModal'>
       <div className='modal-content' id='storyNode__form'>
         <span className='close' onClick={() => {props.toggleIsWriting()}}>&times;</span>
         <h1>Add Node to Story</h1>
