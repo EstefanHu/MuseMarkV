@@ -36,6 +36,7 @@
 }
 
 #storytracker {
+  padding: 8px;
   border-radius: 5px;
   background: white;
   width: 300px; 
@@ -43,14 +44,37 @@
   position: absolute;
   right: 2vh; top: 2vh;
   box-shadow: 4px 4px 10px grey;
+  cursor: pointer;
 }
 
-#storytracker span:first-of-type {
+#storytracker__header {
+  padding: 7px;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 5px;
+}
+
+#storytracker__header:hover,
+#storytracker__header:focus {
+  background: rgb(240, 240, 240);
+}
+
+.storytracker__header--icon {
+  width: 40px; height: 20px;
 }
 
 #storytracker h1 {
   text-align: center;
-  margin: 20px 0;
+}
+
+#storytracker__header--count {
+  border-radius: 50%;
+  width: 40px; height: 40px;
+  background: grey;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
 }
