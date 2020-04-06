@@ -1,20 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 export const Write = props => {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const [longitude, setLongitude] = useState(props.lng);
   const [latitude, setLatitude] = useState(props.lat);
-
-  useEffect(() => {
-    const modal = document.getElementById('write__modal');
-    document.getElementById('write__modal--close').addEventListener('click',() => {
-      modal.style.display = 'none';
-    });
-    document.getElementById('cancelNode').addEventListener('click', () => {
-      modal.style.display = 'none';
-    });
-  }, [])
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -25,7 +15,7 @@ export const Write = props => {
   return (
     <div className='modal' id='write__modal'>
       <div className='modal-content' id='storyNode__form'>
-        <span className='close' id='write__modal--close'>&times;</span>
+        <span className='close' onClick={() => {props.toggleIsWriting()}}>&times;</span>
         <h1>Add Node to Story</h1>
         <form onSubmit={ handleSubmit } >
           <label>Title for Story Node</label>
@@ -62,7 +52,7 @@ export const Write = props => {
           />
           <span className='storyNode__horizontal'>
             <input id='createNode' type='submit' value='Create Node' />
-            <button id='cancelNode'>Cancel</button>
+            <button id='cancelNode' onClick={() => {props.toggleIsWriting()}}>Cancel</button>
           </span>
         </form>
       </div>

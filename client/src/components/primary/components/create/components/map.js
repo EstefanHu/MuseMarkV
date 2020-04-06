@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import ReactMapGl from 'react-map-gl';
 
 import '../create.css';
@@ -18,18 +18,13 @@ export const Map = props => {
   });
   const [coords, setCoords] = useState([]);
   const [action, setAction] = useState();
-  const [isWriting, setIsWriting] = useState(true);
-  let modal;
-
-  useEffect(() => {
-    modal = document.getElementById('write__modal');
-  }, []);
+  const [isWriting, setIsWriting] = useState(false);
 
   const interact = e => {
     switch (action) {
       case 'Add':
         setCoords([...coords, e.lngLat]);
-        startStoryPoint(e.lngLat);
+        toggleIsWriting(e.lngLat);
         break;
       case 'Edit':
         console.log('Edit');
@@ -45,8 +40,8 @@ export const Map = props => {
     setAction(null);
   }
 
-  const startStoryPoint = props => {
-    console.log(props);
+  const toggleIsWriting = () => {
+    setIsWriting(isWriting => !isWriting);
   }
 
   return (
@@ -65,7 +60,7 @@ export const Map = props => {
       </ReactMapGl>
       <Actions triggerAction={ chosenAction => setAction(chosenAction) } />
       <Story />
-      <Write modal={ modal } />
+      {isWriting && <Write toggleIsWriting={ toggleIsWriting }/>}
     </>
   )
 }
