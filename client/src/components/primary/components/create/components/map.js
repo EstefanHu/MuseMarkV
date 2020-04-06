@@ -16,6 +16,7 @@ export const Map = props => {
     height: '100vh',
     zoom: 15
   });
+  const [nodes, setNodes] = useState([]);
   const [coords, setCoords] = useState([]);
   const [tempCoords, setTempCoords] = useState(null);
   const [action, setAction] = useState(null);
@@ -63,7 +64,7 @@ export const Map = props => {
       </ReactMapGl>
       <Actions triggerAction={ chosenAction => setAction(chosenAction) } />
       <Story />
-      {isWriting && <Write coords={ tempCoords } toggleIsWriting={ toggleIsWriting }/>}
+      {isWriting && <Write coords={ tempCoords } toggleIsWriting={ toggleIsWriting } setNodes={() => setNodes()} />}
     </>
   )
 }
