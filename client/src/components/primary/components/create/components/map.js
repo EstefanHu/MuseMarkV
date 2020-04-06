@@ -3,6 +3,7 @@ import ReactMapGl from 'react-map-gl';
 
 import '../create.css';
 import { Actions } from './actions';
+import { Story } from './story';
 import { StoryPoints } from './storyPoints';
 import { StoryRoute } from './storyRoute';
 
@@ -32,6 +33,7 @@ export const Map = props => {
       case 'Remove':
         console.log('Remove');
         break;
+      default:
     }
     setAction(null);
   }
@@ -51,6 +53,7 @@ export const Map = props => {
         <StoryRoute coords={ coords } />
       </ReactMapGl>
       <Actions triggerAction={ chosenAction => setAction(chosenAction) } />
+      <Story />
     </>
   )
 }
