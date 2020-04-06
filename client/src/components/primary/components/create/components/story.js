@@ -37,7 +37,7 @@ export const Story = props => {
       {props.nodes.map(node => (
         <article key={node.title} className='storytracker__node'>
           <GiHamburgerMenu className='storytracker__icon storytracker__icon--dragger' />
-          <div className='storytracker__node--title'>
+          <div className='storytracker__node--title' onClick={() => props.editNode(node) } >
             <h2>{node.title}</h2>
           </div>
         </article>

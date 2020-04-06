@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 
 export const Write = props => {
-  const [title, setTitle] = useState('');
-  const [content, setContent] = useState('');
-  const [longitude, setLongitude] = useState(props.coords[0]);
-  const [latitude, setLatitude] = useState(props.coords[1]);
+  const [title, setTitle] = useState(props.tempNode.title);
+  const [content, setContent] = useState(props.tempNode.content);
+  const [longitude, setLongitude] = useState(props.tempNode.coords[0]);
+  const [latitude, setLatitude] = useState(props.tempNode.coords[1]);
 
   useEffect(()=> {
     const modal = document.getElementById('writeModal');
@@ -51,7 +51,7 @@ export const Write = props => {
             type='text'
             value={ longitude }
             onChange={e => setLongitude(e.target.value)}
-            placeholder={ props.coords[0] }
+            placeholder={ props.tempNode.coords[0] }
             disabled
           />
           <label>Latitude</label>
@@ -60,7 +60,7 @@ export const Write = props => {
             type='text'
             value={ latitude }
             onChange={e => setLatitude(e.target.value)}
-            placeholder={ props.coords[1] }
+            placeholder={ props.tempNode.coords[1] }
             disabled
           />
           <label>Content of Story Node</label>
