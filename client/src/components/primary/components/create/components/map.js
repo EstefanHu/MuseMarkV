@@ -4,7 +4,7 @@ import ReactMapGl from 'react-map-gl';
 import '../create.css';
 import { Actions } from './actions';
 import { Story } from './story';
-import { StoryPoints } from './storyPoints';
+import { StoryNodes } from './storyNodes';
 import { StoryRoute } from './storyRoute';
 import { Write } from './write';
 
@@ -22,7 +22,7 @@ export const Map = props => {
   const [action, setAction] = useState(null);
   const [isWriting, setIsWriting] = useState(false);
 
-  const interact = e => {
+  const  interactWithMap = e => {
     switch (action) {
       case 'Add':
         console.log(e.lngLat);
@@ -48,6 +48,10 @@ export const Map = props => {
     setIsWriting(isWriting => !isWriting);
   }
 
+  const addNodeToStory = newNode => {
+    setNodes([...nodes, newNode]);
+  }
+
   return (
     <>
       <ReactMapGl
@@ -57,14 +61,14 @@ export const Map = props => {
         onViewportChange={viewport => {
           setViewport(viewport)
         }}
-        onClick={interact}
+        onClick={ interactWithMap}
       >
-        <StoryPoints coords={ coords } />
+        <StoryNodes nodes={ nodes } />
         <StoryRoute coords={ coords } />
       </ReactMapGl>
       <Actions triggerAction={ chosenAction => setAction(chosenAction) } />
       <Story />
-      {isWriting && <Write coords={ tempCoords } toggleIsWriting={ toggleIsWriting } setNodes={() => setNodes()} />}
+      {isWriting && <Write coords={ tempCoords } toggleIsWriting={ toggleIsWriting } addNodeToStory={ addNodeToStory } />}
     </>
   )
 }

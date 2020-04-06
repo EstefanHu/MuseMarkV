@@ -17,7 +17,13 @@ export const Write = props => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    
+    const newNode = {
+      "title": title,
+      "content": content,
+      "coords": [longitude, latitude]
+    }
+    console.log(newNode);
+    props.addNodeToStory(newNode);
     props.toggleIsWriting();
   }
 
