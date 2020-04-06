@@ -50,8 +50,14 @@ export const Map = props => {
     setIsWriting(isWriting => !isWriting);
   }
 
-  const addNodeToStory = newNode => {
-    setNodes([...nodes, newNode]);
+  const updateStory = node => {
+    if (nodes.length < node.position + 1) {
+      setNodes([...nodes, node]);
+    } else {
+      let newNodes = nodes;
+      newNodes[node.position] = node;
+      setNodes(newNodes);
+    }
   }
 
   const editNode = node => {
@@ -76,7 +82,12 @@ export const Map = props => {
       <Actions triggerAction={ chosenAction => setAction(chosenAction) } />
       <Story nodes={ nodes } editNode={ editNode } />
       {isWriting &&
-      <Write tempNode={ tempNode } toggleIsWriting={ toggleIsWriting } addNodeToStory={ addNodeToStory } />}
+        <Write
+          tempNode={ tempNode } 
+          toggleIsWriting={ toggleIsWriting }
+          updateStory={ updateStory }
+        />
+      }
     </>
   )
 }

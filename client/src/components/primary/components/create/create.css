@@ -151,8 +151,8 @@
   justify-content: space-between;
 }
 
-#createNode,
-#cancelNode {
+.plotNode,
+.cancelNode {
   font-size: 1.1rem;
   font-weight: bold;
   border-radius: 5px;
@@ -161,18 +161,18 @@
   width: 49%;
 }
 
-#createNode {
+.plotNode {
   background-color: rgb(255, 50, 50);
   color: white;
   border: none;
 }
 
-#createNode:hover,
-#createNode:focus {
+.plotNode:hover,
+.plotNode:focus {
   background-color: rgb(255, 85, 85);
 }
 
-#cancelNode:hover,
-#cancelNode:focus {
+.cancelNode:hover,
+.cancelNode:focus {
   background-color: rgb(240, 240, 240);
 }

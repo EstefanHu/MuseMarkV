@@ -40,7 +40,6 @@ export const Story = props => {
           <div className='storytracker__node--title' onClick={() => props.editNode(node) } >
             <h2>{node.title}</h2>
           </div>
-          <p>{node.position}</p>
         </article>
       ))}
     </section>

@@ -28,7 +28,7 @@ export const Write = props => {
       "content": content,
       "coords": [longitude, latitude]
     }
-    props.addNodeToStory(newNode);
+    props.updateStory(newNode);
     props.toggleIsWriting();
   }
 
@@ -73,8 +73,8 @@ export const Write = props => {
             placeholder='Content'
           />
           <span className='storyNode__horizontal'>
-            <input id='createNode' type='submit' value='Create Node' />
-            <button id='cancelNode' onClick={() => {props.toggleIsWriting()}}>Cancel</button>
+            <input className='plotNode' type='submit' value='Plot Node' />
+            <button className='cancelNode' onClick={() => {props.toggleIsWriting()}}>Cancel</button>
           </span>
         </form>
       </div>
