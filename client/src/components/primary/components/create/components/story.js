@@ -3,7 +3,10 @@ import { IoIosArrowDown } from 'react-icons/io';
 
 export const Story = () => {
   useEffect(() => {
-
+    const tracker = document.getElementById('storytracker');
+    tracker.addEventListener('click', () => {
+      tracker.style.height = 'fit-content';
+    });
   }, []);
 
   return (
