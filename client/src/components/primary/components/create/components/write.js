@@ -42,7 +42,7 @@ export const Write = props => {
             type='text'
             value={ longitude }
             onChange={e => setLongitude(e.target.value)}
-            placeholder={ props.lng }
+            placeholder={ props.coords[0] }
           />
           <label>Latitude</label>
           <input
@@ -50,7 +50,7 @@ export const Write = props => {
             type='text'
             value={ latitude }
             onChange={e => setLatitude(e.target.value)}
-            placeholder={ props.lat }
+            placeholder={ props.coords[1] }
           />
           <label>Content of Story Node</label>
           <textarea
