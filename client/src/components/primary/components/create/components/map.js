@@ -21,28 +21,14 @@ export const Map = props => {
   const [action, setAction] = useState(null);
   const [isWriting, setIsWriting] = useState(false);
 
-  const  interactWithMap = e => {
-    switch (action) {
-      case 'Add':
-        setTempNode({
-          "position": nodes.length,
-          "title": '',
-          "content": '',
-          "coords": e.lngLat
-        });
-        toggleIsWriting();
-        break;
-      case 'Edit':
-        console.log('Edit');
-        break;
-      case 'Connect':
-        console.log('Connect');
-        break;
-      case 'Remove':
-        console.log('Remove');
-        break;
-      default:
-    }
+  const addNodeToMap = e => {
+    setTempNode({
+      "position": nodes.length,
+      "title": '',
+      "content": '',
+      "coords": e.lngLat
+    });
+    toggleIsWriting();
     setAction(null);
   }
 
@@ -65,6 +51,10 @@ export const Map = props => {
     toggleIsWriting();
   }
 
+  const removeNode = e => {
+    console.log('removed');
+  }
+
   return (
     <>
       <ReactMapGl
@@ -74,7 +64,10 @@ export const Map = props => {
         onViewportChange={viewport => {
           setViewport(viewport)
         }}
-        onClick={ interactWithMap }
+        onClick={e => { action === 'Add' ?
+          addNodeToMap(e) :
+          setAction(null)
+        }}
       >
         <StoryNodes nodes={ nodes } />
         <StoryRoute nodes={ nodes } />
