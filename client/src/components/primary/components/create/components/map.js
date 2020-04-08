@@ -28,12 +28,8 @@ export const Map = props => {
       "content": '',
       "coords": e.lngLat
     });
-    toggleIsWriting();
-    setAction(null);
-  }
-
-  const toggleIsWriting = () => {
     setIsWriting(isWriting => !isWriting);
+    setAction(null);
   }
 
   const updateStory = node => {
@@ -44,15 +40,6 @@ export const Map = props => {
       newNodes[node.position] = node;
       setNodes(newNodes);
     }
-  }
-
-  const editNode = node => {
-    setTempNode(node);
-    toggleIsWriting();
-  }
-
-  const removeNode = e => {
-    console.log('removed');
   }
 
   return (
@@ -73,11 +60,18 @@ export const Map = props => {
         <StoryRoute nodes={ nodes } />
       </ReactMapGl>
       <Actions triggerAction={ chosenAction => setAction(chosenAction) } />
-      <Story nodes={ nodes } editNode={ editNode } />
+      <Story
+        nodes={ nodes }
+        editNode={
+          node => {
+            setTempNode(node);
+            setIsWriting(isWriting => !isWriting);
+        }}
+      />
       {isWriting &&
         <Write
           tempNode={ tempNode } 
-          toggleIsWriting={ toggleIsWriting }
+          toggleIsWriting={() => setIsWriting(isWriting => !isWriting)}
           updateStory={ updateStory }
         />
       }
