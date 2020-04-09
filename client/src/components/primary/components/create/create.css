@@ -119,6 +119,7 @@
 
 .map__icon--turn {
   width: 13px;
+  cursor: pointer;
 }
 
 #storyNode__form {

@@ -21,11 +21,11 @@ export const StoryRoute = props => (
             }
           }
         ]
-      }} >
+      }}>
         <Layer
           type='line'
           paint={{
-            'line-width': 2,
+            'line-width': 3,
             'line-color': '#007cbf',
 
           }}

@@ -30,7 +30,7 @@ export const StoryNodes = props => {
           >
             <FaDotCircle
               className='map__icon--turn'
-              onClick={() => console.log('hello')}
+              onClick={() => props.engageNode(node.position)}
             />
           </Marker>
         )

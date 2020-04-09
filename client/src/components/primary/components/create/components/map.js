@@ -21,7 +21,7 @@ export const Map = props => {
   const [action, setAction] = useState(null);
   const [isWriting, setIsWriting] = useState(false);
 
-  const addNodeToMap = e => {
+  const addToMap = e => {
     if (action === 'Add Node') {
       setTempNode({
         "position": nodes.length,
@@ -30,7 +30,6 @@ export const Map = props => {
         "coords": e.lngLat
       });
       setIsWriting(isWriting => !isWriting);
-      setAction(null);
     } else if (action === 'Add Turn') {
       updateStory({
         "type": "turn",
@@ -38,6 +37,7 @@ export const Map = props => {
         "coords": e.lngLat
       });
     }
+    setAction(null);
   }
 
   const updateStory = node => {
@@ -56,8 +56,18 @@ export const Map = props => {
       for (let i = 0; i < nodes.length; i++) {
         nodes[i].position = i;
       }
-      setAction(null);
+    } else if (action === 'Edit') {
+      let node = nodes[nodeId];
+      if (node.type === 'node') {
+        editNode(node);
+      }
     }
+    setAction(null);
+  }
+
+  const editNode = node => {
+    setTempNode(node);
+    setIsWriting(isWriting => !isWriting);
   }
 
   return (
@@ -69,7 +79,7 @@ export const Map = props => {
         onViewportChange={viewport => {
           setViewport(viewport)
         }}
-        onClick={e => addNodeToMap(e)}
+        onClick={e => addToMap(e)}
       >
         <StoryNodes
           plottedNodes={ nodes }
@@ -83,11 +93,7 @@ export const Map = props => {
       />
       <Story
         nodes={ nodes }
-        editNode={
-          node => {
-            setTempNode(node);
-            setIsWriting(isWriting => !isWriting);
-        }}
+        editNode={node => editNode(node)}
       />
       {isWriting &&
         <Write

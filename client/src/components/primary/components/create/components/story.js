@@ -37,9 +37,15 @@ export const Story = props => {
       {props.nodes.map(node => (
         <article key={node.position} className='storytracker__node'>
           <GiHamburgerMenu className='storytracker__icon storytracker__icon--dragger' />
-          <div className='storytracker__node--title' onClick={() => props.editNode(node)} >
-            <h2>{node.title}</h2>
-          </div>
+          {node.type === 'node' ? (
+            <div className='storytracker__node--title' onClick={() => props.editNode(node)} >
+              <h2>{node.title}</h2>
+            </div>
+          ) : (
+            <div className='storytracker__node--title'>
+              <h2>---Path Turn---</h2>
+            </div>
+          )}
         </article>
       ))}
     </section>
