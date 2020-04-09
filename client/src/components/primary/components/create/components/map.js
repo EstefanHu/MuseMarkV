@@ -51,15 +51,20 @@ export const Map = props => {
         onViewportChange={viewport => {
           setViewport(viewport)
         }}
-        onClick={e => { action === 'Add' ?
-          addNodeToMap(e) :
-          setAction(null)
-        }}
+        onClick={
+          e => 
+            action === 'Add' ?
+            addNodeToMap(e)
+            : console.log('change this TODO:')
+        }
       >
         <StoryNodes nodes={ nodes } />
         <StoryRoute nodes={ nodes } />
       </ReactMapGl>
-      <Actions triggerAction={ chosenAction => setAction(chosenAction) } />
+      <Actions
+        triggerAction={chosenAction => setAction(chosenAction)}
+        action={ action }
+      />
       <Story
         nodes={ nodes }
         editNode={

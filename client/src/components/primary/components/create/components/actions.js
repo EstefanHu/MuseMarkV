@@ -13,8 +13,14 @@ export const Actions = props => {
       {options.map(item => (
         <button
           key={ item }
-          onClick={ () => props.triggerAction(item) }>
-            { item }
+          onClick={() => {
+            if (props.action !== item) {
+              props.triggerAction(item);
+            } else {
+              props.triggerAction(null);
+            }
+        }}>
+          { item }
         </button>
       ))}
     </div>
