@@ -2,8 +2,8 @@ import React from 'react';
 
 export const Actions = props => {
   const options = [
-    'Add',
-    'Connect',
+    'Add Node',
+    'Add Turn',
     'Edit',
     'Remove'
   ]

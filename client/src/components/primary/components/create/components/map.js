@@ -22,7 +22,7 @@ export const Map = props => {
   const [isWriting, setIsWriting] = useState(false);
 
   const addNodeToMap = e => {
-    if (action === 'Add') {
+    if (action === 'Add Node') {
       setTempNode({
         "position": nodes.length,
         "title": '',
@@ -31,6 +31,8 @@ export const Map = props => {
       });
       setIsWriting(isWriting => !isWriting);
       setAction(null);
+    } else if (action === 'Add Turn') {
+      console.log('turn');
     }
   }
 
