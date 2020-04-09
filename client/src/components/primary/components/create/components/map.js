@@ -32,7 +32,11 @@ export const Map = props => {
       setIsWriting(isWriting => !isWriting);
       setAction(null);
     } else if (action === 'Add Turn') {
-      console.log('turn');
+      updateStory({
+        "type": "turn",
+        "position": nodes.length,
+        "coords": e.lngLat
+      });
     }
   }
 
