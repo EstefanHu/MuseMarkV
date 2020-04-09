@@ -22,14 +22,16 @@ export const Map = props => {
   const [isWriting, setIsWriting] = useState(false);
 
   const addNodeToMap = e => {
-    setTempNode({
-      "position": nodes.length,
-      "title": '',
-      "content": '',
-      "coords": e.lngLat
-    });
-    setIsWriting(isWriting => !isWriting);
-    setAction(null);
+    if (action === 'Add') {
+      setTempNode({
+        "position": nodes.length,
+        "title": '',
+        "content": '',
+        "coords": e.lngLat
+      });
+      setIsWriting(isWriting => !isWriting);
+      setAction(null);
+    }
   }
 
   const updateStory = node => {
@@ -42,6 +44,16 @@ export const Map = props => {
     }
   }
 
+  const engageNode = nodeId => {
+    if (action === 'Remove') {
+      nodes.splice(nodeId, 1);
+      for (let i = 0; i < nodes.length; i++) {
+        nodes[i].position = i;
+      }
+      setAction(null);
+    }
+  }
+
   return (
     <>
       <ReactMapGl
@@ -51,14 +63,12 @@ export const Map = props => {
         onViewportChange={viewport => {
           setViewport(viewport)
         }}
-        onClick={
-          e => 
-            action === 'Add' ?
-            addNodeToMap(e)
-            : console.log('change this TODO:')
-        }
+        onClick={e => addNodeToMap(e)}
       >
-        <StoryNodes nodes={ nodes } />
+        <StoryNodes
+          plottedNodes={ nodes }
+          engageNode={ engageNode }
+        />
         <StoryRoute nodes={ nodes } />
       </ReactMapGl>
       <Actions

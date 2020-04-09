@@ -3,13 +3,9 @@ import { Marker } from 'react-map-gl';
 import { MdLocationOn } from 'react-icons/md';
 
 export const StoryNodes = props => {
-  const engageNode = nodeId => {
-    console.log(nodeId);
-  }
-
   return (
     <>
-      {props.nodes.map(node => (
+      {props.plottedNodes.map(node => (
         <Marker
           key={node.position}
           latitude={node.coords[1]}
@@ -19,7 +15,7 @@ export const StoryNodes = props => {
         >
           <MdLocationOn
             className='map__icon'
-            onClick={() => engageNode(node.position)}
+            onClick={() => props.engageNode(node.position)}
           />
         </Marker>
       ))}
