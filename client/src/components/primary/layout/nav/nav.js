@@ -50,6 +50,7 @@ const Nav = () => {
         <nav
             onMouseEnter={openMenu}
             onMouseLeave={closeMenu}
+            className='primaryNav'
         >
             <div id='nav__logo'>
                 {isOpen 
