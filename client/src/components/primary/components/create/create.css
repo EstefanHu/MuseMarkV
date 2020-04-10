@@ -126,6 +126,7 @@
   width: 500px; height: fit-content;
   background: white;
   font-size: 1rem;
+  padding: 20px;
 }
 
 #storyNode__form h1 {
