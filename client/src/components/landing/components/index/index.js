@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { Nav } from './nav';
 import { Hero } from './hero';
@@ -7,13 +7,23 @@ import { Me } from './me';
 import { Contact } from './contact';
 import Register from './register';
 
-export const Index = () => (
+export const Index = () => {
+  const [isRegistering, setIsRegistering] = useState(false);
+
+  return (
     <>
-        <Nav />
-        <Hero />
-        <What />
-        <Me />
-        <Contact />
-        <Register />
+      <Nav
+        toggleRegister={() => setIsRegistering(isRegistering => !isRegistering)}
+      />
+      <Hero />
+      <What />
+      <Me />
+      <Contact />
+      {isRegistering &&
+        <Register
+          toggleRegister={() => setIsRegistering(isRegistering => !isRegistering)}
+        />
+      }
     </>
-)
+  )
+}

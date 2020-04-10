@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router-dom';
 
@@ -9,7 +9,21 @@ const Register = props => {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
 
-  // TODO: INSTALL FORM CHECK
+  useEffect(() => {
+    const modal = document.getElementById('registerModal');
+    const modalToggle = e => {
+      if (e.target === modal) {
+        props.toggleRegister();
+      }
+    }
+    modal.addEventListener('click', modalToggle);
+
+    return (() => {
+      modal.removeEventListener('click', modalToggle);
+    });
+  });
+
+  // TODO: INSTALL FORM CHECK and FORM SUBMITION
   const handleSubmit = e => {
     e.preventDefault();
 
@@ -33,7 +47,7 @@ const Register = props => {
   }
 
   return (
-    <div className='modal'>
+    <div className='modal' id='registerModal'>
       <section id='signup' className='modal-content'>
         <div id='splash'>
           <h1>Muse</h1>
