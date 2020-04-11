@@ -4,10 +4,18 @@ export const Nav = props => {
   return (
     <nav className='landing__nav--nav'>
       <ul>
-        <li>Mission</li>
-        <li>Creator</li>
-        <li>Connect</li>
-        <li>Create</li>
+        <li
+          onClick={() => props.callMenu('mission')}
+        >Mission</li>
+        <li
+          onClick={() => props.callMenu('creator')}
+        >Creator</li>
+        <li
+          onClick={() => props.callMenu('connect')}
+        >Connect</li>
+        <li
+          onClick={() => props.callMenu('create')}
+        >Create</li>
       </ul>
     </nav>
   )

@@ -49,7 +49,7 @@
   height: 100vh;
   width: 50vw;
   position: absolute;
-  top: 0; right: 0;
+  top: 0; right: -50vw;
   background-image: linear-gradient(to left, white, transparent);
 }
 
