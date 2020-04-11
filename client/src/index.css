@@ -1,11 +1,14 @@
 :root {
-  --color-accent: rgb(255, 115, 0);
+  --color-accent: rgb(255, 50, 50);
+  --color-accent-secondary: rgb(250, 0, 0);
+  --color-accent-tertiary: rgb(252, 240, 240);
 }
 
 *, *::before, *::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  outline: 0;
 }
 
 :root {

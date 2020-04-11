@@ -7,7 +7,7 @@ export const Nav = props => {
 
   return (
     <nav className='indexNav'>
-      <h1>Project: Muse</h1>
+      <h1>Project:Muse</h1>
       <span className='indexNav__actions'>
         <button
           id='indexNav__actions--login'
