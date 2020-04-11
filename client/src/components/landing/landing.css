@@ -1,57 +1,17 @@
 @import url('https://fonts.googleapis.com/css?family=Heebo:400,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Archivo+Narrow:ital,wght@1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap');
 
 #landing {
   overflow: auto;
-}
-
-.indexNav {
-  border: none;
-  position: absolute;
-  width: 100vw; height: 55px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 20px;
-  z-index: 5;
-  color: white;
-}
-
-.indexNav__actions {
-  width: 250px;
-  display: flex;
-  justify-content: space-evenly;
-}
-
-.indexNav__actions button {
-  border-radius: 20px;
-  border: none;
-  font-size: 1rem;
-  height: 35px; width: 110px;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-#indexNav__actions--login {
-  color: var(--color-accent);
-}
-
-#indexNav__actions--login:focus,
-#indexNav__actions--login:hover {
-  background: var(--color-accent-tertiary);
-}
-
-#indexNav__actions--signup {
-  background: var(--color-accent);
-  color: white;
-}
-
-.videoHero {
   position: relative;
-  text-align: center;
   overflow: hidden;
   width: 100vw;
   height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 60px;
 }
 
 .video-bg {
@@ -61,6 +21,70 @@
   min-width: 100%;
   min-height: 100%;
   z-index: -1;
+}
+
+.landing__contact {
+  width: 80vw;
+  margin: 0 auto;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.landing__contact h1 {
+  font-size: 1.4rem;
+  font-weight: bold;
+  text-shadow: 1px 1px grey;
+  font-family: 'Oswald', sans-serif;
+}
+
+.landing__contact span {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.landing__nav {
+  width: 80vw;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+
+}
+
+.landing__nav--title {
+  color: white;
+  font-family: 'Archivo Narrow', sans-serif;
+  font-size: 4rem;
+  line-height: 5rem;
+  cursor: default;
+}
+
+.landing__nav--nav {
+  border: none;
+  color: white;
+}
+
+.landing__nav--nav ul {
+  list-style: none;
+  width: 600px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.landing__nav--nav li {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  cursor: pointer;
+}
+
+.landing__nav--nav li:hover,
+.landing__nav--nav li:focus {
+  text-decoration: underline;
 }
 
 #signup {
