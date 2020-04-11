@@ -53,7 +53,7 @@ const Register = props => {
           <h1>Muse</h1>
         </div>
         <div id='form__holder'>
-          <h2>Join Muse.</h2>
+          <h2>Join :Muse.</h2>
           <h3>Create an account and engage with</h3>
           <h3>your communities stories</h3>
           <form onSubmit={ handleSubmit }>

@@ -4,30 +4,32 @@ import { Hero } from './hero';
 import { Contact } from './contact';
 import { Body } from './body';
 import { Nav } from './nav';
-import Register from './register';
 
 export const Index = () => {
-  const [isRegistering, setIsRegistering] = useState(false);
+  const [isRegistering, setIsRegistering] = useState(true);
+  const [chosenSubject, setChosenSubject] = useState('');
 
-  const callMenu = subject => {
-    console.log(subject);
+  const setSubject = subject => {
+    if (chosenSubject === subject) {
+      setChosenSubject('');
+    } else {
+      setChosenSubject(subject)
+    }
   }
 
   return (
     <>
       <Hero />
       <Contact />
-      <Body />
+      {chosenSubject !== '' &&
+        <Body subject={ chosenSubject } />
+      }
       <section className='landing__nav'>
         <span className='landing__nav--title'>
           <h1>Project<br/>:Muse</h1>
         </span>
-        <Nav callMenu={ callMenu } />
+        <Nav setBody={subject => setSubject(subject)} />
       </section>
-      {isRegistering &&
-        <Register
-          toggleRegister={() => setIsRegistering(isRegistering => !isRegistering)}
-        />
       }
     </>
   )

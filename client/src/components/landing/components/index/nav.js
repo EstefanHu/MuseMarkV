@@ -5,16 +5,16 @@ export const Nav = props => {
     <nav className='landing__nav--nav'>
       <ul>
         <li
-          onClick={() => props.callMenu('mission')}
+          onClick={() => props.setBody('mission')}
         >Mission</li>
         <li
-          onClick={() => props.callMenu('creator')}
+          onClick={() => props.setBody('creator')}
         >Creator</li>
         <li
-          onClick={() => props.callMenu('connect')}
+          onClick={() => props.setBody('connect')}
         >Connect</li>
         <li
-          onClick={() => props.callMenu('create')}
+          onClick={() => props.setBody('create')}
         >Create</li>
       </ul>
     </nav>
