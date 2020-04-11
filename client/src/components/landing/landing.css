@@ -45,13 +45,21 @@
   cursor: pointer;
 }
 
+.landing__body {
+  height: 100vh;
+  width: 50vw;
+  position: absolute;
+  top: 0; right: 0;
+  background-image: linear-gradient(to left, white, transparent);
+}
+
 .landing__nav {
   width: 80vw;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-
+  z-index: 5;
 }
 
 .landing__nav--title {
