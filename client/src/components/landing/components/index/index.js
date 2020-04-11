@@ -30,7 +30,6 @@ export const Index = () => {
         </span>
         <Nav setBody={subject => setSubject(subject)} />
       </section>
-      }
     </>
   )
 }
