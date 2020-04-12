@@ -26,8 +26,8 @@ export const Body = props => {
         </h1>
         <h1
           className='body__title'
-          id='title__connect'>
-            Message Us.
+          id='title__join'>
+            Register.
         </h1>
         <h1
           className='body__title'

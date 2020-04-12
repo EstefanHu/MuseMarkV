@@ -11,8 +11,8 @@ export const Nav = props => {
           onClick={() => props.setBody('creator')}
         >Creator</li>
         <li
-          onClick={() => props.setBody('connect')}
-        >Connect</li>
+          onClick={() => props.setBody('join')}
+        >Join</li>
         <li
           onClick={() => props.setBody('create')}
         >Create</li>
