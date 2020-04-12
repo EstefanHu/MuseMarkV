@@ -54,6 +54,7 @@
   width: var(--content-width);
   position: absolute;
   top: 60px; right: 10vw;
+  text-align: center;
 }
 
 .landing__body:hover {
@@ -71,10 +72,64 @@
   font-size: 3.5rem;
   left: 750px;
   width: 100%;
-  transition: .5s ease-in;
+  transition: .6s ease-in;
+}
+
+.landing__body--main {
+  margin-top: 100px;
+  position: absolute;
+  right: 0;
+  width: 350px;
+}
+
+.body__main {
+  position: absolute;
+  display: flex;
+  flex-direction: column; 
+  width: 100%;
+  color: white;
+  left: 750px;
+  transition: .6s ease-in;
+  transition-delay: .1s;
+}
+
+.body__main form {
+  display: flex;
+  flex-direction: column;
+  width: 350px;
+  margin: 0 auto;
+}
+
+.body__main input {
+  border: none;
+  height: 45px;
+  font-size: 1.4rem;
+  padding: 4px 15px 0 15px;
+  background: rgba(255,255,255, .5);
+  width: 100%;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+.body__main input:hover,
+.body__main input:focus {
+  background: white;
+}
+
+.body__main input:last-of-type {
+  cursor: pointer;
+  color: grey;
+}
+
+.body__main a {
+  color: grey;
 }
 
 .selected_subject {
+  left: 0;
+}
+
+.selectedBody_subject {
   left: 0;
 }
 
