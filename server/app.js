@@ -2,6 +2,8 @@
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
+const multer = require('multer');
 
 const app = express();
 
@@ -11,6 +13,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 
 require('dotenv').config()
+
+
 
 app.get('/api', (req, res) => {
   try {
