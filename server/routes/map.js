@@ -7,6 +7,6 @@ router.route('/api').get((req, res) => {
   } catch(error) {
     res.type('text').status(500).send('Error: ' + error);
   }
-})
+});
 
 module.exports = router;

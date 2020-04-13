@@ -23,16 +23,6 @@ mongoose.connection.once('open', () => {
     console.log('Connection Error: ' + err);
 });
 
-//TODO: Form Check
-app.post('/register', (req, res) => {
-  try {
-    console.log(req.body);
-    res.json('Noice');
-  } catch(error) {
-    res.type('text').status(500).send('Error: ' + error);
-  }
-});
-
 app.get('/stories/:id', (req, res) => {
   try {
     res.json([
@@ -52,6 +42,9 @@ app.get('/stories/:id', (req, res) => {
 
 const mapRouter = require('./routes/map');
 app.use('/map', mapRouter);
+
+const landingRouter = require('./routes/landing');
+app.use('/landing', landingRouter);
 
 const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => {
