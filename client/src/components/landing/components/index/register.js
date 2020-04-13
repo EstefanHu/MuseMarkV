@@ -40,35 +40,40 @@ const Register = props => {
           value={ firstName }
           onChange={ e => setFirstName(e.target.value) }
           placeholder='First Name'
+          tabIndex='-1'
         />
         <input
           type='text'
           value={ lastName }
           onChange={ e => setLastName(e.target.value) }
           placeholder='Last Name'
+          tabIndex='-1'
         />
         <input
           type='email'
           value={ email }
           onChange={ e => setEmail(e.target.value) }
           placeholder='Email Address'
+          tabIndex='-1'
         />
         <input
           type='password'
           value={ password }
           onChange={ e => setPassword(e.target.value) }
           placeholder='Password'
+          tabIndex='-1'
         />
         <input
           type='password'
           value={ confirmPassword }
           onChange={ e => setConfirmPassword(e.target.value) }
           placeholder='Confirm Password'
+          tabIndex='-1'
         />
-        <input type='submit' value='Register' />
+        <input type='submit' value='Register' tabIndex='-1' />
       </form>
       <p>Click "Register" above to accept Muse's</p>
-      <p><Link to='/terms'>Terms of Service</Link> & <Link to='/privacy'>Privacy Policy.</Link></p>
+      <p><Link to='/terms' tabIndex='-1'>Terms of Service</Link> & <Link to='/privacy' tabIndex='-1'>Privacy Policy.</Link></p>
     </>
   )
 }

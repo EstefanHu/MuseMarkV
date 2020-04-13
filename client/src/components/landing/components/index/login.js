@@ -31,14 +31,16 @@ const Login = props => {
           value={ email }
           onChange={e => setEmail(e.target.value)}
           placeholder='Email Address'
+          tabIndex='-1'
         />
         <input
           type='password'
           value={ password }
           onChange={e => setPassword(e.target.value)}
           placeholder='Password'
+          tabIndex='-1'
         />
-        <input type='submit' value='Log in' />
+        <input type='submit' value='Log in' tabIndex='-1' />
       </form>
     </>
   )

@@ -20,7 +20,7 @@ export const Index = () => {
     <>
       <Hero />
       <Contact />
-      <Body subject={ chosenSubject } />
+      <Body subject={ chosenSubject } tabIndex='-1' />
       <section className='landing__nav'>
         <span className='landing__nav--title'>
           <h1>Project<br/>:Muse</h1>
