@@ -9,4 +9,13 @@ router.route('/api').get((req, res) => {
   }
 });
 
+router.route('/save').post((req, res) => {
+  try {
+    console.log(req.body);
+    res.json('Saved');
+  } catch(error) {
+    res.type('text').status(500).send('Error: ' + error);
+  }
+});
+
 module.exports = router;
