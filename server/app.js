@@ -14,7 +14,14 @@ app.use(cors());
 
 require('dotenv').config()
 
+const DB_CONNECTION = 'musedb';
+mongoose.connect(`mongodb://localhost/${DB_CONNECTION}`, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, useFindAndModify: false });
 
+mongoose.connection.once('open', () => {
+    console.log(`connection has been established to ${DB_CONNECTION}`);
+}).on('err', err => {
+    console.log('Connection Error: ' + err);
+});
 
 app.get('/api', (req, res) => {
   try {
