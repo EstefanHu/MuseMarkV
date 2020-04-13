@@ -23,14 +23,6 @@ mongoose.connection.once('open', () => {
     console.log('Connection Error: ' + err);
 });
 
-app.get('/api', (req, res) => {
-  try {
-    res.json(process.env.MAPBOX_ACCESS_TOKEN);
-  } catch(error) {
-    res.type('text').status(500).send('Error: ' + error);
-  }
-});
-
 //TODO: Form Check
 app.post('/register', (req, res) => {
   try {
@@ -57,6 +49,9 @@ app.get('/stories/:id', (req, res) => {
     res.type('text').status(500).send('Error: ' + error);
   }
 })
+
+const mapRouter = require('./routes/map');
+app.use('/map', mapRouter);
 
 const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => {
