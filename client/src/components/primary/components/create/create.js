@@ -8,7 +8,7 @@ export const Create = props => {
   const [api, setApi] = useState('');
 
   useEffect(() => {
-    fetch('http://localhost:4000/api')
+    fetch('http://localhost:4000/map/api')
       .then(res => res.json())
       .then(res => setApi(res))
       .catch(console.error);

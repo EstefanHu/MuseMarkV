@@ -8,7 +8,7 @@ const Login = props => {
   const handleSubmit = e => {
     e.preventDefault();
 
-    fetch('http://localhost:4000/login', {
+    fetch('http://localhost:4000/landing/login', {
         method: 'POST',
         headers: {
             Accept: 'application/json',

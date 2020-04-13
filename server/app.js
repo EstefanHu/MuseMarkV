@@ -40,11 +40,14 @@ app.get('/stories/:id', (req, res) => {
   }
 })
 
-const mapRouter = require('./routes/map');
-app.use('/map', mapRouter);
-
 const landingRouter = require('./routes/landing');
 app.use('/landing', landingRouter);
+
+const primaryRouter = require ('./routes/primary');
+app.use('/primary', primaryRouter);
+
+const mapRouter = require('./routes/map');
+app.use('/map', mapRouter);
 
 const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => {
