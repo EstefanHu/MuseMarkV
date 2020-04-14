@@ -28,4 +28,28 @@ router.post('/login', (req, res) => {
   }
 });
 
+function saveUserInformation(path) {
+  return async (req, res) => {
+    let user = req.user;
+    user.firstName = req.body.firstName;
+    user.lastName = req.body.lastName;
+    user.email = req.body.email;
+    user.password = req.body.password;
+  
+    try {
+      user = await user.save();
+      res.send('Success');
+    } catch(error) {
+      res.type('text').status(500).send('Error:  ' + error);
+    }
+  }
+}
+
+
+// Create User
+// Get User
+// Update User
+// Log User In
+// Delete User
+
 module.exports = router;
