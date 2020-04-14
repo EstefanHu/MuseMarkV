@@ -13,14 +13,21 @@ const nodeSchema = new Schema({
   }
 });
 
-const turnSchema = new Schema({
-  type: {
+
+
+const storySchema = new Schema({
+  title: {
     type: String,
-    enum['Point'],
+    required: true
+  },
+  description: {
+    type: String,
+    required: true
+  },
+  location: {
+    type: startSchema,
     required: true
   }
 });
 
-const storySchema = new Schema({
-  
-})
+module.exports = mongoose.model('Story', storySchema);
