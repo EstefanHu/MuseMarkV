@@ -28,9 +28,8 @@ const userSchema = new Schema({
     },
     createdAt: {
         type: Date,
-        required: true
+        default: Date.now
     },
-    credibility: Number
 }, {
     timestamps: true
 });
