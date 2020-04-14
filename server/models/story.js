@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+const userSchema = require('./user').schema;
 
 const nodeSchema = new Schema({
   type: {
@@ -49,7 +50,8 @@ const storySchema = new Schema({
   route: {
     type: [nodeSchema],
     required: true
-  }
+  },
+  author
 });
 
 module.exports = mongoose.model('Story', storySchema);
