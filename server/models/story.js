@@ -10,6 +10,14 @@ const nodeSchema = new Schema({
   coordinates: {
     type: [Number],
     required: true
+  },
+  name: {
+    type: String,
+    trim: true,
+  },
+  content: {
+    type: String,
+    trim: true,
   }
 });
 
@@ -35,7 +43,11 @@ const storySchema = new Schema({
     required: true
   },
   location: {
-    type: startSchema,
+    type: summarySchema,
+    required: true
+  },
+  route: {
+    type: [nodeSchema],
     required: true
   }
 });
