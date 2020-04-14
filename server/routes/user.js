@@ -5,8 +5,6 @@ router.post('/create', async (req, res) => {
   try {
     let checkIfUserExist = await User.findOne({ email: req.body.email });
     if (checkIfUserExist) res.json({'Error': 'User Already exists'});
-    
-
     let user = new User();
     user.firstName = req.body.firstName;
     user.lastName = req.body.lastName;
@@ -58,7 +56,7 @@ router.put('/:id', async (req, res) => {
 router.delete('/:id', async (req, res) => {
   try {
     await User.findByIdAndDelete(req.params.id);
-    res.send('success');
+    res.send('Deleted User');
   } catch(error) {
     res.type('text').status(500).send('Error:  ' + error);
   }
