@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const User = require('./../models/user');
 
-routet.get('/update/:id', async (req, res) => {
+router.get('/update/:id', async (req, res) => {
   try {
     const chosenUser = await User.findById(req.params.id);
     res.json(chosenUser);
