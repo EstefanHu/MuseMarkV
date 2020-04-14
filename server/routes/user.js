@@ -59,9 +59,4 @@ router.delete('/:id', async (req, res) => {
   }
 });
 
-
-// Create User
-// Get User
-// Log User In
-
 module.exports = router;

@@ -25,7 +25,7 @@ const nodeSchema = new Schema({
 const summarySchema = new Schema({
   type: {
     type: String,
-    enum['Point'],
+    enum: ['Point'],
     required: true
   },
   coordinates: {
