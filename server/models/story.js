@@ -13,7 +13,17 @@ const nodeSchema = new Schema({
   }
 });
 
-
+const summarySchema = new Schema({
+  type: {
+    type: String,
+    enum['Point'],
+    required: true
+  },
+  coordinates: {
+    type: [Number],
+    required: true
+  }
+})
 
 const storySchema = new Schema({
   title: {
