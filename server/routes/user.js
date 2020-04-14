@@ -5,13 +5,14 @@ router.post('/create', async (req, res) => {
   try {
     let checkIfUserExist = await User.findOne({ email: req.body.email });
     if (checkIfUserExist) res.json({'Error': 'User Already exists'});
+
     let user = new User();
     user.firstName = req.body.firstName;
     user.lastName = req.body.lastName;
     user.email = req.body.email;
     user.password = req.body.password;
     user = await user.save();
-    res.json({ id: user.id });
+    res.json({ userId: user.id });
 
   } catch(error) {
     res.type('text').status(500).send('Error: ' + error);
@@ -21,10 +22,10 @@ router.post('/create', async (req, res) => {
 router.post('/login', async (req, res) => {
   try {
     let user = await User.findOne({ email: req.body.email });
-    const warning = 'Email or Password was incorrect';
-    if (!user) res.send(warning);
-    if (user.password != req.password) res.send(warning);
-    res.json({user: user});
+    if (!user || user.password !== req.password)
+      res.send('Email or Password was incorrect');
+
+    res.json({ userId: user.id });
   } catch(error) {
     res.type('text').status(500).send('Error:  ' + error);
   }
@@ -41,13 +42,16 @@ router.get('/:id').get(async (req, res) => {
 
 router.put('/:id', async (req, res) => {
   try {
+    let checkIfUserExist = await User.findOne({ email: req.body.email });
+    if (checkIfUserExist) res.json({'Error': 'User Already exists'});
+
     let user = await User.findById(req.params.id);
     user.firstName = req.body.firstName;
     user.lastName = req.body.lastName;
     user.email = req.body.email;
     user.password = req.body.password;
     user = await user.save();
-    res.send('Successfully updated User'); //TODO: Dev only
+    res.send('Successfully updated User');
   } catch(error) {
     res.type('text').status(500).send('Error:  ' + error);
   }
