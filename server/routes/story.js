@@ -13,7 +13,7 @@ router.get('/library/:id', async (req, res) => {
   try {
     let stories = await Story
                           .find({ authorId: req.params.id })
-                          .sort({ created});
+                          .sort({ createdAt: 'desc'});
     res.json(stories);
   } catch(error) {
     res.type('text').status(500).send('Error: ' + error);
