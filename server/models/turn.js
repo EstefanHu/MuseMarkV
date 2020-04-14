@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const turnSchema = newSchema({
+const turnSchema = new Schema({
   position: {
     type: Number,
     requrie: true,
