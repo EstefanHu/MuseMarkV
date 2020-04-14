@@ -51,7 +51,14 @@ const storySchema = new Schema({
     type: [nodeSchema],
     required: true
   },
-  author
+  createdAt: {
+    type: Date,
+    default: Date.now
+  },
+  authorId: {
+    type: String,
+    required: true
+  }
 });
 
 module.exports = mongoose.model('Story', storySchema);

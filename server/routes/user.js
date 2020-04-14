@@ -47,7 +47,7 @@ router.put('/:id', async (req, res) => {
     user.email = req.body.email;
     user.password = req.body.password;
     user = await user.save();
-    res.send('Successfully saved user as: ' + user); //TODO: Dev only
+    res.send('Successfully updated User'); //TODO: Dev only
   } catch(error) {
     res.type('text').status(500).send('Error:  ' + error);
   }
