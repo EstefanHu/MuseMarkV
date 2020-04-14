@@ -13,7 +13,7 @@ router.post('/create', async (req, res) => {
     user.email = req.body.email;
     user.password = req.body.password;
     user = await user.save();
-    res.json({ id: userId });
+    res.json({ id: user.id });
 
   } catch(error) {
     res.type('text').status(500).send('Error: ' + error);

@@ -34,4 +34,10 @@ const userSchema = new Schema({
     timestamps: true
 });
 
+userSchema.pre('save', function(next) {
+    let user = this;
+    if(!user.isModified('password')) return next();
+    bcrypt.genSalt
+})
+
 module.exports = mongoose.model('User', userSchema);
