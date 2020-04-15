@@ -2,7 +2,7 @@ const router = require('express').Router();
 const User = require('./../models/user');
 const bcrypt = require('bcrypt');
 
-router.post('/create', async (req, res) => {
+router.post('/register', async (req, res) => {
   try {
     let checkIfUserExist = await User.findOne({ email: req.body.email });
     if (checkIfUserExist) res.json({'Error': 'User Already exists'});
