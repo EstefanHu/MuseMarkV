@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const User = require('./../models/user');
+const bcrypt = require('bcrypt');
 
 router.post('/create', async (req, res) => {
   try {
@@ -22,10 +23,19 @@ router.post('/create', async (req, res) => {
 router.post('/login', async (req, res) => {
   try {
     let user = await User.findOne({ email: req.body.email });
-    if (!user || user.password !== req.password)
-      res.send('Email or Password was incorrect');
 
-    res.json({ userId: user.id });
+    if (!user)
+      res.send('Email or Password was incorrect');
+    
+    bcrypt.compare(req.body.password, user.password, function(err, isMatch) {
+      if (err) {
+        throw err;
+      } else if (!isMatch) {
+        res.send('Email or Password was incorrect');
+      } else {
+        res.json({ userId: user.id });
+      }
+    });
   } catch(error) {
     res.type('text').status(500).send('Error:  ' + error);
   }
