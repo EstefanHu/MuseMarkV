@@ -27,6 +27,7 @@ router.post('/login', async (req, res) => {
     if (!user)
       res.send('Email or Password was incorrect');
     
+    //https://coderrocketfuel.com/article/using-bcrypt-to-hash-and-check-passwords-in-node-js
     bcrypt.compare(req.body.password, user.password, function(err, isMatch) {
       if (err) {
         throw err;
