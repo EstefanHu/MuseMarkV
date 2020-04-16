@@ -29,14 +29,6 @@ const nodeSchema = new Schema({
   }
 });
 
-nodeSchema.pre('validate', function(next) {
-  if (this.markdown) {
-    this.sanitizedHtml = dompurify.sanitize(marked(this.markdown));
-  }
-
-  next();
-});
-
 const summarySchema = new Schema({
   type: {
     type: String,
@@ -75,5 +67,24 @@ const storySchema = new Schema({
     required: true
   }
 });
+
+storySchema.pre('validate', function(next) {
+  for (let i = 0; i < this.route.length; i++) {
+    if (this.route[i].markdown) {
+      this.route[i].sanitizedHtml = dompurify.sanitize(marked(this.route[i].markdown));
+    }
+  }
+
+  next();
+});
+
+// TODO: Test if subdocument validations work
+// nodeSchema.pre('validate', function(next) {
+//   if (this.markdown) {
+//     this.sanitizedHtml = dompurify.sanitize(marked(this.markdown));
+//   }
+
+//   next();
+// });
 
 module.exports = mongoose.model('Story', storySchema);
