@@ -1,5 +1,9 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+const marked = require('marked');
+const createDomPurify = require('dompurify');
+const { JSDOM } = require('jsdom');
+const dompurify = createDomPurify(new JSDOM().window);
 
 const nodeSchema = new Schema({
   type: {
@@ -15,10 +19,22 @@ const nodeSchema = new Schema({
     type: String,
     trim: true,
   },
-  content: {
+  markdown: {
     type: String,
     trim: true,
+  },
+  sanitizedHtml: {
+    type: String,
+    requried: true
   }
+});
+
+nodeSchema.pre('validate', function(next) {
+  if (this.markdown) {
+    this.sanitizedHtml = dompurify.sanitize(marked(this.markdown));
+  }
+
+  next();
 });
 
 const summarySchema = new Schema({

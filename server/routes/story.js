@@ -3,7 +3,15 @@ const Story = require('./../models/story');
 
 router.post('/create', async (req, res) => {
   try {
+    let story = new Story();
+    story.title = req.body.title;
+    story.description = req.body.description;
+    story.location = req.body.location;
+    story.route = req.body.route;
+    story.authorId = req.body.authorId;
+    story = await story.save();
 
+    res.json('Created story: ' + story);
   } catch(error) {
     res.type('text').status(500).send('Error: ' + error);
   }
@@ -33,9 +41,12 @@ router.put('/:id', async (req, res) => {
   try {
     let story = await Story.findById(req.params.id);
     story.title = req.body.title;
-    // TODO: Override story
-
+    story.description = req.body.description;
+    story.location = req.body.location;
+    story.route = req.body.route;
+    story.authorId = req.body.authorId;
     story = await story.save();
+    
     res.send('Successfully saved story as: ' + story);;
   } catch(error) {
     res.type('text').status(500).send('Error: ' + error);
