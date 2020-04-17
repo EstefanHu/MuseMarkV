@@ -4,6 +4,7 @@ import { PitchContext } from '../../../../../context';
 import ReactMapGl from 'react-map-gl';
 
 import '../create.css';
+import { Banner } from './banner';
 import { Actions } from './actions';
 import { Story } from './story';
 import { StoryNodes } from './storyNodes';
@@ -107,6 +108,7 @@ export const Map = props => {
         />
         <StoryRoute nodes={ story } />
       </ReactMapGl>
+      <Banner />
       <Actions
         triggerAction={chosenAction => setAction(chosenAction)}
         action={ action }
