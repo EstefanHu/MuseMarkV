@@ -108,7 +108,7 @@ export const Map = props => {
         />
         <StoryRoute nodes={ story } />
       </ReactMapGl>
-      <Banner />
+      <Banner togglePitch={() => props.togglePitch()} />
       <Actions
         triggerAction={chosenAction => setAction(chosenAction)}
         action={ action }
