@@ -2,19 +2,12 @@ import React, { useState, useEffect }from 'react';
 
 import './create.css';
 import { Map } from './components/map';
-import { Base } from './components/base';
+import { Pitch } from './components/pitch';
 import Loading from '../../layout/loading';
-
-import { StoryContext } from '../../context';
 
 export const Create = props => {
   const [api, setApi] = useState('');
-  const [base, setBase] = useState(true);
-  const [initial, setInitial] = useState({
-    "title": "",
-    "descriptiom": "",
-    "location": [],
-  });
+  const [pitch, setPitch] = useState(true);
 
   useEffect(() => {
     fetch('http://localhost:4000/api')
@@ -48,21 +41,19 @@ export const Create = props => {
   // }
 
   return (
-    <StoryContext.Provider value={{ initial, setInitial }}>
+    <>
       {api !== '' ? (
         <Map
           apikey={ api }
-          initial={ initial }
         />
       ) : (
         <Loading />
       )}
-      {base &&
-        <Base
-          initial={ initial }
-          toggleBase={() => setBase(base => !base)}
+      {pitch &&
+        <Pitch
+          togglePitch={() => setPitch(pitch => !pitch)}
         />
       }
-    </StoryContext.Provider>
+    </>
   )
 }

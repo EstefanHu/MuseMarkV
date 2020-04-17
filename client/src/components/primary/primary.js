@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Route } from 'react-router-dom';
 
 import Dashboard from './components/dashboard/dashboard';
@@ -8,14 +8,23 @@ import More from './components/more/more';
 
 import Nav from './layout/nav/nav';
 
-export const Primary = () => (
-    <>
-        <Nav />
-        <main>
-            <Route path='/app/dashboard' component={Dashboard} />
-            <Route path='/app/create' component={Create} />
-            <Route path='/app/story/:id' component={Story} />
-            <Route path='/app/more' component={More} />
-        </main>
-    </>
-)
+import { StoryContext } from '../../context';
+
+export const Primary = () => {
+    const [pitch, setPitch] = useState({
+                                        "title": "",
+                                        "descriptiom": "",
+                                        "location": [],
+                                    });
+    return (
+        <StoryContext.Provider value={{ pitch, setPitch }}>
+            <Nav />
+            <main>
+                <Route path='/app/dashboard' component={Dashboard} />
+                <Route path='/app/create' component={Create} />
+                <Route path='/app/story/:id' component={Story} />
+                <Route path='/app/more' component={More} />
+            </main>
+        </StoryContext.Provider>
+    )
+}

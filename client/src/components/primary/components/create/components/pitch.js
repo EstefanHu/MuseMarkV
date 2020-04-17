@@ -1,13 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 
-export const Base = props => {
-  const [title, setTitle] = useState(props.title);
-  const [description, setDescription] = useState(props.description);
-  const [location, setLocation] = useState(props.location);
+import { StoryContext } from '../../../../../context';
+
+export const Pitch = props => {
+  const { initial, setInitial } = useContext(StoryContext);
+  const [title, setTitle] = useState(initial.title);
+  const [description, setDescription] = useState(initial.description);
+  const [location, setLocation] = useState(initial.location);
 
   const handleSubmit = e => {
     e.preventDefault();
-    props.toggleBase();
+    setInitial({
+      "title": "Testing",
+      "Description": "",
+      "location": []
+    });
+    props.togglePitch();
   }
 
   return (
