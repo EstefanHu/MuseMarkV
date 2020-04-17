@@ -12,7 +12,7 @@ export const Pitch = props => {
     e.preventDefault();
     setPitch({
       "title": title,
-      "Description": description,
+      "description": description,
       "location": location
     });
     props.togglePitch();

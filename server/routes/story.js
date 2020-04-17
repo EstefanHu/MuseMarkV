@@ -3,6 +3,8 @@ const Story = require('./../models/story');
 
 router.post('/create', async (req, res) => {
   try {
+    console.log('====================');
+    console.log(req.body);
     let story = new Story();
     story.title = req.body.title;
     story.description = req.body.description;
