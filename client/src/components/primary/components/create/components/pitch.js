@@ -4,16 +4,16 @@ import { PitchContext } from '../../../../../context';
 
 export const Pitch = props => {
   const { pitch, setPitch } = useContext(PitchContext);
-  const [title, setTitle] = useState(initial.title);
-  const [description, setDescription] = useState(initial.description);
-  const [location, setLocation] = useState(initial.location);
+  const [title, setTitle] = useState(pitch.title);
+  const [description, setDescription] = useState(pitch.description);
+  const [location, setLocation] = useState(pitch.location);
 
   const handleSubmit = e => {
     e.preventDefault();
-    setInitial({
-      "title": "Testing",
-      "Description": "",
-      "location": []
+    setPitch({
+      "title": title,
+      "Description": description,
+      "location": location
     });
     props.togglePitch();
   }
