@@ -2,10 +2,17 @@ import React, { useState, useEffect }from 'react';
 
 import './create.css';
 import { Map } from './components/map';
+import { Base } from './components/base';
 import Loading from '../../layout/loading';
 
 export const Create = props => {
   const [api, setApi] = useState('');
+  const [base, setBase] = useState(true);
+  const [initial, setInitial] = useState({
+    "title": "",
+    "descriptiom": "",
+    "location": "",
+  });
 
   useEffect(() => {
     fetch('http://localhost:4000/api')
@@ -40,11 +47,19 @@ export const Create = props => {
 
   return (
     <>
+      
       {api !== '' ? (
         <Map apikey={ api } />
       ) : (
         <Loading />
       )}
+      {base &&
+        <Base
+          initial={ initial }
+          toggleBase={() => setBase(base => !base)}
+          setInitial={() => setInitial(initial)}
+        />
+      }
     </>
   )
 }

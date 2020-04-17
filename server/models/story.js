@@ -52,7 +52,7 @@ const storySchema = new Schema({
   },
   location: {
     type: summarySchema,
-    required: true
+    // required: true
   },
   route: {
     type: [nodeSchema],

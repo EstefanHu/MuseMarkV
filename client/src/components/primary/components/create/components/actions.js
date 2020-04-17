@@ -5,8 +5,7 @@ export const Actions = props => {
     'Add Node',
     'Add Turn',
     'Edit',
-    'Remove',
-    'Save'
+    'Remove'
   ]
 
   return (
@@ -24,6 +23,11 @@ export const Actions = props => {
           { item }
         </button>
       ))}
+      <button
+        onClick={() => props.saveStory()}
+      >
+        Save
+      </button>
     </div>
   )
 }

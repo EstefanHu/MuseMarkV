@@ -12,6 +12,7 @@ router.post('/create', async (req, res) => {
     story = await story.save();
 
     res.json('Created story: ' + story);
+    console.log('created ' + story);
   } catch(error) {
     res.type('text').status(500).send('Error: ' + error);
   }

@@ -61,8 +61,6 @@ export const Map = props => {
       if (node.type === 'node') {
         editNode(node);
       }
-    } else if (action === 'Save') {
-      console.log('hello');
     }
     setAction(null);
   }
@@ -70,6 +68,22 @@ export const Map = props => {
   const editNode = node => {
     setTempNode(node);
     setIsWriting(isWriting => !isWriting);
+  }
+
+  const saveStory = () => {
+    const requestOptions = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        "title": "story",
+        "description": "description",
+        "route": [],
+        "authorId": 1
+      })
+    };
+    fetch('http://localhost:4000/story/create', requestOptions)
+      .then(res => res.json())
+      .catch(console.error);
   }
 
   return (
@@ -92,6 +106,7 @@ export const Map = props => {
       <Actions
         triggerAction={chosenAction => setAction(chosenAction)}
         action={ action }
+        saveStory={ saveStory }
       />
       <Story
         nodes={ story }

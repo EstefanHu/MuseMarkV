@@ -6,7 +6,7 @@ export const Write = props => {
   const [longitude, setLongitude] = useState(props.tempNode.coords[0]);
   const [latitude, setLatitude] = useState(props.tempNode.coords[1]);
 
-  useEffect(()=> {
+  useEffect(() => {
     const modal = document.getElementById('writeModal');
     const modalToggle = e => {
       if (e.target === modal) {
