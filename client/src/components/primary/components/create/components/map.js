@@ -16,7 +16,7 @@ export const Map = props => {
     height: '100vh',
     zoom: 15
   });
-  const [nodes, setNodes] = useState([]);
+  const [story, setStory] = useState([]);
   const [tempNode, setTempNode] = useState(null);
   const [action, setAction] = useState(null);
   const [isWriting, setIsWriting] = useState(false);
@@ -24,7 +24,7 @@ export const Map = props => {
   const addToMap = e => {
     if (action === 'Add Node') {
       setTempNode({
-        "position": nodes.length,
+        "position": story.length,
         "title": '',
         "content": '',
         "coords": e.lngLat
@@ -33,7 +33,7 @@ export const Map = props => {
     } else if (action === 'Add Turn') {
       updateStory({
         "type": "turn",
-        "position": nodes.length,
+        "position": story.length,
         "coords": e.lngLat
       });
     }
@@ -41,26 +41,28 @@ export const Map = props => {
   }
 
   const updateStory = node => {
-    if (nodes.length < node.position + 1) {
-      setNodes([...nodes, node]);
+    if (story.length < node.position + 1) {
+      setStory([...story, node]);
     } else {
-      let newNodes = nodes;
-      newNodes[node.position] = node;
-      setNodes(newNodes);
+      let newstory = story;
+      newstory[node.position] = node;
+      setStory(newstory);
     }
   }
 
   const engageNode = nodeId => {
     if (action === 'Remove') {
-      nodes.splice(nodeId, 1);
-      for (let i = 0; i < nodes.length; i++) {
-        nodes[i].position = i;
+      story.splice(nodeId, 1);
+      for (let i = 0; i < story.length; i++) {
+        story[i].position = i;
       }
     } else if (action === 'Edit') {
-      let node = nodes[nodeId];
+      let node = story[nodeId];
       if (node.type === 'node') {
         editNode(node);
       }
+    } else if (action === 'Save') {
+      console.log('hello');
     }
     setAction(null);
   }
@@ -82,17 +84,17 @@ export const Map = props => {
         onClick={e => addToMap(e)}
       >
         <StoryNodes
-          plottedNodes={ nodes }
+          plottedNodes={ story }
           engageNode={ engageNode }
         />
-        <StoryRoute nodes={ nodes } />
+        <StoryRoute nodes={ story } />
       </ReactMapGl>
       <Actions
         triggerAction={chosenAction => setAction(chosenAction)}
         action={ action }
       />
       <Story
-        nodes={ nodes }
+        nodes={ story }
         editNode={node => editNode(node)}
       />
       {isWriting &&

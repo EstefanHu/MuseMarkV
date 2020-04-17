@@ -2,11 +2,11 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  width: 400px; height: 48px;
+  width: 550px; height: 48px;
   position: absolute;
   bottom: 10px;
   left: 50%;
-  margin-left: -200px;
+  margin-left: -275px;
   background: white;
   border-radius: 5px;
   box-shadow: 4px 4px 10px grey;
@@ -15,7 +15,7 @@
 #actions button {
   border: none;
   border-radius: 5px;
-  width: 80px; height: 34px;
+  width: 100px; height: 34px;
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
@@ -24,6 +24,15 @@
 #actions button:hover,
 #actions button:focus {
   background-color: rgb(245, 245, 245);
+}
+
+#actions button:last-of-type {
+  background-color: var(--color-accent);
+  color: white;
+}
+
+#actions button:last-of-type:hover {
+  background-color: var(--color-accent-secondary);
 }
 
 .storytracker {

@@ -5,7 +5,8 @@ export const Actions = props => {
     'Add Node',
     'Add Turn',
     'Edit',
-    'Remove'
+    'Remove',
+    'Save'
   ]
 
   return (

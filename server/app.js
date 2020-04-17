@@ -28,7 +28,7 @@ mongoose.connection.once('open', () => {
     console.log('Connection Error: ' + err);
 });
 
-app.get('/map/api', (req, res) => {
+app.get('/api', (_, res) => {
     try {
         res.json(process.env.MAPBOX_ACCESS_TOKEN);
     } catch(error) {
