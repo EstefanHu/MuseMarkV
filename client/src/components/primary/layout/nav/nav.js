@@ -54,8 +54,8 @@ const Nav = () => {
         >
             <div id='nav__logo'>
                 {isOpen 
-                    ? <h3>The Muse Project</h3>
-                    : <h3>M</h3>
+                    ? <h3>Project:Muse</h3>
+                    : <h3>:M</h3>
                 }
             </div>
             <ul>
