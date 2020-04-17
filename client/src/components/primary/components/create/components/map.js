@@ -75,8 +75,8 @@ export const Map = props => {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        "title": "story",
-        "description": "description",
+        "title": props.initial.title,
+        "description": props.initial.description,
         "route": [],
         "authorId": 1
       })

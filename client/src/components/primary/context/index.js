@@ -1,3 +1,4 @@
 import { createContext } from 'react';
 
-export const StoryContext = createContext({});
+export const UserContext = createContext(null);
+export const StoryContext = createContext(null);

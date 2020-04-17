@@ -7,11 +7,6 @@ export const Base = props => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    props.setInitial({
-      "title": title,
-      "description": description,
-      "location": location
-    });
     props.toggleBase();
   }
 

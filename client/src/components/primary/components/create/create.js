@@ -5,13 +5,15 @@ import { Map } from './components/map';
 import { Base } from './components/base';
 import Loading from '../../layout/loading';
 
+import { StoryContext } from '../../context';
+
 export const Create = props => {
   const [api, setApi] = useState('');
   const [base, setBase] = useState(true);
   const [initial, setInitial] = useState({
     "title": "",
     "descriptiom": "",
-    "location": "",
+    "location": [],
   });
 
   useEffect(() => {
@@ -46,10 +48,12 @@ export const Create = props => {
   // }
 
   return (
-    <>
-      
+    <StoryContext.Provider value={{ initial, setInitial }}>
       {api !== '' ? (
-        <Map apikey={ api } />
+        <Map
+          apikey={ api }
+          initial={ initial }
+        />
       ) : (
         <Loading />
       )}
@@ -57,9 +61,8 @@ export const Create = props => {
         <Base
           initial={ initial }
           toggleBase={() => setBase(base => !base)}
-          setInitial={() => setInitial(initial)}
         />
       }
-    </>
+    </StoryContext.Provider>
   )
 }
