@@ -57,7 +57,7 @@
 
 #actions button:hover,
 #actions button:focus {
-  background-color: rgb(245, 245, 245);
+  background-color: var(--color-accent-tertiary);
 }
 
 #actions button:last-of-type {
