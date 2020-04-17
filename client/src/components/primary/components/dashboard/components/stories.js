@@ -16,7 +16,7 @@ export const Stories = () => {
   return storiesMade ? (
     <>
       {storiesMade.map(item => (
-        <Story key={ item.id } id={ item.id } title={ item.title } />
+        <Story key={ item._id } id={ item._id } title={ item.title } />
       ))}
     </>
   ) : (
