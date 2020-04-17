@@ -1,9 +1,9 @@
 import React, { useState, useContext } from 'react';
 
-import { StoryContext } from '../../../../../context';
+import { PitchContext } from '../../../../../context';
 
 export const Pitch = props => {
-  const { initial, setInitial } = useContext(StoryContext);
+  const { pitch, setPitch } = useContext(PitchContext);
   const [title, setTitle] = useState(initial.title);
   const [description, setDescription] = useState(initial.description);
   const [location, setLocation] = useState(initial.location);

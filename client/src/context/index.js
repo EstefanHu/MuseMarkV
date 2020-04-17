@@ -1,7 +1,7 @@
 import { createContext } from 'react';
 
 export const UserContext = createContext(null);
-export const StoryContext = createContext({
+export const PitchContext = createContext({
                                             "title": "Testing",
                                             "Description": "",
                                             "location": []

@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { StoryContext } from '../../../../../context';
+import { PitchContext } from '../../../../../context';
 
 import ReactMapGl from 'react-map-gl';
 
@@ -11,7 +11,7 @@ import { StoryRoute } from './storyRoute';
 import { Write } from './write';
 
 export const Map = props => {
-  const {initial} = useContext(StoryContext);
+  const { pitch } = useContext(PitchContext);
   const [viewport, setViewport] = useState({
     latitude: 47.655548,
     longitude: -122.3032,
