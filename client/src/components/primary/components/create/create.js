@@ -43,16 +43,12 @@ export const Create = props => {
   return (
     <>
       {api !== '' ? (
-        <Map
-          apikey={ api }
-        />
+        <Map apikey={ api } />
       ) : (
         <Loading />
       )}
       {pitch &&
-        <Pitch
-          togglePitch={() => setPitch(pitch => !pitch)}
-        />
+        <Pitch togglePitch={() => setPitch(pitch => !pitch)} />
       }
     </>
   )
