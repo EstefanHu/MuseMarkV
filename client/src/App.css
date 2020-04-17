@@ -43,7 +43,7 @@
 }
 
 .primaryNav li:hover * {
-    color: orange;
+    color: var(--color-accent);
     font-weight: 400;
     cursor: pointer;
 }
