@@ -46,7 +46,10 @@ export const Pitch = props => {
           />
           <span className='storyNode__horizontal'>
             <input className='plotNode' type='submit' value='Start Story' />
-            <button className='cancelNode'>Cancel</button>
+            <button
+              className='cancelNode'
+              type='button'
+            >Cancel</button>
           </span>
         </form>
       </div>

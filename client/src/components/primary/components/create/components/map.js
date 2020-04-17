@@ -11,7 +11,7 @@ import { StoryRoute } from './storyRoute';
 import { Write } from './write';
 
 export const Map = props => {
-  const { pitch } = useContext(PitchContext);
+  const {pitch, setPitch} = useContext(PitchContext);
   const [viewport, setViewport] = useState({
     latitude: 47.655548,
     longitude: -122.3032,
@@ -87,6 +87,7 @@ export const Map = props => {
     fetch('http://localhost:4000/story/create', requestOptions)
       .then(res => res.json())
       .catch(console.error);
+    setPitch(null);
   }
 
   return (

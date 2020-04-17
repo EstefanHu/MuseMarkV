@@ -13,7 +13,7 @@ import { PitchContext } from '../../context';
 export const Primary = () => {
     const [pitch, setPitch] = useState({
                                         "title": "",
-                                        "descriptiom": "",
+                                        "description": "",
                                         "location": [],
                                     });
     return (
