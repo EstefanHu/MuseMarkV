@@ -28,6 +28,14 @@ mongoose.connection.once('open', () => {
     console.log('Connection Error: ' + err);
 });
 
+app.get('/map/api', (req, res) => {
+    try {
+        res.json(process.env.MAPBOX_ACCESS_TOKEN);
+    } catch(error) {
+        res.type('text').status(500).send('Error: ' + error);
+    }
+});
+
 const userRouter = require('./routes/user');
 app.use('/user', userRouter);
 
