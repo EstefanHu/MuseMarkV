@@ -6,14 +6,12 @@ export const Pitch = props => {
   const { pitch, setPitch } = useContext(PitchContext);
   const [title, setTitle] = useState(pitch.title);
   const [description, setDescription] = useState(pitch.description);
-  const [location, setLocation] = useState(pitch.location);
 
   const handleSubmit = e => {
     e.preventDefault();
     setPitch({
       "title": title,
       "description": description,
-      "location": location
     });
     props.togglePitch();
   }
@@ -36,13 +34,6 @@ export const Pitch = props => {
             value={ description }
             onChange={e => setDescription(e.target.value)}
             placeholder='Describe the Story'
-          />
-          <input
-            className='storyNode__input'
-            type='text'
-            value={ location }
-            onChange={e => setLocation(e.target.value)}
-            placeholder='Initial Location'
           />
           <span className='storyNode__horizontal'>
             <input className='plotNode' type='submit' value='Start Story' />

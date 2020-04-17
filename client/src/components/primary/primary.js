@@ -14,7 +14,6 @@ export const Primary = () => {
     const [pitch, setPitch] = useState({
                                         "title": "",
                                         "description": "",
-                                        "location": [],
                                     });
     return (
         <PitchContext.Provider value={{ pitch, setPitch }}>
