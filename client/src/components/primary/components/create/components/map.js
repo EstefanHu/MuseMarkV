@@ -76,14 +76,13 @@ export const Map = props => {
   }
 
   const saveStory = () => {
-    console.log(story);
     const requestOptions = {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         "title": pitch.title,
         "description": pitch.description,
-        "route": [],
+        "route": story,
         "authorId": 1
       })
     };
