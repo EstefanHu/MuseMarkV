@@ -31,18 +31,6 @@ const nodeSchema = new Schema({
   }
 });
 
-const summarySchema = new Schema({
-  type: {
-    type: String,
-    enum: ['Point'],
-    required: true
-  },
-  coordinates: {
-    type: [Number],
-    required: true
-  }
-})
-
 const storySchema = new Schema({
   title: {
     type: String,
@@ -53,8 +41,8 @@ const storySchema = new Schema({
     required: true
   },
   location: {
-    type: summarySchema,
-    // required: true
+    type: [Number],
+    required: true
   },
   route: {
     type: [nodeSchema],
