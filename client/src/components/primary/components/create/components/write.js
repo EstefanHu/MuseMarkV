@@ -23,7 +23,7 @@ export const Write = props => {
   const handleSubmit = e => {
     e.preventDefault();
     const newNode = {
-      "type": 'node',
+      "type": props.tempNode.type,
       "position": props.tempNode.position,
       "name": name,
       "markdown": markdown,

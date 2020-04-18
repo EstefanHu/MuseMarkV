@@ -28,6 +28,7 @@ export const Map = props => {
   const addToMap = e => {
     if (action === 'Add Node') {
       setTempNode({
+        "type": "node",
         "position": story.length,
         "name": '',
         "markdown": '',

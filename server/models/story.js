@@ -6,9 +6,12 @@ const { JSDOM } = require('jsdom');
 const dompurify = createDomPurify(new JSDOM().window);
 
 const nodeSchema = new Schema({
+  position: {
+    type: Number,
+    required: true
+  },
   type: {
     type: String,
-    enum: ['Point'],
     required: true
   },
   coordinates: {
@@ -25,7 +28,6 @@ const nodeSchema = new Schema({
   },
   sanitizedHtml: {
     type: String,
-    requried: true
   }
 });
 
