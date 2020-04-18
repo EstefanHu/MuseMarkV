@@ -82,6 +82,7 @@ export const Map = props => {
       body: JSON.stringify({
         "title": pitch.title,
         "description": pitch.description,
+        "location": story[0].coordinates,
         "route": story,
         "authorId": 1 //TODO: Chagne to call current UserId
       })
