@@ -83,7 +83,7 @@ export const Map = props => {
         "title": pitch.title,
         "description": pitch.description,
         "route": story,
-        "authorId": 1
+        "authorId": 1 //TODO: Chagne to call current UserId
       })
     };
     fetch('http://localhost:4000/story/create', requestOptions)
