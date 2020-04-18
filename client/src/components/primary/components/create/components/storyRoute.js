@@ -15,8 +15,8 @@ export const StoryRoute = props => (
             "geometry": {
               "type": "LineString",
               "coordinates": [
-                node.coords,
-                props.nodes[index + 1].coords
+                node.coordinates,
+                props.nodes[index + 1].coordinates
               ]
             }
           }

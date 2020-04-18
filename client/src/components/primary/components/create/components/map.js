@@ -29,16 +29,16 @@ export const Map = props => {
     if (action === 'Add Node') {
       setTempNode({
         "position": story.length,
-        "title": '',
-        "content": '',
-        "coords": e.lngLat
+        "name": '',
+        "markdown": '',
+        "coordinates": e.lngLat
       });
       setIsWriting(isWriting => !isWriting);
     } else if (action === 'Add Turn') {
       updateStory({
         "type": "turn",
         "position": story.length,
-        "coords": e.lngLat
+        "coordinates": e.lngLat
       });
     }
     setAction(null);
@@ -75,6 +75,7 @@ export const Map = props => {
   }
 
   const saveStory = () => {
+    console.log(story);
     const requestOptions = {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },

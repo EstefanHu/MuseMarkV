@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 
 export const Write = props => {
-  const [title, setTitle] = useState(props.tempNode.title);
-  const [content, setContent] = useState(props.tempNode.content);
-  const [longitude, setLongitude] = useState(props.tempNode.coords[0]);
-  const [latitude, setLatitude] = useState(props.tempNode.coords[1]);
+  const [name, setName] = useState(props.tempNode.name);
+  const [markdown, setMarkdown] = useState(props.tempNode.markdown);
+  const [longitude, setLongitude] = useState(props.tempNode.coordinates[0]);
+  const [latitude, setLatitude] = useState(props.tempNode.coordinates[1]);
 
   useEffect(() => {
     const modal = document.getElementById('writeModal');
@@ -25,9 +25,9 @@ export const Write = props => {
     const newNode = {
       "type": 'node',
       "position": props.tempNode.position,
-      "title": title,
-      "content": content,
-      "coords": [longitude, latitude]
+      "name": name,
+      "markdown": markdown,
+      "coordinates": [longitude, latitude]
     }
     props.updateStory(newNode);
     props.toggleIsWriting();
@@ -43,9 +43,9 @@ export const Write = props => {
           <input
             className='storyNode__input'
             type='text'
-            value={ title }
-            onChange={e => setTitle(e.target.value)}
-            placeholder='Create a Title for this Node'
+            value={ name }
+            onChange={e => setName(e.target.value)}
+            placeholder='Create a Name for this Node'
           />
           <label>Longitude</label>
           <input
@@ -53,7 +53,7 @@ export const Write = props => {
             type='text'
             value={ longitude }
             onChange={e => setLongitude(e.target.value)}
-            placeholder={ props.tempNode.coords[0] }
+            placeholder={ props.tempNode.coordinates[0] }
             disabled
           />
           <label>Latitude</label>
@@ -62,15 +62,15 @@ export const Write = props => {
             type='text'
             value={ latitude }
             onChange={e => setLatitude(e.target.value)}
-            placeholder={ props.tempNode.coords[1] }
+            placeholder={ props.tempNode.coordinates[1] }
             disabled
           />
           <label>Content of Story Node</label>
           <textarea
             className='storyNode__input'
             type='text'
-            value={ content }
-            onChange={e => setContent(e.target.value)}
+            value={ markdown }
+            onChange={e => setMarkdown(e.target.value)}
             placeholder='Content'
           />
           <span className='storyNode__horizontal'>

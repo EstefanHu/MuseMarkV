@@ -10,8 +10,8 @@ export const StoryNodes = props => {
         node.type === 'node' ? (
           <Marker
             key={node.position}
-            latitude={node.coords[1]}
-            longitude={node.coords[0]}
+            latitude={node.coordinates[1]}
+            longitude={node.coordinates[0]}
             offsetLeft={-25}
             offsetTop={-47}
           >
@@ -23,8 +23,8 @@ export const StoryNodes = props => {
         ) : (
           <Marker
             key={node.position}
-            latitude={node.coords[1]}
-            longitude={node.coords[0]}
+            latitude={node.coordinates[1]}
+            longitude={node.coordinates[0]}
             offsetLeft={-6.5}
             offsetTop={-8}
           >
