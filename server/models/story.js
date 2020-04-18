@@ -80,13 +80,4 @@ storySchema.pre('validate', function(next) {
   next();
 });
 
-// TODO: Test if subdocument validations work
-// nodeSchema.pre('validate', function(next) {
-//   if (this.markdown) {
-//     this.sanitizedHtml = dompurify.sanitize(marked(this.markdown));
-//   }
-
-//   next();
-// });
-
 module.exports = mongoose.model('Story', storySchema);
