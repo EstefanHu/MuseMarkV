@@ -1,11 +1,18 @@
 @import url('https://fonts.googleapis.com/css?family=Heebo:400,700&display=swap');
 
+#landing {
+  background: rgb(245, 245, 245);
+  position: absolute;
+  height: 100vh; width: 100vw;
+}
+
 #signup {
-  width: 800px;
-  height: 600px;
+  width: 800px; height: 600px;
+  margin: 15vh auto;
   display: flex;
   overflow: hidden;
   box-shadow: 12px 12px 10px 2px rgba(0, 0, 0, .1);
+  border-radius: 5px;
   background: transparent;
 }
 
