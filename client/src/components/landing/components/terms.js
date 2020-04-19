@@ -1,12 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class Terms extends Component {
-  render() {
-    return (
-      <>
-      </>
-    )
-  } 
-}
-
-export default Terms;
+export const Terms = () => (
+  <section>
+    <h1>Hello from Terms</h1>
+  </section>
+)

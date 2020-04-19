@@ -1,12 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class Privacy extends Component {
-  render() {
-    return (
-      <>
-      </>
-    )
-  }
-}
-
-export default Privacy;
+export const Privacy = () => (
+  <section>
+    <h1>Hello From Privacy</h1>
+  </section>
+)

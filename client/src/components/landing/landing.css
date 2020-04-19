@@ -1,180 +1,108 @@
 @import url('https://fonts.googleapis.com/css?family=Heebo:400,700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Archivo+Narrow:ital,wght@1,700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap');
 
-:root {
-  --content-width: 600px;
-}
-
-#landing {
-  overflow: auto;
-  position: relative;
+#signup {
+  width: 800px;
+  height: 600px;
+  display: flex;
   overflow: hidden;
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 60px;
+  box-shadow: 12px 12px 10px 2px rgba(0, 0, 0, .1);
+  background: transparent;
 }
 
-.video-bg {
-  position: absolute;
-  top: 50%; left: 50%;
-  transform: translate(-50%, -50%);
-  min-width: 100%;
-  min-height: 100%;
-  z-index: -1;
+#signup div {
+  width: 50%;
+  height: 100%;
+  position: relative
 }
 
-.landing__contact {
-  width: 80vw;
-  margin: 0 auto;
+#splash {
+  background-image: url('./img/landing.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+#splash h1 {
   color: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-}
-
-.landing__contact h1 {
-  font-size: 1.4rem;
+  font-size: 10rem;
   font-weight: bold;
-  text-shadow: 1px 1px grey;
-  font-family: 'Oswald', sans-serif;
-}
-
-.landing__contact span {
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-}
-
-.landing__body {
-  height: 80vh;
-  width: var(--content-width);
+  font-style: italic;
   position: absolute;
-  top: 60px; right: 10vw;
-  text-align: center;
+  bottom: -10px;
+  right: -45px;
 }
 
-.landing__body:hover {
-}
-
-.landing__body--title {
-  position: relative;
-}
-
-.body__title {
-  color: white;
-  position: absolute;
-  text-align: right;
-  font-weight: bold;
-  font-size: 3.5rem;
-  left: 750px;
-  width: 100%;
-  transition: .6s ease-in;
-}
-
-.landing__body--main {
-  margin-top: 100px;
-  position: absolute;
-  right: 0;
-  width: 350px;
-}
-
-.body__main {
-  position: absolute;
-  display: flex;
-  flex-direction: column; 
-  width: 100%;
-  color: white;
-  left: 750px;
-  transition: .6s ease-in;
-  transition-delay: .1s;
-}
-
-.body__main form {
-  display: flex;
-  flex-direction: column;
-  width: 350px;
-  margin: 0 auto;
-}
-
-.body__main input {
-  border: none;
-  height: 45px;
-  font-size: 1.4rem;
-  padding: 4px 15px 0 15px;
-  background: rgba(255,255,255, .5);
-  width: 100%;
-  margin-bottom: 10px;
-  border-radius: 5px;
-}
-
-.body__main input:hover,
-.body__main input:focus {
+#form__holder {
   background: white;
 }
 
-.body__main input:last-of-type {
-  cursor: pointer;
-  color: grey;
-}
-
-.body__main a {
-  color: grey;
-}
-
-.selected_subject {
-  left: 0;
-}
-
-.selectedBody_subject {
-  left: 0;
-}
-
-.landing__nav {
-  width: 80vw;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  z-index: 5;
-}
-
-.landing__nav--title {
-  color: white;
-  font-family: 'Archivo Narrow', sans-serif;
-  font-size: 4rem;
-  line-height: 5rem;
-  cursor: default;
-}
-
-.landing__nav--nav {
-  border: none;
-  color: white;
-}
-
-.landing__nav--nav ul {
-  list-style: none;
-  width: var(--content-width);
-  display: flex;
-  justify-content: space-between;
-  font-size: 1.5rem;
+#form__holder h2 {
+  font-family: 'Heebo';
+  text-align: center;
+  margin-top: 30px;
   font-weight: bold;
-  text-transform: capitalize;
+  font-size: 2rem;
 }
 
-.landing__nav--nav li {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  cursor: pointer;
+#form__holder h3 {
+text-align: center;
+color: grey;
+font-weight: 500;
+margin-bottom: 3px;
 }
 
-.landing__nav--nav li:hover,
-.landing__nav--nav li:focus {
-  text-decoration: underline;
+#form__holder form {
+  margin: 0px auto;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  width: 340px;
+  padding-top: 18px;
+  padding-bottom: 30px;
 }
 
+.signup__form--input {
+  border: none;
+  border-bottom: 1px solid grey;
+  font-size: 1.4rem;
+  margin-bottom: 20px;
+  padding: 5px 10px;
+  outline: 0;
+}
+
+.signup__form--input:focus {
+  border-bottom: 2px solid var(--color-accent-secondary);
+  padding-top: 1px;
+  padding-bottom: 8px;
+}
+
+#form__holder input[type='submit'] {
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  color: white;
+  background: var(--color-accent);
+  font-size: 1.5rem;
+  margin-top: 5px;
+  padding: 10px;
+}
+
+#form__holder input[type='submit']:focus,
+#form__holder input[type='submit']:hover,
+#indexNav__actions--signup:focus,
+#indexNav__actions--signup:hover {
+  background: var(--color-accent-secondary);
+}
+
+#form__holder p {
+  text-align: center;
+  color: grey;
+  font-size: .9rem;
+  font-weight: 500;
+}
+
+#form__holder a {
+  color: grey;
+}
 
 @media only screen and (max-width: 1200px) {}
 @media only screen and (max-width: 900px) {}

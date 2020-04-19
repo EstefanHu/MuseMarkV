@@ -3,14 +3,14 @@ import { Route } from 'react-router-dom';
 
 import './landing.css';
 
-import { Index } from './components/index/index';
-import Privacy from './components/privacy';
-import Terms from './components/terms';
+import Register from './components/register';
+import { Privacy } from './components/privacy';
+import { Terms } from './components/terms';
 
 export const Landing = () => (
     <main id='landing'>
-        <Route exact path='/' component={Index} />
+        <Route exact path='/' component={Register} />
         <Route path='/privacy' component={Privacy} />
-        <Route path='/Terms' component={Terms} />
+        <Route path='/terms' component={Terms} />
     </main>
 )
