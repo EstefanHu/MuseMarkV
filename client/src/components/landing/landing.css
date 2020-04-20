@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Heebo:400,700,900&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Heebo:400,500,700,900&display=swap');
 
 #landing__nav {
   height: 60px; width: 100vw;
@@ -17,7 +17,7 @@
   text-decoration: none;
   font-size: 2rem;
   font-weight: bold;
-  font-family: Heebo;
+  font-family: 'Heebo';
 }
 
 #login,
@@ -61,19 +61,6 @@
   width: 100vw; height: 100vh;
   color: white;
   display: flex;
-}
-
-#index div {
-  position: relative;
-  background: white;
-  width: 50%;
-  height: 100vh;
-}
-
-#index div:last-of-type {
-  background-image: url('./img/landing.png');
-  background-position: bottom;
-  background-size: cover;
 }
 
 #signup {
