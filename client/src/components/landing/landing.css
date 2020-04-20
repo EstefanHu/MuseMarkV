@@ -30,6 +30,7 @@
 }
 
 #login {
+  background-color: white;
   border: 1px solid var(--color-accent);
   margin-right: 15px;
   color: var(--color-accent);
