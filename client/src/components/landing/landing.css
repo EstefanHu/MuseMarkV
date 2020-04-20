@@ -1,32 +1,54 @@
-@import url('https://fonts.googleapis.com/css?family=Heebo:400,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Heebo:400,700,900&display=swap');
 
 #landing__nav {
-  height: 70px; width: 100vw;
+  height: 60px; width: 100vw;
   position: absolute;
-  top: 0; left: 0; right: 0;
+  top: 0; left: 0;
   z-index: 5;
-}
-
-#landing__nav ul {
-  list-style: none;
   display: flex;
-  width: fit-content; height: 70px;
-  margin: 0 auto;
+  justify-content: space-around;
+  background: white;
+  border-bottom: 1px solid lightgrey;
   align-items: center;
 }
 
-#landing__nav li {
+.logo {
+  color: var(--color-accent);
+  text-decoration: none;
+  font-size: 2rem;
+  font-weight: bold;
+  font-family: Heebo;
+}
+
+#login,
+#register {
+  border-radius: 20px;
+  height: 34px;
+  width: 100px;
+  font-size: 1rem;
   font-weight: bold;
 }
 
-#landing__nav a {
-  color: white;
-  text-decoration: none;
-  font-size: 1.5rem;
+#login {
+  border: 1px solid var(--color-accent);
+  margin-right: 15px;
+  color: var(--color-accent);
 }
 
-#landing__nav a:hover {
-  text-decoration: underline;
+#login:hover,
+#login:focus {
+  background: var(--color-accent-tertiary);
+}
+
+#register {
+  border: none;
+  background: var(--color-accent);
+  color: white;
+}
+
+#register:hover,
+#register:focus {
+  background: var(--color-accent-secondary);
 }
 
 #landing__body {
@@ -37,32 +59,21 @@
 
 #index {
   width: 100vw; height: 100vh;
-  perspective: 1px;
-  overflow-x: hidden;
-  overflow-y: auto;
   color: white;
+  display: flex;
 }
 
-#index__background {
-  transform: translateZ(-1px) scale();
-  min-width: 1500px;
-  width: 100vw;
-  height: auto;
-  position: absolute;
-  top: 0; left: 50%;
-  transform: translateX(-50%);
+#index div {
+  position: relative;
+  background: white;
+  width: 50%;
+  height: 100vh;
 }
 
-#index__content {
-  transform: translateZ(0);
-  width: 800px;
-  margin: 100px auto;
-  font-size: 1rem;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+#index div:last-of-type {
+  background-image: url('./img/landing.png');
+  background-position: bottom;
+  background-size: cover;
 }
 
 #signup {
