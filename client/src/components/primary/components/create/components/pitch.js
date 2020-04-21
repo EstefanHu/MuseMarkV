@@ -38,6 +38,7 @@ export const Pitch = props => {
             value={ title }
             onChange={e => setTitle(e.target.value)}
             placeholder='Title the Story'
+            required
           />
           <input
             className='storyNode__input'
@@ -45,6 +46,7 @@ export const Pitch = props => {
             value={ description }
             onChange={e => setDescription(e.target.value)}
             placeholder='Describe the Story'
+            required
           />
           <span className='storyNode__horizontal'>
             <input className='plotNode' type='submit' value='Start Story' />
