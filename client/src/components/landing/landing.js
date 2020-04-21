@@ -8,6 +8,7 @@ import Register from './components/register';
 import Login from './components/login';
 import { Privacy } from './components/privacy';
 import { Terms } from './components/terms';
+import { Forgot } from './components/forgot';
 
 
 export const Landing = () => (
@@ -29,7 +30,7 @@ export const Landing = () => (
             <Route path='/register' component={Register} />
             <Route path='/privacy' component={Privacy} />
             <Route path='/terms' component={Terms} />
-            <Route path='/new' component={Terms} />
+            <Route path='/forgot' component={Forgot} />
         </main>
     </>
 )

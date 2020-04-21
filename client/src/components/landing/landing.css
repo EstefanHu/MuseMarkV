@@ -64,7 +64,7 @@
   display: flex;
 }
 
-#signup {
+.landingForm {
   width: 800px; height: 600px;
   margin: 15vh auto;
   display: flex;
@@ -74,19 +74,28 @@
   background: transparent;
 }
 
-#signup div {
+.landingForm div {
   width: 50%;
   height: 100%;
   position: relative
 }
 
-#splash {
-  background-image: url('./img/register.png');
+#signinSplash,
+#signupSplash {
   background-size: cover;
   background-position: center;
 }
 
-#splash h1 {
+#signinSplash {
+  background-image: url('./img/signin.png');
+}
+
+#signupSplash {
+  background-image: url('./img/register.png');
+}
+
+#signupSplash h1,
+#signinSplash h1 {
   color: white;
   font-size: 10rem;
   font-weight: bold;
@@ -96,11 +105,11 @@
   right: -45px;
 }
 
-#form__holder {
+.form__holder {
   background: white;
 }
 
-#form__holder h2 {
+.form__holder h2 {
   font-family: 'Heebo';
   text-align: center;
   margin-top: 30px;
@@ -108,14 +117,14 @@
   font-size: 2rem;
 }
 
-#form__holder h3 {
+.form__holder h3 {
 text-align: center;
 color: grey;
 font-weight: 500;
 margin-bottom: 3px;
 }
 
-#form__holder form {
+.form__holder form {
   margin: 0px auto;
   display: flex;
   flex-direction: column;
@@ -125,7 +134,7 @@ margin-bottom: 3px;
   padding-bottom: 30px;
 }
 
-.signup__form--input {
+.landing__form--input {
   border: none;
   border-bottom: 1px solid grey;
   font-size: 1.4rem;
@@ -134,13 +143,13 @@ margin-bottom: 3px;
   outline: 0;
 }
 
-.signup__form--input:focus {
+.landing__form--input:focus {
   border-bottom: 2px solid var(--color-accent-secondary);
   padding-top: 1px;
   padding-bottom: 8px;
 }
 
-#form__holder input[type='submit'] {
+.form__holder input[type='submit'] {
   border: none;
   border-radius: 5px;
   font-weight: bold;
@@ -151,21 +160,21 @@ margin-bottom: 3px;
   padding: 10px;
 }
 
-#form__holder input[type='submit']:focus,
-#form__holder input[type='submit']:hover,
+.form__holder input[type='submit']:focus,
+.form__holder input[type='submit']:hover,
 #indexNav__actions--signup:focus,
 #indexNav__actions--signup:hover {
   background: var(--color-accent-secondary);
 }
 
-#form__holder p {
+.form__holder p {
   text-align: center;
   color: grey;
   font-size: .9rem;
   font-weight: 500;
 }
 
-#form__holder a {
+.form__holder a {
   color: grey;
 }
 

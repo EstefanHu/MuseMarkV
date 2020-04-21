@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 
 const Login = props => {
   const [email, setEmail] = useState('');
@@ -27,19 +26,24 @@ const Login = props => {
   }
 
   return (
-    <section id='login'>
-      <div id='form__holder'>
-        <h2>Log in to :Muse</h2>
+    <section className='landingForm'>
+      <div id='signinSplash'>
+        <h1>:Muse</h1>
+      </div>
+      <div className='form__holder'>
+        <h2>Log in to :Muse.</h2>
+        <h3>See what stories your</h3>
+        <h3>community is telling</h3>
         <form onSubmit={ handleSubmit}>
           <input
-            className=''
+            className='landing__form--input'
             type='text'
             value={ email }
             onChange={e => setEmail(e.target.value)}
             placeholder='Email Address'
           />
           <input
-            className=''
+            className='landing__form--input'
             type='text'
             value={ password }
             onChange={e => setPassword(e.target.value)}
@@ -47,6 +51,7 @@ const Login = props => {
           />
           <input type='submit' value='Log in' />
         </form>
+        <p><Link to='/forgot'>Forgot Password?</Link> - <Link to='/register'>Sign up for :Muse</Link></p>
       </div>
     </section>
   )
