@@ -1,4 +1,5 @@
 import React, { useState, useContext } from 'react';
+import { useHistory } from 'react-router-dom';
 
 import { PitchContext } from '../../../../../context';
 
@@ -7,6 +8,8 @@ export const Pitch = props => {
   const [title, setTitle] = useState(pitch.title);
   const [description, setDescription] = useState(pitch.description);
 
+  let history = useHistory();
+
   const handleSubmit = e => {
     e.preventDefault();
     setPitch({
@@ -14,6 +17,14 @@ export const Pitch = props => {
       "description": description,
     });
     props.togglePitch();
+  }
+
+  const cancelStory = () => {
+    setPitch({
+      "title": "",
+      "description": ""
+    });
+    history.goBack();
   }
 
   return (
@@ -40,6 +51,7 @@ export const Pitch = props => {
             <button
               className='cancelNode'
               type='button'
+              onClick={cancelStory}
             >Cancel</button>
           </span>
         </form>
