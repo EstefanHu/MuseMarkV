@@ -12,8 +12,8 @@ import { PitchContext } from '../../context';
 
 export const Primary = () => {
     const [pitch, setPitch] = useState({
-                                        "title": "Hello World",
-                                        "description": "A beginners program",
+                                        "title": "",
+                                        "description": "",
                                     });
     return (
         <PitchContext.Provider value={{ pitch, setPitch }}>
