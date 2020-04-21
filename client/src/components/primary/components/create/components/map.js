@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 import { PitchContext } from '../../../../../context';
-
+import { useHistory } from 'react-router-dom';
 import ReactMapGl from 'react-map-gl';
 
 import '../create.css';
@@ -10,6 +10,8 @@ import { Story } from './story';
 import { StoryNodes } from './storyNodes';
 import { StoryRoute } from './storyRoute';
 import { Write } from './write';
+
+let history = useHistory();
 
 export const Map = props => {
   const {pitch, setPitch} = useContext(PitchContext);
@@ -76,6 +78,7 @@ export const Map = props => {
   }
 
   const saveStory = () => {
+    if ()
     const requestOptions = {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -91,6 +94,7 @@ export const Map = props => {
       .then(res => res.json())
       .catch(console.error);
     setPitch(null);
+    history.goBack();
   }
 
   return (
