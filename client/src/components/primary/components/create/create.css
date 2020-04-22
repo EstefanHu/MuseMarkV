@@ -184,6 +184,7 @@
 
 #storyNode__form a {
   color: grey;
+  text-decoration: none;
 }
 
 #storyNode__form textarea {
