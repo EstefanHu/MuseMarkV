@@ -42,6 +42,22 @@
   font-size: 1.5rem;
 }
 
+.dashboard__item span {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.dashboard__item a {
+  color: grey;
+  text-decoration: none;
+}
+
+.dashboard__item a:hover,
+.dashboard__item a:focus {
+  text-decoration: underline;
+}
+
 @media only screen and (max-width: 1200px) {
 }
 

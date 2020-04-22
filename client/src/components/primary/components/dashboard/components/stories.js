@@ -22,9 +22,17 @@ export const Stories = () => {
         >
           <h1>{item.title}</h1>
           <p>{item.description}</p>
-          <Link
-            to={`/app/story/${ item.id }`}
-          >View</Link>
+          <span>
+            <Link
+              to={`/app/story/${ item.id }`}
+            >View</Link>
+            <Link
+              to={`/app/nodes/${ item.id }`}
+            >Nodes</Link>
+            <Link
+              to={`/app/statistics/${ item.id }`}
+            >Stats</Link>
+          </span>
         </article>
       ))}
     </>
