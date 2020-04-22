@@ -39,7 +39,11 @@ export const Story = props => {
           <GiHamburgerMenu className='storytracker__icon storytracker__icon--dragger' />
           {node.type === 'node' ? (
             <div className='storytracker__node--title' onClick={() => props.editNode(node)} >
-              <h2>{node.title}</h2>
+              {node.name ? (
+                <h2>{node.name}</h2>
+              ):(
+                <h2>ERROR: No Name</h2>
+              )}
             </div>
           ) : (
             <div className='storytracker__node--title'>

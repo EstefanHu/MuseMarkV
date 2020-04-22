@@ -30,7 +30,7 @@ export const Pitch = props => {
   return (
     <div className='modal'>
       <div className='modal-content' id='storyNode__form'>
-        <h1>Initialize Story</h1>
+        <h1>Create Story Pitch</h1>
         <form onSubmit={ handleSubmit }>
           <input
             className='storyNode__input' //TODO: Updated className name for repeated CSS tags.
@@ -49,12 +49,12 @@ export const Pitch = props => {
             required
           />
           <span className='storyNode__horizontal'>
-            <input className='plotNode' type='submit' value='Start Story' />
+            <input className='plotNode' type='submit' value='Save Pitch' />
             <button
               className='cancelNode'
               type='button'
               onClick={cancelStory}
-            >Cancel</button>
+            >Cancel Story</button>
           </span>
         </form>
       </div>

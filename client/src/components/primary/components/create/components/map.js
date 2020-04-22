@@ -11,8 +11,6 @@ import { StoryNodes } from './storyNodes';
 import { StoryRoute } from './storyRoute';
 import { Write } from './write';
 
-let history = useHistory();
-
 export const Map = props => {
   const {pitch, setPitch} = useContext(PitchContext);
   const [viewport, setViewport] = useState({
@@ -26,6 +24,8 @@ export const Map = props => {
   const [tempNode, setTempNode] = useState(null);
   const [action, setAction] = useState(null);
   const [isWriting, setIsWriting] = useState(false);
+
+  let history = useHistory();
 
   const addToMap = e => {
     if (action === 'Add Node') {
@@ -78,7 +78,11 @@ export const Map = props => {
   }
 
   const saveStory = () => {
-    if ()
+    if (pitch.title === '' || pitch.description === '')
+      return alert('You seem to be missing a pitch');
+    if (story.length === 0)
+      return alert('There seems to be no story nodes');
+
     const requestOptions = {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
