@@ -7,7 +7,7 @@ import Loading from '../../layout/loading';
 
 export const Create = props => {
   const [api, setApi] = useState('');
-  const [pitch, setPitch] = useState(false);
+  const [pitch, setPitch] = useState(true);
 
   useEffect(() => {
     fetch('http://localhost:4000/api')
