@@ -98,12 +98,16 @@
   background: rgb(240, 240, 240);
 }
 
-.storytracker__icon {
+.storytracker__icon--node {
   width: 40px; height: 30px;
+}
+
+.storytracker__icon--turn {
+  width: 40px; height: 20px;
   margin-top: 5px;
 }
 
-.storytracker__icon--dragger {
+.storytracker__icon {
   cursor: row-resize;
 }
 

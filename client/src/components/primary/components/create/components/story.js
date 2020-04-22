@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import {
   IoIosArrowDown,
-  IoIosArrowUp
+  IoIosArrowUp,
 } from 'react-icons/io';
-import { GiHamburgerMenu } from 'react-icons/gi';
+import { MdLocationOn } from 'react-icons/md';
+import { FaDotCircle } from 'react-icons/fa';
 
 export const Story = props => {
   const [isOpen, setIsOpen] = useState(false);
@@ -36,19 +37,24 @@ export const Story = props => {
       </span>
       {props.nodes.map(node => (
         <article key={node.position} className='storytracker__node'>
-          <GiHamburgerMenu className='storytracker__icon storytracker__icon--dragger' />
           {node.type === 'node' ? (
-            <div className='storytracker__node--title' onClick={() => props.editNode(node)} >
-              {node.name ? (
-                <h2>{node.name}</h2>
-              ):(
-                <h2>ERROR: No Name</h2>
-              )}
-            </div>
+            <>
+              <MdLocationOn className='storytracker__icon--node storytracker__icon' />
+              <div className='storytracker__node--title' onClick={() => props.editNode(node)} >
+                {node.name ? (
+                  <h2>{node.name}</h2>
+                ):(
+                  <h2>ERROR: No Name</h2>
+                )}
+              </div>
+            </>
           ) : (
-            <div className='storytracker__node--title'>
-              <h2>---Path Turn---</h2>
-            </div>
+            <>
+              <FaDotCircle className='storytracker__icon--turn storytracker__icon' />
+              <div className='storytracker__node--title'>
+                <h2>---Path Turn---</h2>
+              </div>
+            </>
           )}
         </article>
       ))}
