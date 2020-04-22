@@ -87,7 +87,7 @@ export const Write = props => {
             <button className='cancelNode' onClick={() => {props.toggleIsWriting()}}>Cancel</button>
           </span>
         </form>
-          <Link to='https://www.markdownguide.org/cheat-sheet/'>What is Markdown?</Link>
+          <a href='https://www.markdownguide.org/' target='_blank'>What is Markdown?</a>
       </div>
     </div>
   )
