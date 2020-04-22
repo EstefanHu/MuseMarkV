@@ -3,11 +3,43 @@
   display: flex;
   flex-direction: column;
   margin: 0 300px;
-  width: 800px;
+  width: 600px;
 }
 
 #dashboard > h1 {
   text-align: center;
+  font-size: 2rem;
+  margin: 10px;
+}
+
+.dashboard__actions {
+  display: flex;
+  justify-content: left;
+  width: 100%;
+  margin: 10px 0 20px 0;
+}
+
+.dashboard__actions button {
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 8px 15px;
+  border-radius: 5px;
+}
+
+.dashboard__actions button:hover,
+.dashboard__actions button:focus {
+  background: rgb(245,245,245);
+}
+
+.dashboard__item {
+  border-radius: 5px;
+  border: 1px solid lightgrey;
+  padding: 10px 20px;
+  margin-bottom: 15px;
+}
+
+.dashboard__item h1 {
+  font-size: 1.5rem;
 }
 
 @media only screen and (max-width: 1200px) {

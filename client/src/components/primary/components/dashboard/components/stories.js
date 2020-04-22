@@ -20,9 +20,11 @@ export const Stories = () => {
           key={item.id}
           className='dashboard__item'
         >
+          <h1>{item.title}</h1>
+          <p>{item.description}</p>
           <Link
             to={`/app/story/${ item.id }`}
-          >Read More</Link>
+          >View</Link>
         </article>
       ))}
     </>
