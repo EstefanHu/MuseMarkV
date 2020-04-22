@@ -1,22 +1,29 @@
 import React, { useState, useEffect } from 'react';
 
 import Loading from '../../../layout/loading';
-import Story from './story';
+import { Link } from 'react-router-dom';
 
 export const Stories = () => {
-  const [storiesMade, setStoriesMade] = useState([]);
+  const [stories, setStories] = useState([]);
 
   useEffect(() => {
     fetch('http://localhost:4000/story/library/' + 1) // TODO: Change "1" to userId
       .then(res => res.json())
-      .then(res => setStoriesMade(res))
+      .then(res => setStories(res))
       .catch(console.error);
   }, []);
 
-  return storiesMade ? (
+  return stories ? (
     <>
-      {storiesMade.map(item => (
-        <Story key={ item._id } id={ item._id } title={ item.title } />
+      {stories.map(item => (
+        <article
+          key={item.id}
+          className='dashboard__item'
+        >
+          <Link
+            to={`/app/story/${ item.id }`}
+          >Read More</Link>
+        </article>
       ))}
     </>
   ) : (

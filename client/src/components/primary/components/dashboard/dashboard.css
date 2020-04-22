@@ -1,53 +1,13 @@
-@import url('https://fonts.googleapis.com/css?family=Merienda:700&display=swap');
-
 #dashboard {
   width: 100vw; height: 100vh;
-}
-
-#dashboard__itemcontainer {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-content: flex-start;
-  margin: 0 auto;
-  padding-top: 50px; /* TODO: may need alterations*/
-  width: 800px; height: 100vh;
+  flex-direction: column;
+  margin: 0 300px;
+  width: 800px;
 }
 
-.dashboard__item {
-  width: 380px; height: 280px;
-  margin-bottom: 40px;
-  text-decoration: none;
-  background: black;
-  color: white;
-}
-
-.dashboard__item article {
-  position: relative;
-}
-
-.dashboard__item h1 {
-  font-size: 2.5rem;
-  margin-left: 80px; margin-top: 80px;
-}
-
-#dashboard__map {
-  width: 800px; height: 280px;
-  overflow: hidden;
-  position: relative;
-  font-family: 'merienda';
-}
-
-#dashboard__map::before {
-  content: "";
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  width: 100%; height: 100%;
-  background-image: url('./img/map.png');
-  background-size: cover;
-  background-position: 50% 30%;
-  filter: grayscale(100%);
-  opacity: .4;
+#dashboard > h1 {
+  text-align: center;
 }
 
 @media only screen and (max-width: 1200px) {
