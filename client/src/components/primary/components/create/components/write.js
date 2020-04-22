@@ -74,7 +74,7 @@ export const Write = props => {
               />
             </span>
           </span>
-          <label>Content of Story Node</label>
+          <label>Markdown for Story Node - <a href='https://www.markdownguide.org/' target='_blank'>What is Markdown?</a></label>
           <textarea
             className='storyNode__input'
             type='text'
@@ -87,7 +87,6 @@ export const Write = props => {
             <button className='cancelNode' onClick={() => {props.toggleIsWriting()}}>Cancel</button>
           </span>
         </form>
-          <a href='https://www.markdownguide.org/' target='_blank'>What is Markdown?</a>
       </div>
     </div>
   )
