@@ -46,7 +46,7 @@ export const Pitch = props => {
           <input
             className='storyNode__input' //TODO: Updated className name for repeated CSS tags.
             type='text'
-            value={ title }
+            value={ title || '' }
             onChange={e => setTitle(e.target.value)}
             placeholder='Title the Story'
             required
@@ -54,7 +54,7 @@ export const Pitch = props => {
           <input
             className='storyNode__input'
             type='text'
-            value={ description }
+            value={ description || '' }
             onChange={e => setDescription(e.target.value)}
             placeholder='Describe the Story'
             required
