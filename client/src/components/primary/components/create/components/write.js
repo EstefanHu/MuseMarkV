@@ -75,7 +75,7 @@ export const Write = props => {
           </span>
           <label>Markdown for Story Node - <a
                                               href='https://www.markdownguide.org/'
-                                              rel='noreferrer'
+                                              rel='noopener noreferrer'
                                               target='_blank'>What is Markdown?</a>
           </label>
           <textarea
