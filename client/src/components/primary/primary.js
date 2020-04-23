@@ -5,7 +5,6 @@ import { Dashboard } from './components/dashboard';
 import { Abstract } from './components/abstract';
 import { Statistics } from './components/statistics';
 import { Create } from './components/create';
-import Story from './components/story';
 import More from './components/more';
 
 import Nav from './layout/nav/nav';
@@ -23,7 +22,6 @@ export const Primary = () => {
             <main>
                 <Route path='/app/dashboard' component={Dashboard} />
                 <Route path='/app/create' component={Create} />
-                <Route path='/app/story/:id' component={Story} />
                 <Route path='/app/abstract/:id' component={Abstract} />
                 <Route path='/app/statistics/:id' component={Statistics} />
                 <Route path='/app/more' component={More} />
