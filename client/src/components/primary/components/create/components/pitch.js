@@ -1,14 +1,26 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 
 import { PitchContext } from '../../../../../context';
 
 export const Pitch = props => {
   const { pitch, setPitch } = useContext(PitchContext);
-  const [title, setTitle] = useState(pitch.title);
-  const [description, setDescription] = useState(pitch.description);
+  const [title, setTitle] = useState('');
+  const [description, setDescription] = useState('');
 
   let history = useHistory();
+
+  useEffect(() => {
+    if (pitch === null) {
+      setPitch({
+        "title": "",
+        "description": ""
+      });
+    } else {
+      setTitle(pitch.title);
+      setDescription(pitch.description);
+    }
+  }, [pitch, setPitch]);
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -20,10 +32,7 @@ export const Pitch = props => {
   }
 
   const cancelStory = () => {
-    setPitch({
-      "title": "",
-      "description": ""
-    });
+    setPitch(null);
     history.goBack();
   }
 

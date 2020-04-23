@@ -78,7 +78,9 @@ export const Map = props => {
   }
 
   const saveStory = () => {
-    if (pitch.title === '' || pitch.description === '')
+    if (pitch === null ||
+        pitch.title === '' ||
+        pitch.description === '')
       return alert('You seem to be missing a pitch');
     if (story.length === 0)
       return alert('There seems to be no story nodes');
@@ -97,7 +99,7 @@ export const Map = props => {
     fetch('http://localhost:4000/story/create', requestOptions)
       .then(res => res.json())
       .catch(console.error);
-    setPitch({'title': '', 'description': ''});
+    setPitch(null);
     history.goBack();
   }
 
