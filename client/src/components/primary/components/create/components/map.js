@@ -12,7 +12,7 @@ import { StoryRoute } from './storyRoute';
 import { Write } from './write';
 
 export const Map = props => {
-  const {pitch, setPitch} = useContext(StoryContext); //TODO: update pitch to story
+  const {story, setStory} = useContext(StoryContext); //TODO: update pitch to story
   const [viewport, setViewport] = useState({
     latitude: 47.655548,
     longitude: -122.3032,
@@ -20,7 +20,6 @@ export const Map = props => {
     height: '100vh',
     zoom: 15
   });
-  const [story, setStory] = useState([]);
   const [tempNode, setTempNode] = useState(null);
   const [action, setAction] = useState(null);
   const [isWriting, setIsWriting] = useState(false);
@@ -31,7 +30,7 @@ export const Map = props => {
     if (action === 'Add Node') {
       setTempNode({
         "type": "node",
-        "position": story.length,
+        "position": story.route.length,
         "name": '',
         "markdown": '',
         "coordinates": e.lngLat
@@ -40,7 +39,7 @@ export const Map = props => {
     } else if (action === 'Add Turn') {
       updateStory({
         "type": "turn",
-        "position": story.length,
+        "position": story.route.length,
         "coordinates": e.lngLat
       });
     }
@@ -48,23 +47,30 @@ export const Map = props => {
   }
 
   const updateStory = node => {
-    if (story.length < node.position + 1) {
-      setStory([...story, node]);
+    let update;
+
+    if (story.route.length < node.position + 1) {
+      update = [...story.route, node];
     } else {
-      let newstory = story;
+      let newstory = story.route;
       newstory[node.position] = node;
-      setStory(newstory);
+      update = newstory;
     }
+    setStory({
+      "title": story.title,
+      "description": story.description,
+      "route": update
+    });
   }
 
   const engageNode = nodeId => {
     if (action === 'Remove') {
-      story.splice(nodeId, 1);
-      for (let i = 0; i < story.length; i++) {
-        story[i].position = i;
+      story.route.splice(nodeId, 1);
+      for (let i = 0; i < story.route.length; i++) {
+        story.route[i].position = i;
       }
     } else if (action === 'Edit') {
-      let node = story[nodeId];
+      let node = story.route[nodeId];
       if (node.type === 'node') {
         editNode(node);
       }
@@ -78,32 +84,32 @@ export const Map = props => {
   }
 
   const saveStory = () => {
-    if (pitch === null ||
-        pitch.title === '' ||
-        pitch.description === '')
+    if (story === null ||
+        story.title === '' ||
+        story.description === '')
       return alert('You seem to be missing a pitch');
-    if (story.length === 0)
+    if (story.route.length === 0)
       return alert('There seems to be no story nodes');
 
     const requestOptions = {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        "title": pitch.title,
-        "description": pitch.description,
-        "location": story[0].coordinates,
-        "route": story,
+        "title": story.title,
+        "description": story.description,
+        "location": story.route[0].coordinates,
+        "route": story.route,
         "authorId": 1 //TODO: Chagne to call current UserId
       })
     };
     fetch('http://localhost:4000/story/create', requestOptions)
       .then(res => res.json())
       .catch(console.error);
-    setPitch(null);
+    setStory(null);
     history.goBack();
   }
 
-  return (
+  return story != null ? (
     <>
       <ReactMapGl
         {...viewport} 
@@ -115,10 +121,10 @@ export const Map = props => {
         onClick={e => addToMap(e)}
       >
         <StoryNodes
-          plottedNodes={ story }
+          plottedNodes={ story.route }
           engageNode={ engageNode }
         />
-        <StoryRoute nodes={ story } />
+        <StoryRoute nodes={ story.route } />
       </ReactMapGl>
       <Banner togglePitch={() => props.togglePitch()} />
       <Actions
@@ -127,7 +133,7 @@ export const Map = props => {
         saveStory={ saveStory }
       />
       <Story
-        nodes={ story }
+        nodes={ story.route }
         editNode={node => editNode(node)}
       />
       {isWriting &&
@@ -138,5 +144,5 @@ export const Map = props => {
         />
       }
     </>
-  )
+  ) : (<></>)
 }

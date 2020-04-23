@@ -12,10 +12,7 @@ import Nav from './layout/nav/nav';
 import { StoryContext } from '../../context';
 
 export const Primary = () => {
-    const [story, setStory] = useState({
-                                        "title": "",
-                                        "description": "",
-                                    });
+    const [story, setStory] = useState(null);
     return (
         <StoryContext.Provider value={{ story, setStory }}>
             <Nav />

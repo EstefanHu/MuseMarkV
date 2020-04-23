@@ -15,7 +15,7 @@ export const Pitch = props => {
       setStory({
         "title": "",
         "description": "",
-        "nodes": []
+        "route": []
       });
     } else {
       setTitle(story.title);
@@ -28,6 +28,7 @@ export const Pitch = props => {
     setStory({
       "title": title,
       "description": description,
+      "route": []
     });
     props.togglePitch();
   }

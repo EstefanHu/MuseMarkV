@@ -4,7 +4,7 @@ import { MdLocationOn } from 'react-icons/md';
 import { FaDotCircle } from 'react-icons/fa';
 
 export const StoryNodes = props => {
-  return (
+  return props.plottedNodes ? (
     <>
       {props.plottedNodes.map(node => (
         node.type === 'node' ? (
@@ -36,5 +36,5 @@ export const StoryNodes = props => {
         )
       ))}
     </>
-  )
+  ) : (<></>)
 }
