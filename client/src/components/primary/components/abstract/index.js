@@ -10,6 +10,11 @@ export const Abstract = () => {
   const [route, setRoute] = useState([]);
 
   useEffect(() => {
+    let htmlSnippet;
+    const showHtml = () => {
+      console.log('testing');
+    }
+
     fetch('http://localhost:4000/story/' + id)
       .then(res => res.json())
       .then(res => {
@@ -17,24 +22,26 @@ export const Abstract = () => {
         setDescription(res.description);
         setRoute(res.route);
       })
+      .then(addHoverListener(htmlSnippet, showHtml))
       .catch(console.errors);
-  }, [id]);
-
-  useEffect(() => {
-    const htmlSnippet = document.getElementsByClassName('storynode__card');
-    console.log(htmlSnippet);
-    const showHtml = () => {
-      console.log('testing');
-    }
-
-    htmlSnippet.forEach(item => {
-      item.addEventListener('hover', showHtml);
-    });
 
     return () => {
-      htmlSnippet.removeEventListener('hover', showHtml);
+      
     }
-  });
+  }, [id]);
+
+  const addHoverListener = (htmlSnippet, showHtml) => {
+    htmlSnippet = document.getElementsByClassName('storynode__card');
+    console.log(htmlSnippet);
+
+    for (let item in htmlSnippet) {
+      console.log(item);
+    }
+    
+    // htmlSnippet.forEach(item => {
+    //   item.addEventListener('hover', showHtml);
+    // });
+  }
 
   return (
     <section
