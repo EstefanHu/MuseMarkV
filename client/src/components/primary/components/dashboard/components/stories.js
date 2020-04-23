@@ -17,20 +17,20 @@ export const Stories = () => {
     <>
       {stories.map(item => (
         <article
-          key={item.id}
+          key={item._id}
           className='dashboard__item'
         >
           <h1>{item.title}</h1>
           <p>{item.description}</p>
           <span>
             <Link
-              to={`/app/story/${ item.id }`}
+              to={`/app/story/${ item._id }`}
             >View</Link>
             <Link
-              to={`/app/nodes/${ item.id }`}
+              to={`/app/nodes/${ item._id }`}
             >Nodes</Link>
             <Link
-              to={`/app/statistics/${ item.id }`}
+              to={`/app/statistics/${ item._id }`}
             >Stats</Link>
           </span>
         </article>

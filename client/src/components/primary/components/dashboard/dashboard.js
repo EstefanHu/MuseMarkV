@@ -5,7 +5,7 @@ import './dashboard.css';
 import { Actions } from './components/actions';
 import { Stories } from './components/stories';
 
-class Dashboard extends Component {
+export class Dashboard extends Component {
     render() {
         return (
             <section id='dashboard'>
@@ -16,5 +16,3 @@ class Dashboard extends Component {
         )
     }
 }
-
-export default Dashboard;
