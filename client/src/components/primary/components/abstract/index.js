@@ -18,14 +18,13 @@ export const Abstract = () => {
         setRoute(res.route);
       })
       .catch(console.errors);
-
-  }, []);
+  }, [id]);
 
   return (
     <section
       className='container'
     >
-      <h1>{title}</h1>
+      <h1 className='abstract__title'>{title}</h1>
       <h1>{description}</h1>
       {route.map(item => {
         if (item.type === 'node') {
@@ -35,11 +34,23 @@ export const Abstract = () => {
               className='storynode__card'
             >
               <h1>{ item.name }</h1>
-              <div dangerouslySetInnerHTML={{__html: item.sanitizedHtml }}></div>
+              <div 
+                dangerouslySetInnerHTML={
+                  {__html: item.sanitizedHtml }}
+                className='storynode__html'
+              >
+              </div>
             </article>
           )
         } else {
-          return <FaDotCircle key={item._id} />
+          return (
+            <div
+              key={item._id}
+            >
+              <FaDotCircle />
+              {/* <span>[{item.location[0]}]</span> */}
+            </div>
+          )
         }
       })}
     </section>
