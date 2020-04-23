@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { FaDotCircle } from 'react-icons/fa';
 
-export const Nodes = () => {
+export const Abstract = () => {
   let { id } = useParams();
   
   const [title, setTitle] = useState('');
@@ -32,6 +32,7 @@ export const Nodes = () => {
           return (
             <article
               key={item._id}
+              className='storynode__card'
             >
               <h1>{ item.name }</h1>
               <div dangerouslySetInnerHTML={{__html: item.sanitizedHtml }}></div>

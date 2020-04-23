@@ -58,6 +58,14 @@
   text-decoration: underline;
 }
 
+.storynode__card {
+  background: white;
+  border-radius: 5px;
+  border: 1px solid lightgrey;
+  padding: 20px 30px;
+  width: 500px;
+}
+
 @media only screen and (max-width: 1200px) {
 }
 

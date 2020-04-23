@@ -25,13 +25,13 @@ export const Stories = () => {
           <span>
             <Link
               to={`/app/story/${ item._id }`}
-            >View</Link>
+            >Review</Link>
             <Link
-              to={`/app/nodes/${ item._id }`}
-            >Nodes</Link>
+              to={`/app/abstract/${ item._id }`}
+            >Abstract</Link>
             <Link
               to={`/app/statistics/${ item._id }`}
-            >Stats</Link>
+            >Statistics</Link>
           </span>
         </article>
       ))}

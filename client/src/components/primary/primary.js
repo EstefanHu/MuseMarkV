@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Route } from 'react-router-dom';
 
 import { Dashboard } from './components/dashboard';
-import { Nodes } from './components/nodes';
+import { Abstract } from './components/abstract';
 import { Statistics } from './components/statistics';
 import { Create } from './components/create';
 import Story from './components/story';
@@ -24,7 +24,7 @@ export const Primary = () => {
                 <Route path='/app/dashboard' component={Dashboard} />
                 <Route path='/app/create' component={Create} />
                 <Route path='/app/story/:id' component={Story} />
-                <Route path='/app/nodes/:id' component={Nodes} />
+                <Route path='/app/abstract/:id' component={Abstract} />
                 <Route path='/app/statistics/:id' component={Statistics} />
                 <Route path='/app/more' component={More} />
             </main>
