@@ -3,7 +3,7 @@ import { Marker } from 'react-map-gl';
 import { MdLocationOn } from 'react-icons/md';
 import { FaDotCircle } from 'react-icons/fa';
 
-import { StoryContext } from '../../../../../context';
+import { StoryContext } from '../../../../context';
 
 export const StoryNodes = props => {
   const {story} = useContext(StoryContext);

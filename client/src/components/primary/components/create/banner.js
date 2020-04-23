@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { StoryContext } from '../../../../../context';
+import { StoryContext } from '../../../../context';
 
 export const Banner = props => {
   const { story } = useContext(StoryContext);

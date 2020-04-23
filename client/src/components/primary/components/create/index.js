@@ -1,8 +1,8 @@
 import React, { useState, useEffect }from 'react';
 
 import './create.css';
-import { Map } from './components/map';
-import { Pitch } from './components/pitch';
+import { Map } from './map';
+import { Pitch } from './pitch';
 import Loading from '../../layout/loading';
 
 export const Create = props => {

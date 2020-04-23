@@ -1,9 +1,9 @@
 import React, { useState, useContext } from 'react';
-import { StoryContext } from '../../../../../context';
+import { StoryContext } from '../../../../context';
 import { useHistory } from 'react-router-dom';
 import ReactMapGl from 'react-map-gl';
 
-import '../create.css';
+import './create.css';
 import { Banner } from './banner';
 import { Actions } from './actions';
 import { Story } from './story';

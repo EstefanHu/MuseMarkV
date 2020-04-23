@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { Source, Layer } from 'react-map-gl';
 
-import { StoryContext } from '../../../../../context';
+import { StoryContext } from '../../../../context';
 
 export const StoryRoute = props => {
   const {story} = useContext(StoryContext);

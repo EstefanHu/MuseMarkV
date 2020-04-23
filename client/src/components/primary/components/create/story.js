@@ -6,7 +6,7 @@ import {
 import { MdLocationOn } from 'react-icons/md';
 import { FaDotCircle } from 'react-icons/fa';
 
-import { StoryContext } from '../../../../../context';
+import { StoryContext } from '../../../../context';
 
 export const Story = props => {
   const {story} = useContext(StoryContext);

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 
-import { StoryContext } from '../../../../../context';
+import { StoryContext } from '../../../../context';
 
 export const Pitch = props => {
   const { story, setStory } = useContext(StoryContext);
