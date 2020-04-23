@@ -1,12 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Marker } from 'react-map-gl';
 import { MdLocationOn } from 'react-icons/md';
 import { FaDotCircle } from 'react-icons/fa';
 
+import { StoryContext } from '../../../../../context';
+
 export const StoryNodes = props => {
-  return props.plottedNodes ? (
+  const {story} = useContext(StoryContext);
+  
+  return (
     <>
-      {props.plottedNodes.map(node => (
+      {story.route.map(node => (
         node.type === 'node' ? (
           <Marker
             key={node.position}
@@ -36,5 +40,5 @@ export const StoryNodes = props => {
         )
       ))}
     </>
-  ) : (<></>)
+  )
 }

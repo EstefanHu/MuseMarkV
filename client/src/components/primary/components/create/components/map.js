@@ -105,11 +105,11 @@ export const Map = props => {
     fetch('http://localhost:4000/story/create', requestOptions)
       .then(res => res.json())
       .catch(console.error);
-    setStory(null);
+    setStory({"route": []});
     history.goBack();
   }
 
-  return story != null ? (
+  return (
     <>
       <ReactMapGl
         {...viewport} 
@@ -120,11 +120,8 @@ export const Map = props => {
         }}
         onClick={e => addToMap(e)}
       >
-        <StoryNodes
-          plottedNodes={ story.route }
-          engageNode={ engageNode }
-        />
-        <StoryRoute nodes={ story.route } />
+        <StoryNodes engageNode={ engageNode } />
+        <StoryRoute />
       </ReactMapGl>
       <Banner togglePitch={() => props.togglePitch()} />
       <Actions
@@ -132,10 +129,7 @@ export const Map = props => {
         action={ action }
         saveStory={ saveStory }
       />
-      <Story
-        nodes={ story.route }
-        editNode={node => editNode(node)}
-      />
+      <Story editNode={node => editNode(node)} />
       {isWriting &&
         <Write
           tempNode={ tempNode } 
@@ -144,5 +138,5 @@ export const Map = props => {
         />
       }
     </>
-  ) : (<></>)
+  )
 }

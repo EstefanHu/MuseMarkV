@@ -28,13 +28,13 @@ export const Pitch = props => {
     setStory({
       "title": title,
       "description": description,
-      "route": []
+      "route": story.route
     });
     props.togglePitch();
   }
 
   const cancelStory = () => {
-    setStory(null);
+    setStory({"route": []});
     history.goBack();
   }
 

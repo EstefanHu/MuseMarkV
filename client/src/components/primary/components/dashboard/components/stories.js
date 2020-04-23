@@ -30,7 +30,7 @@ export const Stories = () => {
               onClick={() => setStory({
                 'title': item.title,
                 'description': item.description,
-                'nodes': item.route
+                'route': item.route
               })}
             >Review</Link>
             <Link

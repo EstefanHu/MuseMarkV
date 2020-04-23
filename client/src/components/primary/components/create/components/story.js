@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import {
   IoIosArrowDown,
   IoIosArrowUp,
@@ -6,23 +6,28 @@ import {
 import { MdLocationOn } from 'react-icons/md';
 import { FaDotCircle } from 'react-icons/fa';
 
+import { StoryContext } from '../../../../../context';
+
 export const Story = props => {
+  const {story} = useContext(StoryContext);
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
-    const tracker = document.getElementById('storytracker');
-    const opentracker = () => {
-      setIsOpen(isOpen => !isOpen);
-      tracker.classList.toggle('storytracker--open');
-    }
-    document.getElementById('storytracker__header')
-      .addEventListener('click', opentracker);
-
-    return () => {
+    if (story) {
+      const tracker = document.getElementById('storytracker');
+      const opentracker = () => {
+        setIsOpen(isOpen => !isOpen);
+        tracker.classList.toggle('storytracker--open');
+      }
       document.getElementById('storytracker__header')
-        .removeEventListener('click', opentracker);
+        .addEventListener('click', opentracker);
+
+      return () => {
+        document.getElementById('storytracker__header')
+          .removeEventListener('click', opentracker);
+      }
     }
-  });
+  }, [story]);
 
   return (
     <section id='storytracker' className='storytracker'>
@@ -33,9 +38,9 @@ export const Story = props => {
           <IoIosArrowUp className='storytracker__icon' />
         )}
         <h1>Story Nodes</h1>
-        <span id='storytracker__header--count'><p>{ props.nodes.length }</p></span>
+        <span id='storytracker__header--count'><p>{ story.route.length }</p></span>
       </span>
-      {props.nodes.map(node => (
+      {story.route.map(node => (
         <article key={node.position} className='storytracker__node'>
           {node.type === 'node' ? (
             <>
