@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 
 import './dashboard.css';
 
-import { Actions } from './components/actions';
-import { Stories } from './components/stories';
+import { Actions } from './actions';
+import { Stories } from './stories';
 
 export class Dashboard extends Component {
     render() {

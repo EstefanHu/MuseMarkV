@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { StoryContext } from '../../../../../context';
+import { StoryContext } from '../../../../context';
 
-import Loading from '../../../layout/loading';
+import Loading from '../../layout/loading';
 import { Link } from 'react-router-dom';
 
 export const Stories = () => {
