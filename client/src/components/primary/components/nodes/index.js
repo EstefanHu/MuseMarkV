@@ -34,6 +34,7 @@ export const Nodes = () => {
               key={item._id}
             >
               <h1>{ item.name }</h1>
+              <div dangerouslySetInnerHTML={{__html: item.sanitizedHtml }}></div>
             </article>
           )
         } else {
