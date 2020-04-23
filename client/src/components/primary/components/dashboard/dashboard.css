@@ -84,12 +84,16 @@
   transition: 1s ease-in;
 }
 
-.storynode__turn {
-  width: fit-content;
-}
-
 .storynode__html {
   display: none;
+}
+
+.storynode__card:hover .storynode__html {
+  display: block;
+}
+
+.storynode__turn {
+  width: fit-content;
 }
 
 @media only screen and (max-width: 1200px) {
