@@ -16,7 +16,6 @@ export const Nodes = () => {
         setTitle(res.title);
         setDescription(res.description);
         setRoute(res.route);
-        console.log(res.route);
       })
       .catch(console.errors);
 
@@ -38,7 +37,7 @@ export const Nodes = () => {
             </article>
           )
         } else {
-          return <FaDotCircle />
+          return <FaDotCircle key={item._id} />
         }
       })}
     </section>
