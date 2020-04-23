@@ -4,6 +4,7 @@ import './dashboard.css';
 
 import { Actions } from './actions';
 import { Stories } from './stories';
+import { Delete } from './delete';
 
 export class Dashboard extends Component {
     render() {
@@ -12,6 +13,7 @@ export class Dashboard extends Component {
                 <h1>Dashboard</h1>
                 <Actions />
                 <Stories />
+                <Delete />
             </section>
         )
     }

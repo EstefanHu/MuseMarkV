@@ -1,6 +1,20 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 export const Delete = props => {
+  useEffect(() => {
+    const modal = document.getElementById('deleteModal');
+    const modalToggle = e => {
+      if (e.target === modal) {
+        props.toggleIsDeleting();
+      }
+    }
+    modal.addEventListener('click', modalToggle);
+
+    return () => {
+      modal.removeEventListener('click', modalToggle);
+    }
+  });
+
   const handleDelete = id => {
     fetch('http://localhost:4000/story/delete/' + id, {
       method: 'POST',
