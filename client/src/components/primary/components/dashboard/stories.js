@@ -36,8 +36,9 @@ export const Stories = () => {
             <Link
               to={`/app/abstract/${ item._id }`}
             >Abstract</Link>
-            <Link
-            >Settings</Link>
+            <a href='javascript:;'>
+              Delete
+            </a>
           </span>
         </article>
       ))}

@@ -36,8 +36,6 @@ export const Abstract = () => {
             <article
               key={item._id}
               className='storynode__card'
-              onMouseEnter={() => {}}
-              onMouseLeave={() => {}}
             >
               <h1>{ item.name }</h1>
               <div 

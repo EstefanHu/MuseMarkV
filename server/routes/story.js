@@ -53,7 +53,7 @@ router.put('/:id', async (req, res) => {
   }
 });
 
-router.delete('/:id', async (req, res) => {
+router.post('/delete/:id', async (req, res) => {
   try {
     await Story.findByIdAndDelete(req.params.id);
     res.send('Deleted Story');
