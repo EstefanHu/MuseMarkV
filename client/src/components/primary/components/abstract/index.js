@@ -20,18 +20,36 @@ export const Abstract = () => {
       .catch(console.errors);
   }, [id]);
 
+  useEffect(() => {
+    const htmlSnippet = document.getElementsByClassName('storynode__card');
+    console.log(htmlSnippet);
+    const showHtml = () => {
+      console.log('testing');
+    }
+
+    htmlSnippet.forEach(item => {
+      item.addEventListener('hover', showHtml);
+    });
+
+    return () => {
+      htmlSnippet.removeEventListener('hover', showHtml);
+    }
+  });
+
   return (
     <section
       className='container'
     >
       <h1 className='abstract__title'>{title}</h1>
-      <h1>{description}</h1>
+      <p className='abstract__description'>{description}</p>
       {route.map(item => {
         if (item.type === 'node') {
           return (
             <article
               key={item._id}
               className='storynode__card'
+              onMouseEnter={() => {}}
+              onMouseLeave={() => {}}
             >
               <h1>{ item.name }</h1>
               <div 
@@ -46,6 +64,7 @@ export const Abstract = () => {
           return (
             <div
               key={item._id}
+              className='storynode__turn'
             >
               <FaDotCircle />
               {/* <span>[{item.location[0]}]</span> */}

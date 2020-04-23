@@ -60,7 +60,19 @@
 
 .abstract__title {
   font-size: 2rem;
+  font-weight: bold;
   text-align: center;
+}
+
+.abstract__description {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.storynode__turn,
+.storynode__card {
+  margin: 10px auto;
+
 }
 
 .storynode__card {
@@ -69,13 +81,16 @@
   border: 1px solid lightgrey;
   padding: 20px 30px;
   width: fit-content;
+  transition: 1s ease-in;
+}
+
+.storynode__turn {
+  width: fit-content;
 }
 
 .storynode__html {
   display: none;
 }
-
-
 
 @media only screen and (max-width: 1200px) {
 }

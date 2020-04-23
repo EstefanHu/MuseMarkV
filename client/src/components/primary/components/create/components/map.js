@@ -97,7 +97,7 @@ export const Map = props => {
     fetch('http://localhost:4000/story/create', requestOptions)
       .then(res => res.json())
       .catch(console.error);
-    setPitch(null);
+    setPitch({'title': '', 'description': ''});
     history.goBack();
   }
 
