@@ -1,15 +1,15 @@
 import React, { useContext } from 'react';
-import { PitchContext } from '../../../../../context';
+import { StoryContext } from '../../../../../context';
 
 export const Banner = props => {
-  const { pitch } = useContext(PitchContext);
+  const { story } = useContext(StoryContext);
 
-  return pitch ? (
+  return story ? (
     <div
       className='pitchbanner'
       onClick={() => props.togglePitch()}
     >
-      <h1>{ pitch.title }</h1>
+      <h1>{ story.title }</h1>
     </div>
   ) : (<></>)
 }

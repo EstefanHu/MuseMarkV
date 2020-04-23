@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { PitchContext } from '../../../../../context';
+import { StoryContext } from '../../../../../context';
 
 import Loading from '../../../layout/loading';
 import { Link } from 'react-router-dom';
 
 export const Stories = () => {
-  const {setPitch} = useContext(PitchContext);
+  const {setStory} = useContext(StoryContext);
   const [stories, setStories] = useState([]);
 
   useEffect(() => {
@@ -27,9 +27,10 @@ export const Stories = () => {
           <span>
             <Link
               to='/app/create'
-              onClick={() => setPitch({
+              onClick={() => setStory({
                 'title': item.title,
-                'description': item.description
+                'description': item.description,
+                'nodes': item.route
               })}
             >Review</Link>
             <Link

@@ -9,15 +9,15 @@ import More from './components/more';
 
 import Nav from './layout/nav/nav';
 
-import { PitchContext } from '../../context';
+import { StoryContext } from '../../context';
 
 export const Primary = () => {
-    const [pitch, setPitch] = useState({
+    const [story, setStory] = useState({
                                         "title": "",
                                         "description": "",
                                     });
     return (
-        <PitchContext.Provider value={{ pitch, setPitch }}>
+        <StoryContext.Provider value={{ story, setStory }}>
             <Nav />
             <main>
                 <Route path='/app/dashboard' component={Dashboard} />
@@ -26,6 +26,6 @@ export const Primary = () => {
                 <Route path='/app/statistics/:id' component={Statistics} />
                 <Route path='/app/more' component={More} />
             </main>
-        </PitchContext.Provider>
+        </StoryContext.Provider>
     )
 }
