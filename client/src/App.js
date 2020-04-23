@@ -8,8 +8,8 @@ import {
 import 'mapbox-gl/dist/mapbox-gl.css';
 import './App.css';
 
-import { Landing } from './components/landing/landing';
-import { Primary } from './components/primary/primary';
+import { Landing } from './components/landing';
+import { Primary } from './components/primary';
 import { FourOhFour } from './components/fourohfour';
 
 export const App = () => (
