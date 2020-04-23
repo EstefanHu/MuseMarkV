@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { Route } from 'react-router-dom';
 
-import { Dashboard } from './components/dashboard/dashboard';
+import { Dashboard } from './components/dashboard';
 import { Nodes } from './components/nodes';
 import { Statistics } from './components/statistics';
-import { Create } from './components/create/create';
-import Story from './components/story/story';
-import More from './components/more/more';
+import { Create } from './components/create';
+import Story from './components/story';
+import More from './components/more';
 
 import Nav from './layout/nav/nav';
 
