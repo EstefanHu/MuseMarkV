@@ -37,8 +37,7 @@ export const Stories = () => {
               to={`/app/abstract/${ item._id }`}
             >Abstract</Link>
             <Link
-              to={`/app/statistics/${ item._id }`}
-            >Statistics</Link>
+            >Settings</Link>
           </span>
         </article>
       ))}
