@@ -4,7 +4,7 @@ import { StoryContext } from '../../../../context';
 import Loading from '../../layout/loading';
 import { Link } from 'react-router-dom';
 
-export const Stories = () => {
+export const Stories = props => {
   const {setStory} = useContext(StoryContext);
   const [stories, setStories] = useState([]);
 
@@ -36,9 +36,11 @@ export const Stories = () => {
             <Link
               to={`/app/abstract/${ item._id }`}
             >Abstract</Link>
-            <a href='javascript:;'>
+            <button
+              onClick={() => {props.toggleIsDeleting()}}
+            >
               Delete
-            </a>
+            </button>
           </span>
         </article>
       ))}
