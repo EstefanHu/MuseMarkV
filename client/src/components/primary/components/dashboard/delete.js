@@ -32,9 +32,13 @@ export const Delete = props => {
       <div className='modal-content' id='deleteStory__form'>
         <span className='close' onClick={() => {props.toggleIsDeleting()}}>&times;</span>
         <h1>Are you sure?</h1>
+        <p>Deleted stories cant be recovered.</p>
         <form onSubmit={ () => handleDelete(props.id) }>
-          <button type='submit'>Yes, Delete this Story</button>
+          <button type='submit'>Delete Story</button>
         </form>
+        <button
+          onClick={() => props.toggleIsDeleting()}
+        >Keep Story</button>
       </div>
     </div>
   )
