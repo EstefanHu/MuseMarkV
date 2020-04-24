@@ -1,12 +1,13 @@
 #dashboard {
-  width: 100vw; height: 100vh;
+  width: 100vw;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   margin: 0 300px;
   width: 600px;
 }
 
-#dashboard > h1 {
+#dashboard>h1 {
   text-align: center;
   font-size: 2rem;
   margin: 10px;
@@ -29,7 +30,7 @@
 
 .dashboard__actions button:hover,
 .dashboard__actions button:focus {
-  background: rgb(245,245,245);
+  background: rgb(245, 245, 245);
 }
 
 .dashboard__item {
@@ -47,7 +48,11 @@
 .dashboard__item span {
   margin-top: 10px;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+}
+
+.dashboard__item a {
+  margin-right: 40px;
 }
 
 .dashboard__item a,
@@ -70,7 +75,8 @@
 }
 
 #deleteStory__form {
-  width: 400px; height: fit-content;
+  width: 400px;
+  height: fit-content;
   background: white;
   font-size: 1rem;
   padding: 20px;
@@ -99,14 +105,12 @@
   font-size: 1rem;
 }
 
-@media only screen and (max-width: 1200px) {
-}
+@media only screen and (max-width: 1200px) {}
 
-@media only screen and (max-width: 900px) {
-}
+@media only screen and (max-width: 900px) {}
 
-@media only screen and (max-width: 600px) {
-}
+@media only screen and (max-width: 600px) {}
 
 @media only screen and (max-width: 480px) {}
+
 @media only screen and (max-width: 320px) {}
