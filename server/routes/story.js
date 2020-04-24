@@ -42,22 +42,6 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-router.put('/:id', async (req, res) => {
-  try {
-    let story = await Story.findById(req.params.id);
-    story.title = req.body.title;
-    story.description = req.body.description;
-    story.location = req.body.location;
-    story.route = req.body.route;
-    story.authorId = req.body.authorId;
-    story = await story.save();
-
-    res.send('Successfully saved story as: ' + story);;
-  } catch (error) {
-    res.type('text').status(500).send('Error: ' + error);
-  }
-});
-
 router.post('/delete/:id', async (req, res) => {
   try {
     await Story.findByIdAndDelete(req.params.id);
