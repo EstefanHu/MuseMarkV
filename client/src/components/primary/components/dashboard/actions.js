@@ -1,12 +1,21 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext } from 'react';
 
-export const Actions = () => {
+import { StoryContext } from '../../../../context';
+import { withRouter } from 'react-router';
+
+export const Actions = withRouter(props => {
+  const { setStory } = useContext(StoryContext);
+
+  const createStory = () => {
+    setStory(null);
+    props.history.push('/app/create');
+  }
+
   return (
     <span className='dashboard__actions'>
-      <Link to='/app/create'>
-        <button>Create Story</button>
-      </Link>
+      <button
+        onClick={createStory}
+      >Create Story</button>
     </span>
   )
-}
+});

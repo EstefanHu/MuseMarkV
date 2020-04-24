@@ -3,7 +3,12 @@ const Story = require('./../models/story');
 
 router.post('/create', async (req, res) => {
   try {
-    let story = new Story();
+    let story;
+    if (req.body.id !== undefined) {
+      story = await Story.findById(req.body.id);
+    } else {
+      story = new Story();
+    }
     story.title = req.body.title;
     story.description = req.body.description;
     story.location = req.body.location;
