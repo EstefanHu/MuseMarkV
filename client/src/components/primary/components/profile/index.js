@@ -1,6 +1,8 @@
 import React, { useContext } from 'react';
 import { UserContext } from '../../../../context';
 
+import './profile.css';
+
 export const Profile = () => {
   const { user, setUser } = useContext(UserContext);
 
