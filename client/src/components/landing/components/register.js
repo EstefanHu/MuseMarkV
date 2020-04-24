@@ -12,7 +12,7 @@ const Register = props => {
   const handleSubmit = e => {
     e.preventDefault();
 
-    fetch('http://localhost:4000/user/register', {
+    fetch('http://localhost:4000/register', {
         method: 'POST',
         headers: {
           Accept: 'application/json',

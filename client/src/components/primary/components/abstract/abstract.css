@@ -21,15 +21,20 @@
   border: 1px solid lightgrey;
   padding: 20px 30px;
   width: fit-content;
-  transition: height 1s ease-in;
+}
+
+.storynode__card h1 {
+  text-align: center;
+  font-size: 1.5rem;
 }
 
 .storynode__html {
-  display: none;
+  opacity: 0;
+  transition: .2s ease-in;
 }
 
 .storynode__card:hover .storynode__html {
-  display: block;
+  opacity: 1;
 }
 
 .storynode__turn {

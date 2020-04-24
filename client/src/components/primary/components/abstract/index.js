@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
+import './abstract.css';
+
 import { Node } from './node';
 import { Turn } from './turn';
 
