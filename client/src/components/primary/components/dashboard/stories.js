@@ -37,7 +37,10 @@ export const Stories = props => {
               to={`/app/abstract/${ item._id }`}
             >Abstract</Link>
             <button
-              onClick={() => {props.toggleIsDeleting()}}
+              onClick={() => {
+                props.toggleIsDeleting()
+                props.setId(item.id)
+              }}
             >
               Delete
             </button>

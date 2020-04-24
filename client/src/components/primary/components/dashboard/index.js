@@ -8,6 +8,7 @@ import { Delete } from './delete';
 
 export const Dashboard = () => {
     const [isDeleting, setIsDeleting] = useState(false);
+    const [id, setId] = useState();
 
     return(
         <section id='dashboard'>
@@ -17,12 +18,14 @@ export const Dashboard = () => {
                 toggleIsDeleting={
                     () => setIsDeleting(isDeleting => !isDeleting)
                 }
+                setId={id => setId(id)}
             />
             {isDeleting && 
                 <Delete 
                     toggleIsDeleting={
                         () => setIsDeleting(isDeleting => !isDeleting)
                     }
+                    id={id}
                 />
             }
         </section>
