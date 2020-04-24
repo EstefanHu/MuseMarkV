@@ -29,7 +29,7 @@ const Nav = () => {
         }
         readMore.style.color = 'grey';
     }
-    
+
     const closeMenu = () => {
         setIsOpen(false);
         menu.style.width = 'calc(4rem + 50px)';
@@ -44,8 +44,8 @@ const Nav = () => {
         setMenu(document.querySelector('nav'));
         setNavTitles(document.querySelectorAll('.nav__name'));
         setReadMore(document.getElementById('more'));
-    },[]);
-    
+    }, []);
+
     return (
         <nav
             onMouseEnter={openMenu}
@@ -53,14 +53,14 @@ const Nav = () => {
             className='primaryNav'
         >
             <div id='nav__logo'>
-                {isOpen 
+                {isOpen
                     ? <h3>Project:Muse</h3>
                     : <h3>:M</h3>
                 }
             </div>
             <ul>
                 {navItems.map(item => (
-                    <Item name={ item } key={ item } />
+                    <Item name={item} key={item} />
                 ))}
             </ul>
             <Link to='/more' id='more'>
