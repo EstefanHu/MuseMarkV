@@ -38,14 +38,14 @@ export const Write = props => {
   return (
     <div className='modal' id='writeModal'>
       <div className='modal-content' id='storyNode__form'>
-        <span className='close' onClick={() => {props.toggleIsWriting()}}>&times;</span>
+        <span className='close' onClick={() => { props.toggleIsWriting() }}>&times;</span>
         <h1>Add Node to Story</h1>
-        <form onSubmit={ handleSubmit } >
+        <form onSubmit={handleSubmit} >
           <label>Title for Story Node</label>
           <input
             className='storyNode__input'
             type='text'
-            value={ name }
+            value={name}
             onChange={e => setName(e.target.value)}
             placeholder='Create a Name for this Node'
           />
@@ -55,9 +55,9 @@ export const Write = props => {
               <input
                 className='storyNode__input'
                 type='text'
-                value={ longitude }
+                value={longitude}
                 onChange={e => setLongitude(e.target.value)}
-                placeholder={ props.tempNode.coordinates[0] }
+                placeholder={props.tempNode.coordinates[0]}
                 disabled
               />
             </span>
@@ -66,28 +66,28 @@ export const Write = props => {
               <input
                 className='storyNode__input'
                 type='text'
-                value={ latitude }
+                value={latitude}
                 onChange={e => setLatitude(e.target.value)}
-                placeholder={ props.tempNode.coordinates[1] }
+                placeholder={props.tempNode.coordinates[1]}
                 disabled
               />
             </span>
           </span>
           <label>Markdown for Story Node - <a
-                                              href='https://www.markdownguide.org/'
-                                              rel='noopener noreferrer'
-                                              target='_blank'>What is Markdown?</a>
+            href='https://www.markdownguide.org/'
+            rel='noopener noreferrer'
+            target='_blank'>What is Markdown?</a>
           </label>
           <textarea
             className='storyNode__input'
             type='text'
-            value={ markdown }
+            value={markdown}
             onChange={e => setMarkdown(e.target.value)}
             placeholder='Story Markdown'
           />
           <span className='storyNode__horizontal'>
             <input className='plotNode' type='submit' value='Plot Node' />
-            <button className='cancelNode' onClick={() => {props.toggleIsWriting()}}>Cancel</button>
+            <button className='cancelNode' onClick={() => { props.toggleIsWriting() }}>Cancel</button>
           </span>
         </form>
       </div>
