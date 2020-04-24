@@ -8,7 +8,7 @@ import { Turn } from './turn';
 
 export const Abstract = () => {
   let { id } = useParams();
-  
+
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [route, setRoute] = useState([]);
@@ -24,7 +24,7 @@ export const Abstract = () => {
       .catch(console.errors);
 
     return () => {
-      
+
     }
   }, [id]);
 
@@ -36,14 +36,14 @@ export const Abstract = () => {
         if (item.type === 'node') {
           return (
             <Node
-              key={ item._id }
-              item={ item }
+              key={item._id}
+              item={item}
             />
           )
         } else {
           return (
             <Turn
-              key={ item._id }
+              key={item._id}
             />
           )
         }

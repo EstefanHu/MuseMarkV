@@ -10,7 +10,7 @@ export const Dashboard = () => {
     const [isDeleting, setIsDeleting] = useState(false);
     const [id, setId] = useState();
 
-    return(
+    return (
         <section id='dashboard'>
             <h1>Dashboard</h1>
             <Actions />
@@ -20,8 +20,8 @@ export const Dashboard = () => {
                 }
                 setId={id => setId(id)}
             />
-            {isDeleting && 
-                <Delete 
+            {isDeleting &&
+                <Delete
                     toggleIsDeleting={
                         () => setIsDeleting(isDeleting => !isDeleting)
                     }

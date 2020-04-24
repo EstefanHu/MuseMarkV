@@ -5,7 +5,7 @@ import Loading from '../../layout/loading';
 import { Link } from 'react-router-dom';
 
 export const Stories = props => {
-  const {setStory} = useContext(StoryContext);
+  const { setStory } = useContext(StoryContext);
   const [stories, setStories] = useState([]);
 
   useEffect(() => {
@@ -34,12 +34,12 @@ export const Stories = props => {
               })}
             >Update</Link>
             <Link
-              to={`/app/abstract/${ item._id }`}
+              to={`/app/abstract/${item._id}`}
             >Abstract</Link>
             <button
               onClick={() => {
                 props.toggleIsDeleting()
-                props.setId(item.id)
+                props.setId(item._id)
               }}
             >
               Delete
@@ -49,6 +49,6 @@ export const Stories = props => {
       ))}
     </>
   ) : (
-    <Loading />
-  )
+      <Loading />
+    )
 }

@@ -21,7 +21,8 @@ export const Delete = props => {
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',
-      }})
+      }
+    })
       .then(res => res.json())
       .then(res => console.log(res))
       .catch(console.error);
@@ -30,10 +31,10 @@ export const Delete = props => {
   return (
     <div className='modal' id='deleteModal'>
       <div className='modal-content' id='deleteStory__form'>
-        <span className='close' onClick={() => {props.toggleIsDeleting()}}>&times;</span>
+        <span className='close' onClick={() => { props.toggleIsDeleting() }}>&times;</span>
         <h1>Are you sure?</h1>
         <p>Deleted stories cant be recovered.</p>
-        <form onSubmit={ () => handleDelete(props.id) }>
+        <form onSubmit={() => handleDelete(props.id)}>
           <button type='submit'>Delete Story</button>
         </form>
         <button
