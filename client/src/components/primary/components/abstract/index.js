@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { FaDotCircle } from 'react-icons/fa';
+
+import { Node } from './node';
+import { Turn } from './turn';
 
 export const Abstract = () => {
   let { id } = useParams();
@@ -33,28 +35,16 @@ export const Abstract = () => {
       {route.map(item => {
         if (item.type === 'node') {
           return (
-            <article
-              key={item._id}
-              className='storynode__card'
-            >
-              <h1>{ item.name }</h1>
-              <div 
-                dangerouslySetInnerHTML={
-                  {__html: item.sanitizedHtml }}
-                className='storynode__html'
-              >
-              </div>
-            </article>
+            <Node
+              key={ item._id }
+              item={ item }
+            />
           )
         } else {
           return (
-            <div
-              key={item._id}
-              className='storynode__turn'
-            >
-              <FaDotCircle />
-              {/* <span>[{item.location[0]}]</span> */}
-            </div>
+            <Turn
+              key={ item._id }
+            />
           )
         }
       })}
