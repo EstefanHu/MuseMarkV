@@ -27,9 +27,7 @@ export const Abstract = () => {
   }, [id]);
 
   return (
-    <section
-      className='container'
-    >
+    <section className='container'>
       <h1 className='abstract__title'>{title}</h1>
       <p className='abstract__description'>{description}</p>
       {route.map(item => {

@@ -1,0 +1,37 @@
+.abstract__title {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.abstract__description {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.storynode__turn,
+.storynode__card {
+  margin: 10px auto;
+
+}
+
+.storynode__card {
+  background: white;
+  border-radius: 5px;
+  border: 1px solid lightgrey;
+  padding: 20px 30px;
+  width: fit-content;
+  transition: height 1s ease-in;
+}
+
+.storynode__html {
+  display: none;
+}
+
+.storynode__card:hover .storynode__html {
+  display: block;
+}
+
+.storynode__turn {
+  width: fit-content;
+}
