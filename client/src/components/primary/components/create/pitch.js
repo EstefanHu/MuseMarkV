@@ -26,6 +26,7 @@ export const Pitch = props => {
   const handleSubmit = e => {
     e.preventDefault();
     setStory({
+      "id": story.id,
       "title": title,
       "description": description,
       "route": story.route

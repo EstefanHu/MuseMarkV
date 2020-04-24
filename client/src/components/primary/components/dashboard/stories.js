@@ -28,6 +28,7 @@ export const Stories = props => {
             <Link
               to='/app/create'
               onClick={() => setStory({
+                'id': item._id,
                 'title': item.title,
                 'description': item.description,
                 'route': item.route
