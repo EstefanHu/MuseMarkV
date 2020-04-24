@@ -51,7 +51,7 @@ router.get('/:id').get(async (req, res) => {
   }
 });
 
-router.put('/:id', async (req, res) => {
+router.post('/update/:id', async (req, res) => {
   try {
     let checkIfUserExist = await User.findOne({ email: req.body.email });
     if (checkIfUserExist) res.json({'Error': 'User Already exists'});
@@ -68,7 +68,7 @@ router.put('/:id', async (req, res) => {
   }
 });
 
-router.delete('/:id', async (req, res) => {
+router.post('/delete/:id', async (req, res) => {
   try {
     await User.findByIdAndDelete(req.params.id);
     res.send('Deleted User');
