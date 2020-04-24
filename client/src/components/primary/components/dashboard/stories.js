@@ -32,7 +32,7 @@ export const Stories = props => {
                 'description': item.description,
                 'route': item.route
               })}
-            >Review</Link>
+            >Update</Link>
             <Link
               to={`/app/abstract/${ item._id }`}
             >Abstract</Link>
