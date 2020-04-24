@@ -12,7 +12,7 @@ import { StoryRoute } from './storyRoute';
 import { Write } from './write';
 
 export const Map = props => {
-  const {story, setStory} = useContext(StoryContext); //TODO: update pitch to story
+  const { story, setStory } = useContext(StoryContext);
   const [viewport, setViewport] = useState({
     latitude: 47.655548,
     longitude: -122.3032,
@@ -85,8 +85,8 @@ export const Map = props => {
 
   const saveStory = () => {
     if (story === null ||
-        story.title === '' ||
-        story.description === '')
+      story.title === '' ||
+      story.description === '')
       return alert('You seem to be missing a pitch');
     if (story.route.length === 0)
       return alert('There seems to be no story nodes');
@@ -105,14 +105,14 @@ export const Map = props => {
     fetch('http://localhost:4000/story/create', requestOptions)
       .then(res => res.json())
       .catch(console.error);
-    setStory({"route": []});
+    setStory({ "route": [] });
     history.goBack();
   }
 
   return (
     <>
       <ReactMapGl
-        {...viewport} 
+        {...viewport}
         mapboxApiAccessToken={props.apikey}
         mapStyle='mapbox://styles/estefan074/ck002rku546481cnq4hc1buof'
         onViewportChange={viewport => {
@@ -120,21 +120,21 @@ export const Map = props => {
         }}
         onClick={e => addToMap(e)}
       >
-        <StoryNodes engageNode={ engageNode } />
+        <StoryNodes engageNode={engageNode} />
         <StoryRoute />
       </ReactMapGl>
       <Banner togglePitch={() => props.togglePitch()} />
       <Actions
         triggerAction={chosenAction => setAction(chosenAction)}
-        action={ action }
-        saveStory={ saveStory }
+        action={action}
+        saveStory={saveStory}
       />
       <Story editNode={node => editNode(node)} />
       {isWriting &&
         <Write
-          tempNode={ tempNode } 
+          tempNode={tempNode}
           toggleIsWriting={() => setIsWriting(isWriting => !isWriting)}
-          updateStory={ updateStory }
+          updateStory={updateStory}
         />
       }
     </>
