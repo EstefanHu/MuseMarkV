@@ -1,5 +1,5 @@
-import React from 'react';
-import { 
+import React, { useState } from 'react';
+import {
   BrowserRouter as Router,
   Switch,
   Route,
@@ -12,12 +12,20 @@ import { Landing } from './components/landing';
 import { Primary } from './components/primary';
 import { FourOhFour } from './components/fourohfour';
 
-export const App = () => (
-  <Router>
-    <Switch>
-      <Route exact path='/(|register|login|privacy|terms|forgot)' component={Landing} />
-      <Route exact path='/app/*' component={Primary} />
-      <Route component={FourOhFour} />
-    </Switch>
-  </Router>
-);
+import { UserContext } from './context';
+
+export const App = () => {
+  const [user, setUser] = useState(null);
+
+  return (
+    <UserContext.Provider value={{ user, setUser }}>
+      <Router>
+        <Switch>
+          <Route exact path='/(|register|login|privacy|terms|forgot)' component={Landing} />
+          <Route exact path='/app/*' component={Primary} />
+          <Route component={FourOhFour} />
+        </Switch>
+      </Router>
+    </UserContext.Provider>
+  )
+}
