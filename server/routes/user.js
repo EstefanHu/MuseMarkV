@@ -13,7 +13,6 @@ router.post('/register', async (req, res) => {
     user.email = req.body.email;
     user.password = req.body.password;
     user = await user.save();
-    console.log(user);
 
     res.json({ userId: user._id });
 
