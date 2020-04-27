@@ -54,6 +54,7 @@ const Register = props => {
             value={firstName}
             onChange={e => setFirstName(e.target.value)}
             placeholder='First Name'
+            required
           />
           <input
             className='landing__form--input'
@@ -61,6 +62,7 @@ const Register = props => {
             value={lastName}
             onChange={e => setLastName(e.target.value)}
             placeholder='Last Name'
+            required
           />
           <input
             className='landing__form--input'
@@ -68,6 +70,7 @@ const Register = props => {
             value={email}
             onChange={e => setEmail(e.target.value)}
             placeholder='Email Address'
+            required
           />
           <input
             className='landing__form--input'
@@ -75,6 +78,7 @@ const Register = props => {
             value={password}
             onChange={e => setPassword(e.target.value)}
             placeholder='Password'
+            required
           />
           <input
             className='landing__form--input'
@@ -82,6 +86,7 @@ const Register = props => {
             value={confirmPassword}
             onChange={e => setConfirmPassword(e.target.value)}
             placeholder='Confirm Password'
+            required
           />
           <input type='submit' value='Register' />
         </form>
