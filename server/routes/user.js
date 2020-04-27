@@ -5,8 +5,8 @@ const bcrypt = require('bcrypt');
 router.post('/register', async (req, res) => {
   try {
     let checkIfUserExist = await User.findOne({ email: req.body.email });
-    if (checkIfUserExist) res.json({ 'error': 'Email already in use' });
-    if (req.body.password < 8) res.json({ 'error': 'Password is not long enough' });
+    if (checkIfUserExist) return res.json({ 'error': 'Email already in use' });
+    if (req.body.password < 8) return res.json({ 'error': 'Password is not long enough' });
 
     let user = new User();
     user.firstName = req.body.firstName;
