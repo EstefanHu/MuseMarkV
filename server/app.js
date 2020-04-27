@@ -3,6 +3,11 @@ const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const session = require('express-session');
+const redis = require('redis');
+
+let RedisStore = require('connect-redis')(session)
+let redisClient = redis.createClient()
 
 const app = express();
 
@@ -10,6 +15,17 @@ app.use(bodyParser.json());
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
+app.use(session({
+    secret: process.env.REDIS_KEY || 'super-secret-sessions', //TODO: Update to process.env
+    store: new RedisStore({
+        host: 'localhost',
+        port: 6379,
+        client: redisClient,
+        ttl: 260
+    }),
+    saveUninitialized: false,
+    resave: false
+}));
 
 require('dotenv').config()
 
