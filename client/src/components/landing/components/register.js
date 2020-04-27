@@ -12,6 +12,9 @@ const Register = props => {
   const handleSubmit = e => {
     e.preventDefault();
 
+    if (password.length < 8) return alert('Password is not long enough');
+    if (password !== confirmPassword) return alert('Passwords do not match');
+
     fetch('http://localhost:4000/user/register', {
         method: 'POST',
         headers: {
@@ -39,7 +42,7 @@ const Register = props => {
   return (
     <section className='landingForm'>
       <div id='signupSplash'>
-        <h1>Muse</h1>
+        <h1>:Muse</h1>
       </div>
       <div className='form__holder'>
         <h2>Join :Muse.</h2>
