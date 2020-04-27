@@ -8,7 +8,6 @@ const Register = props => {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
 
-  // TODO: INSTALL FORM CHECK and FORM SUBMITION
   const handleSubmit = e => {
     e.preventDefault();
 
@@ -16,18 +15,18 @@ const Register = props => {
     if (password !== confirmPassword) return alert('Passwords do not match');
 
     fetch('http://localhost:4000/user/register', {
-        method: 'POST',
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-            firstName: firstName,
-            lastName: lastName,
-            email: email,
-            password: password
-        })
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        firstName: firstName,
+        lastName: lastName,
+        email: email,
+        password: password
       })
+    })
       .then(res => res.json())
       .then(res => {
         if (res.Error) {
@@ -48,40 +47,40 @@ const Register = props => {
         <h2>Join :Muse.</h2>
         <h3>Create an account and engage with</h3>
         <h3>your communities stories</h3>
-        <form onSubmit={ handleSubmit }>
+        <form onSubmit={handleSubmit}>
           <input
             className='landing__form--input'
             type='text'
-            value={ firstName }
-            onChange={ e => setFirstName(e.target.value) }
+            value={firstName}
+            onChange={e => setFirstName(e.target.value)}
             placeholder='First Name'
           />
           <input
             className='landing__form--input'
             type='text'
-            value={ lastName }
-            onChange={ e => setLastName(e.target.value) }
+            value={lastName}
+            onChange={e => setLastName(e.target.value)}
             placeholder='Last Name'
           />
           <input
             className='landing__form--input'
             type='email'
-            value={ email }
-            onChange={ e => setEmail(e.target.value) }
+            value={email}
+            onChange={e => setEmail(e.target.value)}
             placeholder='Email Address'
           />
           <input
             className='landing__form--input'
             type='password'
-            value={ password }
-            onChange={ e => setPassword(e.target.value) }
+            value={password}
+            onChange={e => setPassword(e.target.value)}
             placeholder='Password'
           />
           <input
             className='landing__form--input'
             type='password'
-            value={ confirmPassword }
-            onChange={ e => setConfirmPassword(e.target.value) }
+            value={confirmPassword}
+            onChange={e => setConfirmPassword(e.target.value)}
             placeholder='Confirm Password'
           />
           <input type='submit' value='Register' />
