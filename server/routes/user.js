@@ -13,7 +13,9 @@ router.post('/register', async (req, res) => {
     user.email = req.body.email;
     user.password = req.body.password;
     user = await user.save();
-    res.json({ userId: user.id });
+    console.log(user);
+
+    res.json({ userId: user._id });
 
   } catch(error) {
     res.type('text').status(500).send('Error: ' + error);

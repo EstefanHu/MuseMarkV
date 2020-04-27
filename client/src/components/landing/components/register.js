@@ -12,7 +12,7 @@ const Register = props => {
   const handleSubmit = e => {
     e.preventDefault();
 
-    fetch('http://localhost:4000/register', {
+    fetch('http://localhost:4000/user/register', {
         method: 'POST',
         headers: {
           Accept: 'application/json',
@@ -26,9 +26,14 @@ const Register = props => {
         })
       })
       .then(res => res.json())
+      .then(res => {
+        if (res.Error) {
+          renderError(res.Error);
+        } else {
+          props.history.push('/app/dashboard');
+        }
+      })
       .catch(console.error);
-
-    props.history.push('/app/dashboard');
   }
 
   return (
