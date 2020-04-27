@@ -28,7 +28,7 @@ const Register = props => {
       .then(res => res.json())
       .then(res => {
         if (res.Error) {
-          renderError(res.Error);
+          alert(res.Error);
         } else {
           props.history.push('/app/dashboard');
         }

@@ -5,7 +5,7 @@ const bcrypt = require('bcrypt');
 router.post('/register', async (req, res) => {
   try {
     let checkIfUserExist = await User.findOne({ email: req.body.email });
-    if (checkIfUserExist) res.json({'Error': 'User Already exists'});
+    if (checkIfUserExist) res.json({'error': 'Email already in use'});
 
     let user = new User();
     user.firstName = req.body.firstName;
@@ -17,7 +17,7 @@ router.post('/register', async (req, res) => {
     res.json({ userId: user._id });
 
   } catch(error) {
-    res.type('text').status(500).send('Error: ' + error);
+    res.type('text').status(500).send('error: ' + error);
   }
 });
 
