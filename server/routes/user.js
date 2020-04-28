@@ -79,4 +79,14 @@ router.post('/delete/:id', async (req, res) => {
   }
 });
 
+router.get('/logout', (req, res) => {
+  try {
+    req.session.destroy(err => {
+      if (err) throw err
+    });
+  } catch (error) {
+    res.type('text').status(500).send('Error:  ' + error);
+  }
+});
+
 module.exports = router;

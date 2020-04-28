@@ -8,30 +8,38 @@ const userSchema = new Schema({
         type: String,
         required: true,
         trim: true,
-        minlength: 2
+        minlength: 2,
+        default: ''
     },
     lastName: {
         type: String, 
         required: true,
         trim: true,
-        minlength: 2
+        minlength: 2,
+        default: ''
     },
     email: {
         type: String,
         required: true,
         unique: true,
         trim: true,
-        minlength: 5
+        minlength: 5,
+        default: ''
     },
     password: {
         type: String,
         required: true,
-        minlength: 8
+        minlength: 8,
+        default: ''
     },
     createdAt: {
         type: Date,
         default: Date.now
     },
+    isDeleted: {
+        type: Boolean,
+        default: false
+    }
 }, {
     timestamps: true
 });

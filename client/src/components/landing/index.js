@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Route, Link } from 'react-router-dom';
 
 import './landing.css';
@@ -11,26 +11,38 @@ import { Terms } from './components/terms';
 import { Forgot } from './components/forgot';
 
 
-export const Landing = () => (
+export const Landing = () => {
+  useEffect(() => {
+    console.log('check it: ' + document.cookie);
+
+    fetch('http://localhost:4000/cookie', {
+      credentials: 'include'
+    })
+      .then(res => res.json())
+      .then(res => console.log(res));
+  });
+
+  return (
     <>
-        <nav id='landing__nav'>
-            <Link to='/' className='logo'>:M</Link>
-            <span>
-                <Link to='/login'>
-                    <button id='login'>Log in</button>
-                </Link>
-                <Link to='/register'>
-                    <button id='register'>Sign up</button>
-                </Link>
-            </span>
-        </nav>
-        <main id='landing__body'>
-            <Route exact path='/' component={Index} />
-            <Route path='/login' component={Login} />
-            <Route path='/register' component={Register} />
-            <Route path='/privacy' component={Privacy} />
-            <Route path='/terms' component={Terms} />
-            <Route path='/forgot' component={Forgot} />
-        </main>
+      <nav id='landing__nav'>
+        <Link to='/' className='logo'>:M</Link>
+        <span>
+          <Link to='/login'>
+            <button id='login'>Log in</button>
+          </Link>
+          <Link to='/register'>
+            <button id='register'>Sign up</button>
+          </Link>
+        </span>
+      </nav>
+      <main id='landing__body'>
+        <Route exact path='/' component={Index} />
+        <Route path='/login' component={Login} />
+        <Route path='/register' component={Register} />
+        <Route path='/privacy' component={Privacy} />
+        <Route path='/terms' component={Terms} />
+        <Route path='/forgot' component={Forgot} />
+      </main>
     </>
-)
+  )
+}
