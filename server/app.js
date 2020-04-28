@@ -17,12 +17,6 @@ const sessionStore = new RedisStore({
 });
 const PORT = process.env.PORT || 4000;
 
-const dbString = 'mongodb://localhost:27017/tutorial_db';
-const dbOptions = {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-}
-
 mongoose.connect(`mongodb://localhost/${DB_CONNECTION}`,
   {
     useNewUrlParser: true,
@@ -36,14 +30,6 @@ mongoose.connection.once('open', () => {
   console.log('Connection Error: ' + err);
 });
 
-const connection = mongoose.createConnection(dbString, dbOptions);
-
-const mongoStore = require('connect-mongo')(session);
-const mongoSession = new mongoStore({
-  mongooseConnection: connection,
-  collection: 'sessions'
-})
-
 require('dotenv').config()
 
 app.use(bodyParser.json());
@@ -53,7 +39,7 @@ app.use(cors({
 }));
 app.use(session({
   secret: 'super-secret-sessions', //TODO: Update to process.env
-  store: mongoSession,
+  store: sessionStore,
   saveUninitialized: true,
   resave: false,
   cookie: {
@@ -86,13 +72,11 @@ app.get('/api', (_, res) => {
 app.get('/cookie', (req, res) => {
   if (req.session.viewCount > 0) {
     req.session.viewCount = req.session.viewCount + 1;
-    console.log("========= " +req.session.viewCount)
   } else {
     req.session.viewCount = 1;
-    console.log("========= " + req.session.id)
   }
   console.log(req.session);
-  res.send(`${req.session.viewCount}`);
+  res.json({"success": "hello0"});
 });
 
 const userRouter = require('./routes/user');
