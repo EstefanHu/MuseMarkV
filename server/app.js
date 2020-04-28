@@ -35,15 +35,16 @@ require('dotenv').config()
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors({
-  origin: 'http://localhost:3000'
+  origin: 'http://localhost:3000',
+  credentials: true,
 }));
 app.use(session({
-  secret: 'super-secret-sessions', //TODO: Update to process.env
+  secret: process.env.SESSIONS_KEY || 'super-secret-sessions',
   store: sessionStore,
-  saveUninitialized: true,
+  saveUninitialized: false,
   resave: false,
   cookie: {
-    maxAge: 60000,
+    maxAge: 1000 * 60 * 60 * 24 * 7,
   }
 }));
 
@@ -70,13 +71,13 @@ app.get('/api', (_, res) => {
 });
 
 app.get('/cookie', (req, res) => {
-  if (req.session.viewCount > 0) {
+  if (req.session.viewCount) {
     req.session.viewCount = req.session.viewCount + 1;
   } else {
     req.session.viewCount = 1;
   }
   console.log(req.session);
-  res.json({"success": "hello0"});
+  res.json({ "success": "hello0" });
 });
 
 const userRouter = require('./routes/user');

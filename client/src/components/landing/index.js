@@ -13,8 +13,6 @@ import { Forgot } from './components/forgot';
 
 export const Landing = () => {
   useEffect(() => {
-    // console.log('check it: ' + document.cookie);
-
     fetch('http://localhost:4000/cookie', {
       credentials: 'include'
     })
