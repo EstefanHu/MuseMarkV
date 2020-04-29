@@ -41,7 +41,7 @@ const Login = props => {
         <form onSubmit={handleSubmit}>
           <input
             className='landing__form--input'
-            type='text'
+            type='email'
             value={email}
             onChange={e => setEmail(e.target.value)}
             placeholder='Email Address'
