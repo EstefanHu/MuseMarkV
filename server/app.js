@@ -45,7 +45,7 @@ app.use(session({
   resave: false,
   name: 'museCookie',
   cookie: {
-    maxAge: 60000,
+    maxAge: 1000 * 60 * 60 * 24 * 7,
     httpOnly: false,
     sameSite: false,
     secure: process.env.ENVIRONMENT === 'production'
