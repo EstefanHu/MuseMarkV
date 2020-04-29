@@ -44,23 +44,13 @@ app.use(session({
   saveUninitialized: false,
   resave: false,
   cookie: {
-    maxAge: 1000 * 60 * 60 * 24 * 7,
-  }
+    maxAge: 60000,
+    httpOnly: false,
+    sameSite: false,
+    secure: process.env.ENVIRONMENT === 'production'
+  },
+  key: 'connect.sid'
 }));
-
-const cache = (req, res, next) => {
-  const { id } = req.params;
-
-  redisClient.get(id, (err, data) => {
-    if (err) throw err;
-
-    if (data !== null) {
-      res.send('cached');
-    } else {
-      next();
-    }
-  })
-}
 
 app.get('/api', (_, res) => {
   try {
@@ -76,8 +66,8 @@ app.get('/cookie', (req, res) => {
   } else {
     req.session.viewCount = 1;
   }
-  console.log(req.session);
-  res.json({ "success": "hello0" });
+  console.log(req.sessionID);
+  res.json(req.session);
 });
 
 const userRouter = require('./routes/user');

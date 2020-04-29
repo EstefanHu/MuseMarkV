@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Route, Link } from 'react-router-dom';
 
 import './landing.css';
@@ -12,14 +12,6 @@ import { Forgot } from './components/forgot';
 
 
 export const Landing = () => {
-  useEffect(() => {
-    fetch('http://localhost:4000/cookie', {
-      credentials: 'include'
-    })
-      .then(res => res.json())
-      .then(res => console.log(res));
-  });
-
   return (
     <>
       <nav id='landing__nav'>
