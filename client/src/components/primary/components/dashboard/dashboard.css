@@ -33,52 +33,6 @@
   background: rgb(245, 245, 245);
 }
 
-.storycard {
-  border-radius: 5px;
-  border: 1px solid lightgrey;
-  padding: 10px 20px;
-  margin-bottom: 15px;
-  background: white;
-}
-
-.storycard--header {
-  display: flex;
-  justify-content: space-between;
-}
-
-.storycard h1 {
-  font-size: 1.5rem;
-}
-
-.storycard--actions {
-  margin-top: 10px;
-  display: flex;
-  justify-content: center;
-}
-
-.storycard a {
-  margin-right: 40px;
-}
-
-.storycard a,
-.storycard button {
-  color: grey;
-  text-decoration: none;
-  font-size: 1rem;
-  cursor: pointer;
-}
-
-.storycard a:hover,
-.storycard a:focus,
-.storycard button:hover,
-.storycard button:focus {
-  text-decoration: underline;
-}
-
-.storycard button {
-  border: none;
-}
-
 #deleteStory__form {
   width: 400px;
   height: fit-content;

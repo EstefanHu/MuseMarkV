@@ -1,139 +1,185 @@
 .primaryNav {
-    position: fixed;
-    left: 0;
-    width: calc(4rem + 50px);
-    height: 100vh;
-    background: white;
-    border-right: 1px solid rgb(228, 228, 228);
-    z-index: 10;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    text-align: center;
-    padding: 0 2rem;
-    transition: .2s ease-out;
-    overflow: hidden;
+  position: fixed;
+  left: 0;
+  width: calc(4rem + 50px);
+  height: 100vh;
+  background: white;
+  border-right: 1px solid rgb(228, 228, 228);
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  padding: 0 2rem;
+  transition: .2s ease-out;
+  overflow: hidden;
 }
 
 #nav__logo {
-    padding-top: 25px;
-    overflow: hidden;
-    white-space: nowrap;
+  padding-top: 25px;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 .primaryNav h1 {
-    margin-top: 20px;
-    font-size: 3rem;
+  margin-top: 20px;
+  font-size: 3rem;
 }
 
 .primaryNav ul {
-    width: 100%;
-    height: 100%;
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  width: 100%;
+  height: 100%;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .primaryNav a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 .primaryNav li {
-    padding: 1.5rem 0;
-    width: 13rem;
+  padding: 1.5rem 0;
+  width: 13rem;
 }
 
 .primaryNav li:hover * {
-    color: var(--color-accent);
-    font-weight: 400;
-    cursor: pointer;
+  color: var(--color-accent);
+  font-weight: 400;
+  cursor: pointer;
 }
 
 .nav__open {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    align-content: flex-start;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  align-content: flex-start;
 }
 
 .primaryNav img {
-    width: 40px;
-    margin-left: 5px;
+  width: 40px;
+  margin-left: 5px;
 }
 
 .nav__name {
-    width: 100%;
-    display: none;
+  width: 100%;
+  display: none;
 }
 
 .indexNav {
-    width: 100vw;
-    height: 45px;
-    border-bottom: 1px solid lightgrey;
+  width: 100vw;
+  height: 45px;
+  border-bottom: 1px solid lightgrey;
 }
 
 .primaryNav h2 {
-    color: black;
-    font-weight: 300;
-    opacity: 0;
-    transition: .15s ease-in;
+  color: black;
+  font-weight: 300;
+  opacity: 0;
+  transition: .15s ease-in;
 }
 
 #more {
-    width: 100%;
-    height: 40px;
-    color: white;
-    text-decoration: none;
-    transition: .2s ease-in-out;
+  width: 100%;
+  height: 40px;
+  color: white;
+  text-decoration: none;
+  transition: .2s ease-in-out;
 }
 
 #more:hover,
 #more:focus {
-    height: 40px;
-    color: black;
-    text-decoration: underline;
+  height: 40px;
+  color: black;
+  text-decoration: underline;
 }
 
 .modal {
-    display: block;
-    position: fixed;
-    z-index: 15;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(255, 255, 255, 0.5);
+  display: block;
+  position: fixed;
+  z-index: 15;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(255, 255, 255, 0.5);
 }
 
 .modal-content {
-    position: relative;
-    background-color: #fefefe;
-    margin: 15vh auto;
-    border-radius: 5px;
+  position: relative;
+  background-color: #fefefe;
+  margin: 15vh auto;
+  border-radius: 5px;
 }
 
 .close {
-    color: #aaa;
-    position: absolute;
-    right: 12px;
-    top: 5px;
-    font-size: 28px;
-    font-weight: bold;
+  color: #aaa;
+  position: absolute;
+  right: 12px;
+  top: 5px;
+  font-size: 28px;
+  font-weight: bold;
 }
 
 .close:hover,
 .close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .container {
-    width: 800px;
-    margin-left: 300px;
-    padding: 20px 0;
+  width: 800px;
+  margin-left: 300px;
+  padding: 20px 0;
+}
+
+.storycard {
+  border-radius: 5px;
+  border: 1px solid lightgrey;
+  padding: 10px 20px;
+  margin-bottom: 15px;
+  background: white;
+}
+
+.storycard--header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.storycard h1 {
+  font-size: 1.5rem;
+}
+
+.storycard--actions {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.storycard a {
+  margin-right: 40px;
+}
+
+.storycard a,
+.storycard button {
+  color: grey;
+  text-decoration: none;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.storycard a:hover,
+.storycard a:focus,
+.storycard button:hover,
+.storycard button:focus {
+  text-decoration: underline;
+}
+
+.storycard button {
+  border: none;
 }
 
 @media only screen and (max-width: 1200px) {}
