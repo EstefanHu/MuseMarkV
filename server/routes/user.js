@@ -20,7 +20,7 @@ router.post('/register', async (req, res) => {
     res.json("Registration successful");
 
   } catch (error) {
-    res.type('text').status(500).send('error: ' + error);
+    res.status(500).json('error: ' + error);
   }
 });
 
@@ -29,20 +29,17 @@ router.post('/login', async (req, res) => {
     let user = await User.findOne({ email: req.body.email });
 
     if (!user)
-      res.send('Email or Password was incorrect');
+      return res.json('Email or Password was incorrect');
 
     //https://coderrocketfuel.com/article/using-bcrypt-to-hash-and-check-passwords-in-node-js
     bcrypt.compare(req.body.password, user.password, function (err, isMatch) {
-      if (err) {
-        throw err;
-      } else if (!isMatch) {
-        res.send('Email or Password was incorrect');
-      } else {
-        res.json({ userId: user.id });
-      }
+      if (err) throw err;
+      if (!isMatch) return res.json({error: 'Email of Password was incorrect'});
+      req.session.userId = user._id;
+      res.json("Login successful");
     });
   } catch (error) {
-    res.type('text').status(500).send('Error:  ' + error);
+    res.status(500).json('Error:  ' + error);
   }
 });
 

@@ -30,7 +30,7 @@ const Register = props => {
     })
       .then(res => res.json())
       .then(res => {
-        if (res.Error) alert(res.Error);
+        if (res.error) alert(res.error);
         props.history.push('/app/dashboard');
       })
       .catch(console.error);

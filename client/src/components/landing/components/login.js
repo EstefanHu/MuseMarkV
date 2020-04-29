@@ -8,18 +8,23 @@ const Login = props => {
   const handleSubmit = e => {
     e.preventDefault();
 
-    fetch('http://localhost:4000/login', {
-        method: 'POST',
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          email: email,
-          password: password
-        })
+    fetch('http://localhost:4000/user/login', {
+      credentials: 'include',
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        email: email,
+        password: password
       })
+    })
       .then(res => res.json())
+      .then(res => {
+        if (res.error) alert(res.error);
+        props.history.push('/app/dashboard');
+      })
       .catch(console.error);
 
     props.history.push('/app/dashboard');
@@ -34,20 +39,22 @@ const Login = props => {
         <h2>Log in to :Muse.</h2>
         <h3>See what stories your</h3>
         <h3>community is telling</h3>
-        <form onSubmit={ handleSubmit}>
+        <form onSubmit={handleSubmit}>
           <input
             className='landing__form--input'
             type='text'
-            value={ email }
+            value={email}
             onChange={e => setEmail(e.target.value)}
             placeholder='Email Address'
+            required
           />
           <input
             className='landing__form--input'
             type='text'
-            value={ password }
+            value={password}
             onChange={e => setPassword(e.target.value)}
             placeholder='Password'
+            required
           />
           <input type='submit' value='Log in' />
         </form>
