@@ -22,15 +22,15 @@ export const Stories = props => {
       {stories.map(item => (
         <article
           key={item._id}
-          className='dashboard__item'
+          className='storycard'
         >
-          <span className='dashboard__item--header'>
+          <span className='storycard--header'>
             <p></p>
             <p></p>
           </span>
           <h1>{item.title}</h1>
           <p>{item.description}</p>
-          <span className='dashboard__item--actions'>
+          <span className='storycard--actions'>
             <Link
               to='/app/create'
               onClick={() => setStory({

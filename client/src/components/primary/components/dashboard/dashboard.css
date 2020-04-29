@@ -33,7 +33,7 @@
   background: rgb(245, 245, 245);
 }
 
-.dashboard__item {
+.storycard {
   border-radius: 5px;
   border: 1px solid lightgrey;
   padding: 10px 20px;
@@ -41,41 +41,41 @@
   background: white;
 }
 
-.dashboard__item--header {
+.storycard--header {
   display: flex;
   justify-content: space-between;
 }
 
-.dashboard__item h1 {
+.storycard h1 {
   font-size: 1.5rem;
 }
 
-.dashboard__item--actions {
+.storycard--actions {
   margin-top: 10px;
   display: flex;
   justify-content: center;
 }
 
-.dashboard__item a {
+.storycard a {
   margin-right: 40px;
 }
 
-.dashboard__item a,
-.dashboard__item button {
+.storycard a,
+.storycard button {
   color: grey;
   text-decoration: none;
   font-size: 1rem;
   cursor: pointer;
 }
 
-.dashboard__item a:hover,
-.dashboard__item a:focus,
-.dashboard__item button:hover,
-.dashboard__item button:focus {
+.storycard a:hover,
+.storycard a:focus,
+.storycard button:hover,
+.storycard button:focus {
   text-decoration: underline;
 }
 
-.dashboard__item button {
+.storycard button {
   border: none;
 }
 

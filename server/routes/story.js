@@ -4,6 +4,7 @@ const Story = require('./../models/story');
 router.post('/create', async (req, res) => {
   try {
     let story;
+      
     if (req.body.id !== undefined) {
       story = await Story.findByIdAndUpdate(
         { _id: req.body.id },
