@@ -34,11 +34,27 @@ const nodeSchema = new Schema({
 const storySchema = new Schema({
   title: {
     type: String,
-    required: true
+    required: true,
+    default: ''
   },
   description: {
     type: String,
-    required: true
+    required: true,
+    default: ''
+  },
+  genre: {
+    type: String,
+    required: true,
+    default: ''
+  },
+  credibility: {
+    type: Number,
+    default: 0
+  },
+  community: {
+    type: String,
+    required: true,
+    default: ''
   },
   location: {
     type: [Number],
@@ -55,10 +71,16 @@ const storySchema = new Schema({
   authorId: {
     type: String,
     required: true
+  },
+  comments: {
+    type: [{
+      type: Schema.Types.ObjectId,
+      ref: 'Comment'
+    }]
   }
 });
 
-storySchema.pre('validate', function(next) {
+storySchema.pre('validate', function (next) {
   for (let i = 0; i < this.route.length; i++) {
     if (this.route[i].markdown) {
       this.route[i].sanitizedHtml = dompurify.sanitize(marked(this.route[i].markdown));
