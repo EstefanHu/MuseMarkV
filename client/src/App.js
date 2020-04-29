@@ -3,6 +3,7 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
+  Redirect,
 } from 'react-router-dom';
 import Cookie from 'js-cookie';
 
@@ -15,16 +16,33 @@ import { FourOhFour } from './components/fourohfour';
 
 import { UserContext } from './context';
 
+const checkAuth = () => {
+
+}
+
+const PrivartRoute = ({ component: Component, ...rest }) => {
+  <Route {...rest} render={props => (
+    checkAuth() ? (
+      <Component {...props} />
+    ) : (
+        <Redirect to={{ pathname: '/login' }} />
+      )
+  )} />
+}
+
 export const App = () => {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    fetch('http://localhost:4000/cookie', {
-      credentials: 'include'
-    })
-      .then(res => res.json())
-      .then(res => console.log(res))
-      .catch(console.error);
+    let cookie = Cookie.get('museCookie');
+    if (!cookie) {
+      fetch('http://localhost:4000/cookie', {
+        credentials: 'include'
+      })
+        .then(res => res.json())
+        .then(res => console.log(res))
+        .catch(console.error);
+    }
   }, []);
 
   return (

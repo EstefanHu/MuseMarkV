@@ -43,13 +43,13 @@ app.use(session({
   store: sessionStore,
   saveUninitialized: false,
   resave: false,
+  name: 'museCookie',
   cookie: {
     maxAge: 60000,
     httpOnly: false,
     sameSite: false,
     secure: process.env.ENVIRONMENT === 'production'
-  },
-  key: 'connect.sid'
+  }
 }));
 
 app.get('/api', (_, res) => {
