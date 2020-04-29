@@ -13,7 +13,7 @@ router.post('/create', async (req, res) => {
     story.description = req.body.description;
     story.location = req.body.location;
     story.route = req.body.route;
-    story.authorId = req.body.authorId;
+    story.authorId = req.session.userID;
     story = await story.save();
 
     res.json('Created story: ' + story);
@@ -22,10 +22,10 @@ router.post('/create', async (req, res) => {
   }
 });
 
-router.get('/library/:id', async (req, res) => {
+router.get('/library', async (req, res) => {
   try {
     let stories = await Story
-      .find({ authorId: req.params.id })
+      .find({ authorId: req.session.userID })
       .sort({ createdAt: 'desc' });
     res.json(stories);
   } catch (error) {

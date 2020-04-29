@@ -15,8 +15,8 @@ router.post('/register', async (req, res) => {
     user.password = req.body.password;
     user = await user.save();
 
-    req.session.userId = user._id;
-
+    req.session.userID = user._id;
+    console.log(req.session);
     res.json("Registration successful");
 
   } catch (error) {
@@ -35,7 +35,8 @@ router.post('/login', async (req, res) => {
     bcrypt.compare(req.body.password, user.password, function (err, isMatch) {
       if (err) throw err;
       if (!isMatch) return res.json({error: 'Email or Password was incorrect'});
-      req.session.userId = user._id;
+      req.session.userID = user._id;
+      console.log(req.session);
       res.json("Login successful");
     });
   } catch (error) {
@@ -43,12 +44,13 @@ router.post('/login', async (req, res) => {
   }
 });
 
-router.get('/:id').get(async (req, res) => {
+router.get('/profile').get(async (req, res) => {
   try {
-    const user = await User.findById(req.params.id);
+    const user = await User.findById(req.session.userID);
+    console.log('from profile => ' + user);
     res.json(user);
   } catch (error) {
-    res.type('text').status(500).send('Error:  ' + error);
+    res.status(500).json('Error:  ' + error);
   }
 });
 

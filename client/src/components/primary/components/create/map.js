@@ -91,6 +91,7 @@ export const Map = props => {
       return alert('There seems to be no story nodes');
 
     const requestOptions = {
+      credentials: 'include',
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -98,8 +99,7 @@ export const Map = props => {
         "title": story.title,
         "description": story.description,
         "location": story.route[0].coordinates,
-        "route": story.route,
-        "authorId": 1 //TODO: Chagne to call current UserId
+        "route": story.route
       })
     };
     fetch('http://localhost:4000/story/create', requestOptions)
