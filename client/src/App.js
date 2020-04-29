@@ -35,18 +35,6 @@ const AuthRoute = ({ component: Component, ...rest }) => (
 export const App = () => {
   const [user, setUser] = useState(null);
 
-  // useEffect(() => {
-  //   let cookie = Cookie.get('museCookie');
-  //   if (!cookie) {
-  //     fetch('http://localhost:4000/cookie', {
-  //       credentials: 'include'
-  //     })
-  //       .then(res => res.json())
-  //       .then(res => console.log(res))
-  //       .catch(console.error);
-  //   }
-  // }, []);
-
   return (
     <UserContext.Provider value={{ user, setUser }}>
       <Router>
