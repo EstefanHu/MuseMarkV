@@ -37,8 +37,7 @@ const Login = props => {
       </div>
       <div className='form__holder'>
         <h2>Log in to :Muse.</h2>
-        <h3>See what stories your</h3>
-        <h3>community is telling</h3>
+        <h3>See your communities stories</h3>
         <form onSubmit={handleSubmit}>
           <input
             className='landing__form--input'
@@ -50,7 +49,7 @@ const Login = props => {
           />
           <input
             className='landing__form--input'
-            type='text'
+            type='password'
             value={password}
             onChange={e => setPassword(e.target.value)}
             placeholder='Password'

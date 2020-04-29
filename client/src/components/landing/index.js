@@ -20,7 +20,7 @@ export const Landing = () => {
         <span>
           {Cookie.get('museCookie') ? (
             <Link to='/app/dashboard'>
-              <button id='login'>Access App</button>
+              <button id='login'>Log in</button>
             </Link>
           ) : (
             <>
