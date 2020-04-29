@@ -36,9 +36,10 @@ export const Stories = props => {
                 'route': item.route
               })}
             >Update</Link>
-            <Link
+            {/* <Link
               to={`/app/abstract/${item._id}`}
-            >Abstract</Link>
+            >Abstract</Link> */} 
+            {/* TODO: add back for beta */}
             <button
               onClick={() => {
                 props.toggleIsDeleting()
