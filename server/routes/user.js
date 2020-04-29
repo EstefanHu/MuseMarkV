@@ -44,10 +44,9 @@ router.post('/login', async (req, res) => {
   }
 });
 
-router.get('/profile').get(async (req, res) => {
+router.get('/profile', async (req, res) => {
   try {
     const user = await User.findById(req.session.userID);
-    console.log('from profile => ' + user);
     res.json(user);
   } catch (error) {
     res.status(500).json('Error:  ' + error);

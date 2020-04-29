@@ -9,7 +9,7 @@ export const Stories = props => {
   const [stories, setStories] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:4000/story/library/', {
+    fetch('http://localhost:4000/story/library', {
       credentials: 'include',
     })
       .then(res => res.json())
