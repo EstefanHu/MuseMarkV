@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
   BrowserRouter as Router,
   Switch,
@@ -14,7 +14,6 @@ import { Landing } from './components/landing';
 import { Primary } from './components/primary';
 import { FourOhFour } from './components/fourohfour';
 
-import { UserContext } from './context';
 
 const checkAuth = () => {
   const cookie = Cookie.get('museCookie');
@@ -32,18 +31,12 @@ const AuthRoute = ({ component: Component, ...rest }) => (
   )} />
 )
 
-export const App = () => {
-  const [user, setUser] = useState(null);
-
-  return (
-    <UserContext.Provider value={{ user, setUser }}>
-      <Router>
-        <Switch>
-          <Route exact path='/(|register|login|privacy|terms|forgot)' component={Landing} />
-          <AuthRoute exact path='/app/*' component={Primary} />
-          <Route component={FourOhFour} />
-        </Switch>
-      </Router>
-    </UserContext.Provider>
-  )
-}
+export const App = () => (
+  <Router>
+    <Switch>
+      <Route exact path='/(|register|login|privacy|terms|forgot)' component={Landing} />
+      <AuthRoute exact path='/app/*' component={Primary} />
+      <Route component={FourOhFour} />
+    </Switch>
+  </Router>
+)
