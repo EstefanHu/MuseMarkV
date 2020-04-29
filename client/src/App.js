@@ -17,10 +17,12 @@ import { FourOhFour } from './components/fourohfour';
 import { UserContext } from './context';
 
 const checkAuth = () => {
-
+  const cookie = Cookie.get('museCookie');
+  if (!cookie) return false;
+  return true;
 }
 
-const PrivartRoute = ({ component: Component, ...rest }) => {
+const AuthRoute = ({ component: Component, ...rest }) => (
   <Route {...rest} render={props => (
     checkAuth() ? (
       <Component {...props} />
@@ -28,29 +30,29 @@ const PrivartRoute = ({ component: Component, ...rest }) => {
         <Redirect to={{ pathname: '/login' }} />
       )
   )} />
-}
+)
 
 export const App = () => {
   const [user, setUser] = useState(null);
 
-  useEffect(() => {
-    let cookie = Cookie.get('museCookie');
-    if (!cookie) {
-      fetch('http://localhost:4000/cookie', {
-        credentials: 'include'
-      })
-        .then(res => res.json())
-        .then(res => console.log(res))
-        .catch(console.error);
-    }
-  }, []);
+  // useEffect(() => {
+  //   let cookie = Cookie.get('museCookie');
+  //   if (!cookie) {
+  //     fetch('http://localhost:4000/cookie', {
+  //       credentials: 'include'
+  //     })
+  //       .then(res => res.json())
+  //       .then(res => console.log(res))
+  //       .catch(console.error);
+  //   }
+  // }, []);
 
   return (
     <UserContext.Provider value={{ user, setUser }}>
       <Router>
         <Switch>
           <Route exact path='/(|register|login|privacy|terms|forgot)' component={Landing} />
-          <Route exact path='/app/*' component={Primary} />
+          <AuthRoute exact path='/app/*' component={Primary} />
           <Route component={FourOhFour} />
         </Switch>
       </Router>

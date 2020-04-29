@@ -15,7 +15,9 @@ router.post('/register', async (req, res) => {
     user.password = req.body.password;
     user = await user.save();
 
-    res.json({ userId: user._id });
+    req.session.userId = user._id;
+
+    res.json("Registration successful");
 
   } catch (error) {
     res.type('text').status(500).send('error: ' + error);

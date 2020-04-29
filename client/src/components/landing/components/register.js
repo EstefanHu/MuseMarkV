@@ -15,6 +15,7 @@ const Register = props => {
     if (password !== confirmPassword) return alert('Passwords do not match');
 
     fetch('http://localhost:4000/user/register', {
+      credentials: 'include',
       method: 'POST',
       headers: {
         Accept: 'application/json',
@@ -29,11 +30,8 @@ const Register = props => {
     })
       .then(res => res.json())
       .then(res => {
-        if (res.Error) {
-          alert(res.Error);
-        } else {
-          props.history.push('/app/dashboard');
-        }
+        if (res.Error) alert(res.Error);
+        props.history.push('/app/dashboard');
       })
       .catch(console.error);
   }
