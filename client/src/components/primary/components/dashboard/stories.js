@@ -11,7 +11,7 @@ export const Stories = props => {
   useEffect(() => {
     fetch('http://localhost:4000/story/library/', {
       credentials: 'include',
-    }) // TODO: Change "1" to userId
+    })
       .then(res => res.json())
       .then(res => setStories(res))
       .catch(console.error);

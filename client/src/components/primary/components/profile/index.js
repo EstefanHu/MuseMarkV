@@ -7,12 +7,12 @@ export const Profile = () => {
   const { user, setUser } = useContext(UserContext);
 
   useEffect(() => {
-    fetch('http://localhost:4000/user/profile',{
+    fetch('http://localhost:4000/user/profile', {
       credentials: 'include'
     })
-    .then(res => res.json())
-    .then(res => console.log(res))
-    .catch(console.error);
+      .then(res => res.json())
+      .then(res => console.log(res))
+      .catch(console.error);
   })
 
   return (
