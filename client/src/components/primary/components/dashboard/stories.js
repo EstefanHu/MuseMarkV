@@ -24,9 +24,13 @@ export const Stories = props => {
           key={item._id}
           className='dashboard__item'
         >
+          <span className='dashboard__item--header'>
+            <p></p>
+            <p></p>
+          </span>
           <h1>{item.title}</h1>
           <p>{item.description}</p>
-          <span>
+          <span className='dashboard__item--actions'>
             <Link
               to='/app/create'
               onClick={() => setStory({

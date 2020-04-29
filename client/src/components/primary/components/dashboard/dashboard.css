@@ -41,11 +41,16 @@
   background: white;
 }
 
+.dashboard__item--header {
+  display: flex;
+  justify-content: space-between;
+}
+
 .dashboard__item h1 {
   font-size: 1.5rem;
 }
 
-.dashboard__item span {
+.dashboard__item--actions {
   margin-top: 10px;
   display: flex;
   justify-content: center;
