@@ -16,7 +16,6 @@ router.post('/register', async (req, res) => {
     user = await user.save();
 
     req.session.userID = user._id;
-    console.log(req.session);
     res.json("Registration successful");
 
   } catch (error) {
@@ -36,7 +35,6 @@ router.post('/login', async (req, res) => {
       if (err) throw err;
       if (!isMatch) return res.json({error: 'Email or Password was incorrect'});
       req.session.userID = user._id;
-      console.log(req.session);
       res.json("Login successful");
     });
   } catch (error) {
