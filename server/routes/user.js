@@ -13,6 +13,7 @@ router.post('/register', async (req, res) => {
     user.lastName = req.body.lastName;
     user.email = req.body.email;
     user.password = req.body.password;
+    console.log(user);
     user = await user.save();
 
     req.session.userID = user._id;
@@ -28,12 +29,12 @@ router.post('/login', async (req, res) => {
     let user = await User.findOne({ email: req.body.email });
 
     if (!user)
-      return res.json({error: 'Email or Password was incorrect'});
+      return res.json({ error: 'Email or Password was incorrect' });
 
     //https://coderrocketfuel.com/article/using-bcrypt-to-hash-and-check-passwords-in-node-js
     bcrypt.compare(req.body.password, user.password, function (err, isMatch) {
       if (err) throw err;
-      if (!isMatch) return res.json({error: 'Email or Password was incorrect'});
+      if (!isMatch) return res.json({ error: 'Email or Password was incorrect' });
       req.session.userID = user._id;
       res.json("Login successful");
     });

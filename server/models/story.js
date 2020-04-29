@@ -21,13 +21,14 @@ const nodeSchema = new Schema({
   name: {
     type: String,
     trim: true,
+    default: ''
   },
   markdown: {
     type: String,
-    trim: true,
+    trim: true
   },
   sanitizedHtml: {
-    type: String,
+    type: String
   }
 });
 
@@ -69,10 +70,8 @@ const storySchema = new Schema({
     default: Date.now
   },
   author: {
-    type: {
-      type: Schema.Types.ObjectId,
-      ref: 'User'
-    }
+    type: Schema.Types.ObjectId,
+    ref: 'User'
   },
   comments: {
     type: [{

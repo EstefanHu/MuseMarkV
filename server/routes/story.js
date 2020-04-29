@@ -5,20 +5,32 @@ router.post('/create', async (req, res) => {
   try {
     let story;
     if (req.body.id !== undefined) {
-      story = await Story.findById(req.body.id);
+      story = await Story.findByIdAndUpdate(
+        { _id: req.body.id },
+        {
+          title: req.body.title,
+          description: req.body.description,
+          location: req.body.location,
+          route: req.body.route,
+          author: req.session.userID
+        }
+      );
     } else {
       story = new Story();
+      story.title = req.body.title;
+      story.description = req.body.description;
+      story.genre = 'fiction';
+      story.community = 'seattle';
+      story.location = req.body.location;
+      story.route = req.body.route;
+      story.author = req.session.userID;
     }
-    story.title = req.body.title;
-    story.description = req.body.description;
-    story.location = req.body.location;
-    story.route = req.body.route;
-    story.author = req.session.userID;
+
     story = await story.save();
 
     res.json('Created story: ' + story);
   } catch (error) {
-    res.type('text').status(500).send('Error: ' + error);
+    res.status(500).json('Error: ' + error);
   }
 });
 

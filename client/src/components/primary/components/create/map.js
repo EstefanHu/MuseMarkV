@@ -90,7 +90,7 @@ export const Map = props => {
     if (story.route.length === 0)
       return alert('There seems to be no story nodes');
 
-    const requestOptions = {
+    fetch('http://localhost:4000/story/create', {
       credentials: 'include',
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -101,8 +101,7 @@ export const Map = props => {
         "location": story.route[0].coordinates,
         "route": story.route
       })
-    };
-    fetch('http://localhost:4000/story/create', requestOptions)
+    })
       .then(res => res.json())
       .catch(console.error);
     setStory({ "route": [] });
