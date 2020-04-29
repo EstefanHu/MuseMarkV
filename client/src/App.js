@@ -16,15 +16,9 @@ import { FourOhFour } from './components/fourohfour';
 
 import { UserContext } from './context';
 
-const checkAuth = () => {
-  const cookie = Cookie.get('museCookie');
-  if (!cookie) return false;
-  return true;
-}
-
 const AuthRoute = ({ component: Component, ...rest }) => (
   <Route {...rest} render={props => (
-    checkAuth() ? (
+    Cookie.get('museCookie') === null ? (
       <Component {...props} />
     ) : (
         <Redirect to={{ pathname: '/login' }} />
