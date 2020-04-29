@@ -68,9 +68,11 @@ const storySchema = new Schema({
     type: Date,
     default: Date.now
   },
-  authorId: {
-    type: String,
-    required: true
+  author: {
+    type: {
+      type: Schema.Types.ObjectId,
+      ref: 'User'
+    }
   },
   comments: {
     type: [{

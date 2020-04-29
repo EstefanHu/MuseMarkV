@@ -10,6 +10,18 @@ const commentSchema = new Schema({
   createdAt: {
     type: Date,
     default: Date.now
+  },
+  author: {
+    type: {
+      type: Schema.Types.ObjectId,
+      ref: 'User'
+    }
+  },
+  story: {
+    type: {
+      type: Schema.Types.ObjectId,
+      ref: 'Story'
+    }
   }
 });
 
