@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route, Link } from 'react-router-dom';
+import Cookie from 'js-cookie';
 
 import './landing.css';
 
@@ -17,12 +18,20 @@ export const Landing = () => {
       <nav id='landing__nav'>
         <Link to='/' className='logo'>:M</Link>
         <span>
-          <Link to='/login'>
-            <button id='login'>Log in</button>
-          </Link>
-          <Link to='/register'>
-            <button id='register'>Sign up</button>
-          </Link>
+          {Cookie.get('museCookie') ? (
+            <Link to='/app/dashboard'>
+              <button id='login'>Access App</button>
+            </Link>
+          ) : (
+            <>
+            <Link to='/login'>
+              <button id='login'>Log in</button>
+            </Link>
+            <Link to='/register'>
+              <button id='register'>Sign up</button>
+            </Link>
+            </>
+          )}
         </span>
       </nav>
       <main id='landing__body'>
