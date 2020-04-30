@@ -23,20 +23,29 @@ const assignLocation = (longitude, latitude, session) => {
 
 router.post('/register', async (req, res) => {
   try {
-    let checkIfUserExist = await User.findOne({ email: req.body.email });
+    const {
+      firstName,
+      lastName,
+      email,
+      password,
+      longitude,
+      latitude
+    } = req.body;
+
+    let checkIfUserExist = await User.findOne({ email: email });
     if (checkIfUserExist) return res.json({ 'error': 'Email already in use' });
-    if (req.body.password < 8) return res.json({ 'error': 'Password is not long enough' });
+    if (password < 8) return res.json({ 'error': 'Password is not long enough' });
 
     let user = new User();
-    user.firstName = req.body.firstName;
-    user.lastName = req.body.lastName;
-    user.email = req.body.email;
-    user.password = req.body.password;
+    user.firstName = firstName;
+    user.lastName = lastName;
+    user.email = email;
+    user.password = password;
     user = await user.save();
 
     req.session.userID = user._id;
     res.json("Registration successful");
-
+    res.end(assignLocation(longitude, latitude, req.session));
   } catch (error) {
     res.status(500).json('error: ' + error);
   }
