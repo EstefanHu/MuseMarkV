@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Link, withRouter } from 'react-router-dom';
+import { LocationContext } from '../../../context';
 
 const Register = props => {
+  const {lng, lat} = useContext(LocationContext);
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
@@ -25,7 +27,9 @@ const Register = props => {
         firstName: firstName,
         lastName: lastName,
         email: email,
-        password: password
+        password: password,
+        longitude: lng,
+        latitude: lat
       })
     })
       .then(res => res.json())
