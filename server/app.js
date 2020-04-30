@@ -60,16 +60,6 @@ app.get('/api', (_, res) => {
   }
 });
 
-app.get('/cookie', (req, res) => {
-  if (req.session.viewCount) {
-    req.session.viewCount = req.session.viewCount + 1;
-  } else {
-    req.session.viewCount = 1;
-  }
-  console.log(req.sessionID);
-  res.json(req.session);
-});
-
 const userRouter = require('./routes/user');
 app.use('/user', userRouter);
 

@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const User = require('./../models/user');
 const bcrypt = require('bcrypt');
+const fetch = require('node-fetch');
 
 router.post('/register', async (req, res) => {
   try {
@@ -13,7 +14,6 @@ router.post('/register', async (req, res) => {
     user.lastName = req.body.lastName;
     user.email = req.body.email;
     user.password = req.body.password;
-    console.log(user);
     user = await user.save();
 
     req.session.userID = user._id;
@@ -38,6 +38,14 @@ router.post('/login', async (req, res) => {
       req.session.userID = user._id;
       res.json("Login successful");
     });
+
+    fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/-122.463%2C%2037.7648.json?` + process.env.REVERSE_GEOCODING_KEY)
+      .then(res => res.json())
+      .then(res => {
+        console.log(res);
+      })
+      .catch(console.error);
+
   } catch (error) {
     res.status(500).json('Error:  ' + error);
   }
