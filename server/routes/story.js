@@ -37,6 +37,7 @@ router.post('/create', async (req, res) => {
 
 router.get('/library', async (req, res) => {
   try {
+    console.log('library reached');
     let stories = await Story
       .find({ author: req.session.userID })
       .sort({ createdAt: 'desc' });
@@ -48,6 +49,7 @@ router.get('/library', async (req, res) => {
 
 router.get('/community', async (req, res) => {
   try {
+    console.log('community reached');
     let stories = await Story
       .find({ community: req.session.community })
       .sort({ createdAt: 'desc' });

@@ -16,7 +16,6 @@ const assignLocation = (longitude, latitude, session) => {
           session.community = community;
         }
       }
-      console.log(JSON.stringify(session));
     })
     .catch(console.error);
 }

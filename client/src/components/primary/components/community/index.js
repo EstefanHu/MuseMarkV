@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
+import Loading from '../../layout/loading';
+
 export const Community = () => {
   const [stories, setStories] = useState([]);
 
@@ -8,11 +10,14 @@ export const Community = () => {
       credentials: 'include'
     })
       .then(res => res.json())
-      .then(res => setStories(res))
+      .then(res => {
+        console.log(res);
+        setStories(res)
+      })
       .catch(console.error);
   }, []);
 
-  return (
+  return stories ? (
     <section className='container'>
       {stories.map(item => (
         <article
@@ -26,10 +31,12 @@ export const Community = () => {
           <h1>{item.title}</h1>
           <p>{item.description}</p>
           <span className='storycard--actions'>
-            
+
           </span>
         </article>
       ))}
     </section>
-      )
+  ) : (
+      <Loading />
+    )
 }
