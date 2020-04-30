@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   BrowserRouter as Router,
   Switch,
@@ -13,7 +13,23 @@ import './App.css';
 import { Landing } from './components/landing';
 import { Primary } from './components/primary';
 import { FourOhFour } from './components/fourohfour';
+import { LocationContext } from './context';
 
+const geoLocate = (setLng, setLat, times) => {
+  navigator.geolocation
+    .getCurrentPosition(position => {
+      setLng(position.coords.longitude);
+      setLat(position.coords.latitude);
+    }, error => {
+      if (error.code === 3) {
+        if (times === 5) console.log('Recursion failed...');
+        console.log('Recurring...\n');
+        geoLocate(setLng, setLat, times++);
+      } else {
+        console.log(error);
+      }
+    }, { timeout: 2000 });
+}
 
 const checkAuth = () => {
   const cookie = Cookie.get('museCookie');
@@ -31,12 +47,23 @@ const AuthRoute = ({ component: Component, ...rest }) => (
   )} />
 )
 
-export const App = () => (
-  <Router>
-    <Switch>
-      <Route exact path='/(|register|login|privacy|terms|forgot)' component={Landing} />
-      <AuthRoute exact path='/app/*' component={Primary} />
-      <Route component={FourOhFour} />
-    </Switch>
-  </Router>
-)
+export const App = () => {
+  const [lng, setLng] = useState(null);
+  const [lat, setLat] = useState(null);
+
+  useEffect(() => {
+    geoLocate(setLng, setLat, 0);
+  }, []);
+
+  return (
+    <LocationContext.Provider value={{ lng, setLng, lat, setLat }}>
+      <Router>
+        <Switch>
+          <Route exact path='/(|register|login|privacy|terms|forgot)' component={Landing} />
+          <AuthRoute exact path='/app/*' component={Primary} />
+          <Route component={FourOhFour} />
+        </Switch>
+      </Router>
+    </LocationContext.Provider>
+  )
+}

@@ -1,7 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { withRouter, Link } from 'react-router-dom';
 
+import { LocationContext } from '../../../context';
+
 const Login = props => {
+  const { lng, lat } = useContext(LocationContext);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -17,7 +20,9 @@ const Login = props => {
       },
       body: JSON.stringify({
         email: email,
-        password: password
+        password: password,
+        longitude: lng,
+        latitude: lat
       })
     })
       .then(res => res.json())

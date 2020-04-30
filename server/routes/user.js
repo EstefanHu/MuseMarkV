@@ -39,10 +39,18 @@ router.post('/login', async (req, res) => {
       res.json("Login successful");
     });
 
-    fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/-122.463%2C%2037.7648.json?` + process.env.REVERSE_GEOCODING_KEY)
+    fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${req.body.longitude}%2C%20${req.body.latitude}.json?`
+      + process.env.REVERSE_GEOCODING_KEY)
       .then(res => res.json())
       .then(res => {
-        console.log(res);
+        const ranges = res.features;
+        for (let i = 0; i < ranges.length; i++) {
+          const checkRange = ranges[i].id.split('.');
+          if (checkRange[0] === 'place') {
+            let community = ranges[i].place_name.split(', ')[0]
+            req.session.community = community;
+          }
+        }
       })
       .catch(console.error);
 
