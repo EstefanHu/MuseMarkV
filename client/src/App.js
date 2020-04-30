@@ -20,11 +20,12 @@ const geoLocate = (setLng, setLat, times) => {
     .getCurrentPosition(position => {
       setLng(position.coords.longitude);
       setLat(position.coords.latitude);
+      console.log('User located.');
     }, error => {
       if (error.code === 3) {
-        if (times === 5) console.log('Recursion failed...');
-        console.log('Recurring...\n');
-        geoLocate(setLng, setLat, times++);
+        if (times === 5) console.log('Locating failed...');
+        console.log('Locating...\n');
+        geoLocate(setLng, setLat, times + 1);
       } else {
         console.log(error);
       }

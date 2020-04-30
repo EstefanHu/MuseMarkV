@@ -27,7 +27,7 @@ const Login = props => {
     })
       .then(res => res.json())
       .then(res => {
-        if (res.error) alert(res.error);
+        if (res.error) return alert(res.error);
         props.history.push('/app/dashboard');
       })
       .catch(console.error);

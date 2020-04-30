@@ -3,6 +3,24 @@ const User = require('./../models/user');
 const bcrypt = require('bcrypt');
 const fetch = require('node-fetch');
 
+const assignLocation = (longitude, latitude, session) => {
+  fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${longitude}%2C%20${latitude}.json?`
+    + process.env.REVERSE_GEOCODING_KEY)
+    .then(res => res.json())
+    .then(res => {
+      const ranges = res.features;
+      for (let i = 0; i < ranges.length; i++) {
+        const checkRange = ranges[i].id.split('.');
+        if (checkRange[0] === 'place') {
+          let community = ranges[i].place_name.split(', ')[0]
+          session.community = community;
+        }
+      }
+      console.log(JSON.stringify(session));
+    })
+    .catch(console.error);
+}
+
 router.post('/register', async (req, res) => {
   try {
     let checkIfUserExist = await User.findOne({ email: req.body.email });
@@ -24,35 +42,27 @@ router.post('/register', async (req, res) => {
   }
 });
 
-router.post('/login', async (req, res) => {
+router.post('/login', async (req, res, next) => {
   try {
-    let user = await User.findOne({ email: req.body.email });
+    const {
+      email,
+      password,
+      longitude,
+      latitude
+    } = req.body;
+    let user = await User.findOne({ email: email });
 
     if (!user)
       return res.json({ error: 'Email or Password was incorrect' });
 
     //https://coderrocketfuel.com/article/using-bcrypt-to-hash-and-check-passwords-in-node-js
-    bcrypt.compare(req.body.password, user.password, function (err, isMatch) {
+    bcrypt.compare(password, user.password, function (err, isMatch) {
       if (err) throw err;
       if (!isMatch) return res.json({ error: 'Email or Password was incorrect' });
       req.session.userID = user._id;
-      res.json("Login successful");
+      res.json('Login successful');
+      res.end(assignLocation(longitude, latitude, req.session));
     });
-
-    fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${req.body.longitude}%2C%20${req.body.latitude}.json?`
-      + process.env.REVERSE_GEOCODING_KEY)
-      .then(res => res.json())
-      .then(res => {
-        const ranges = res.features;
-        for (let i = 0; i < ranges.length; i++) {
-          const checkRange = ranges[i].id.split('.');
-          if (checkRange[0] === 'place') {
-            let community = ranges[i].place_name.split(', ')[0]
-            req.session.community = community;
-          }
-        }
-      })
-      .catch(console.error);
 
   } catch (error) {
     res.status(500).json('Error:  ' + error);

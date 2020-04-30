@@ -1,4 +1,4 @@
-import React, { useState, useEffect }from 'react';
+import React, { useState, useEffect } from 'react';
 
 import './create.css';
 import { Map } from './map';
@@ -12,7 +12,10 @@ export const Create = props => {
   useEffect(() => {
     fetch('http://localhost:4000/api')
       .then(res => res.json())
-      .then(res => setApi(res))
+      .then(res => {
+        console.log('key: ' + res);
+        setApi(res)
+      })
       .catch(console.error);
   }, []);
 
@@ -44,12 +47,12 @@ export const Create = props => {
     <>
       {api !== '' ? (
         <Map
-          apikey={ api }
+          apikey={api}
           togglePitch={() => setPitch(pitch => !pitch)}
         />
       ) : (
-        <Loading />
-      )}
+          <Loading />
+        )}
       {pitch &&
         <Pitch togglePitch={() => setPitch(pitch => !pitch)} />
       }
