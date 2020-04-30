@@ -48,6 +48,7 @@ router.get('/library', async (req, res) => {
 
 router.get('/community', async (req, res) => {
   try {
+    console.log(req.session);
     let stories = await Story
       .find({ community: req.session.community })
       .sort({ createdAt: 'desc' });

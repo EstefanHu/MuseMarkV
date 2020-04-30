@@ -3,8 +3,17 @@ const User = require('./../models/user');
 const bcrypt = require('bcrypt');
 const fetch = require('node-fetch');
 
-const assignLocation = (longitude, latitude, session) => {
-  fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${longitude}%2C%20${latitude}.json?`
+const assignLocation = async (longitude, latitude) => {
+  // client.get(id, (err, data) => {
+  //   if (err) throw err;
+
+  //   if (data !== null) {
+  //     console.log(data);
+  //   } else {
+  //     next();
+  //   }
+  // })
+  await fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${longitude}%2C%20${latitude}.json?`
     + process.env.REVERSE_GEOCODING_KEY)
     .then(res => res.json())
     .then(res => {
@@ -13,7 +22,8 @@ const assignLocation = (longitude, latitude, session) => {
         const checkRange = ranges[i].id.split('.');
         if (checkRange[0] === 'place') {
           let community = ranges[i].place_name.split(', ')[0]
-          session.community = community;
+          console.log('======= \n'+community);
+          return 'community';
         }
       }
     })
@@ -50,7 +60,7 @@ router.post('/register', async (req, res) => {
   }
 });
 
-router.post('/login', async (req, res, next) => {
+router.post('/login', async (req, res) => {
   try {
     const {
       email,
@@ -64,14 +74,15 @@ router.post('/login', async (req, res, next) => {
       return res.json({ error: 'Email or Password was incorrect' });
 
     //https://coderrocketfuel.com/article/using-bcrypt-to-hash-and-check-passwords-in-node-js
-    bcrypt.compare(password, user.password, function (err, isMatch) {
+    await bcrypt.compare(password, user.password, function (err, isMatch) {
       if (err) throw err;
       if (!isMatch) return res.json({ error: 'Email or Password was incorrect' });
       req.session.userID = user._id;
+      // let location = assignLocation(longitude, latitude);
+      // console.log('++++++++'+location);
+      // req.session.community = location;
       res.json('Login successful');
-      res.end(assignLocation(longitude, latitude, req.session));
     });
-
   } catch (error) {
     res.status(500).json('Error:  ' + error);
   }
