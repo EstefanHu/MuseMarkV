@@ -1,23 +1,26 @@
-.indexNav {
+.topNav {
+  height: 60px;
   width: 100vw;
-  height: 45px;
+  position: absolute;
+  top: 0;
+  left: 0;
   border-bottom: 1px solid lightgrey;
+  z-index: 10;
+  background: white;
+}
+
+.logo {
+  color: var(--color-accent);
+  text-decoration: none;
+  font-size: 2rem;
+  font-weight: bold;
+  font-family: 'Heebo';
 }
 
 #toolbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 45px;
-  background: white;
-  z-index: 10;
-  border-bottom: 1px solid lightgrey;
-}
-
-#toolbar > h1 {
-  font-size: 2rem;
-  color: var(--color-accent);
+  display: flex;
+  justify-content: left;
+  align-items: center
 }
 
 .primaryNav {

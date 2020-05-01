@@ -1,23 +1,7 @@
-@import url('https://fonts.googleapis.com/css?family=Heebo:400,500,700,900&display=swap');
-
 #landing__nav {
-  height: 60px; width: 100vw;
-  position: absolute;
-  top: 0; left: 0;
-  z-index: 5;
   display: flex;
   justify-content: space-around;
-  background: white;
-  border-bottom: 1px solid lightgrey;
   align-items: center;
-}
-
-.logo {
-  color: var(--color-accent);
-  text-decoration: none;
-  font-size: 2rem;
-  font-weight: bold;
-  font-family: 'Heebo';
 }
 
 #login,
@@ -55,17 +39,20 @@
 #landing__body {
   background: rgb(250, 250, 250);
   position: absolute;
-  height: 100vh; width: 100vw;
+  height: 100vh;
+  width: 100vw;
 }
 
 #index {
-  width: 100vw; height: 100vh;
+  width: 100vw;
+  height: 100vh;
   color: white;
   display: flex;
 }
 
 .landingForm {
-  width: 800px; height: 600px;
+  width: 800px;
+  height: 600px;
   margin: 15vh auto;
   display: flex;
   overflow: hidden;
@@ -118,10 +105,10 @@
 }
 
 .form__holder h3 {
-text-align: center;
-color: grey;
-font-weight: 500;
-margin-bottom: 3px;
+  text-align: center;
+  color: grey;
+  font-weight: 500;
+  margin-bottom: 3px;
 }
 
 .form__holder form {
@@ -179,7 +166,11 @@ margin-bottom: 3px;
 }
 
 @media only screen and (max-width: 1200px) {}
+
 @media only screen and (max-width: 900px) {}
+
 @media only screen and (max-width: 600px) {}
+
 @media only screen and (max-width: 480px) {}
+
 @media only screen and (max-width: 320px) {}

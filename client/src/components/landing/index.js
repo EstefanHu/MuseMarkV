@@ -15,8 +15,8 @@ import { Forgot } from './components/forgot';
 export const Landing = () => {
   return (
     <>
-      <nav id='landing__nav'>
-        <Link to='/' className='logo'>:M</Link>
+      <nav id='landing__nav' className='topNav'>
+        <Link to='/' className='logo'>:Muse</Link>
         <span>
           {Cookie.get('museCookie') ? (
             <Link to='/app/dashboard'>
