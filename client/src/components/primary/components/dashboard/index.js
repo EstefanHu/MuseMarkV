@@ -11,7 +11,7 @@ export const Dashboard = () => {
     const [id, setId] = useState();
 
     return (
-        <section id='dashboard'>
+        <section className='container'>
             <h1>Dashboard</h1>
             <Actions />
             <Stories
