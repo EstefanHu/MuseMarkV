@@ -28,7 +28,7 @@ router.post('/create', async (req, res) => {
       story = new Story();
       story.title = title;
       story.description = description;
-      story.genre = genre;
+      story.genre = 'genre';
       story.location = location;
       story.route = route;
       story.author = req.session.userID;
@@ -38,6 +38,7 @@ router.post('/create', async (req, res) => {
     await story.save();
     res.json('Story Published');
   } catch (error) {
+    console.log(error);
     res.status(500).json('Error: ' + error);
   }
 });

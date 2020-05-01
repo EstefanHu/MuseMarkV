@@ -62,6 +62,10 @@ app.get('/api', (_, res) => {
 
 app.get('/flush', (_, res) => {
   try {
+    redisClient.flushdb((err, succeeded) => {
+      if (err) throw err;
+      console.log('flushed session store: ' + succeeded);
+    })
     res.json('flushed');
   } catch (error) {
     res.status(500).json('Error:' + error);

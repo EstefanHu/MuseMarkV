@@ -65,17 +65,20 @@ const storySchema = new Schema({
     type: [nodeSchema],
     required: true
   },
-  createdAt: {
-    type: Date,
-    default: Date.now
-  },
   author: {
     type: String,
     required: true
+  },
+  createdAt: {
+    type: Date,
+    default: Date.now
   }
 });
 
-storySchema.pre('validate', next => {
+storySchema.pre('validate', function (next) {
+  console.log('validating');
+  console.log(this.route);
+  console.log(this.title);
   for (let i = 0; i < this.route.length; i++) {
     if (this.route[i].markdown) {
       this.route[i].sanitizedHtml = dompurify.sanitize(marked(this.route[i].markdown));
