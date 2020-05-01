@@ -12,6 +12,7 @@ export const Pitch = props => {
   let history = useHistory();
 
   useEffect(() => {
+    console.log(story);
     if (story === null) {
       setStory({
         "title": "",
@@ -22,13 +23,14 @@ export const Pitch = props => {
     } else {
       setTitle(story.title);
       setDescription(story.description);
+      setGenre(story.genre);
     }
   }, [story, setStory]);
 
   const handleSubmit = e => {
     e.preventDefault();
     setStory({
-      "id": story.id,
+      "id": story._id,
       "title": title,
       "description": description,
       "genre": genre,

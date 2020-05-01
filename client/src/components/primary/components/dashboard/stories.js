@@ -33,16 +33,11 @@ export const Stories = props => {
           <span className='storycard--actions'>
             <Link
               to='/app/create'
-              onClick={() => setStory({
-                'id': item._id,
-                'title': item.title,
-                'description': item.description,
-                'route': item.route
-              })}
+              onClick={() => setStory({ ...item })}
             >Update</Link>
             {/* <Link
               to={`/app/abstract/${item._id}`}
-            >Abstract</Link> */} 
+            >Abstract</Link> */}
             {/* TODO: add back for beta */}
             <button
               onClick={() => {
