@@ -70,18 +70,12 @@ const storySchema = new Schema({
     default: Date.now
   },
   author: {
-    type: Schema.Types.ObjectId,
-    ref: 'User'
-  },
-  comments: {
-    type: [{
-      type: Schema.Types.ObjectId,
-      ref: 'Comment'
-    }]
+    type: String,
+    required: true
   }
 });
 
-storySchema.pre('validate', function (next) {
+storySchema.pre('validate', next => {
   for (let i = 0; i < this.route.length; i++) {
     if (this.route[i].markdown) {
       this.route[i].sanitizedHtml = dompurify.sanitize(marked(this.route[i].markdown));

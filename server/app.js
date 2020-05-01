@@ -56,9 +56,17 @@ app.get('/api', (_, res) => {
   try {
     res.json(process.env.MAPBOX_ACCESS_TOKEN);
   } catch (error) {
-    res.type('text').status(500).send('Error: ' + error);
+    res.status(500).json('Error: ' + error);
   }
 });
+
+app.get('/flush', (_, res) => {
+  try {
+    res.json('flushed');
+  } catch (error) {
+    res.status(500).json('Error:' + error);
+  }
+})
 
 const userRouter = require('./routes/user');
 app.use('/user', userRouter);
