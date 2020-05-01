@@ -7,7 +7,6 @@ const Nav = () => {
     const navItems = [
         'Dashboard',
         'Community',
-        'Profile',
         'Settings'
     ]
 
