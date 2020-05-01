@@ -34,7 +34,7 @@
   left: 0;
   width: 80px;
   height: 100vh;
-  background: lightgrey;
+  background: var(--color-accent);
   border-right: 1px solid rgb(228, 228, 228);
   z-index: 5;
   display: flex;
