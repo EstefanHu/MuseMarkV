@@ -13,7 +13,6 @@ export const Create = props => {
     fetch('http://localhost:4000/api')
       .then(res => res.json())
       .then(res => {
-        console.log('key: ' + res);
         setApi(res)
       })
       .catch(console.error);

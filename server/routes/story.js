@@ -3,33 +3,40 @@ const Story = require('./../models/story');
 
 router.post('/create', async (req, res) => {
   try {
+    const {
+      id,
+      title,
+      description,
+      genre,
+      location,
+      route,
+    } = req.body;
     let story;
 
-    if (req.body.id !== undefined) {
+    if (id !== undefined) {
       story = await Story.findByIdAndUpdate(
-        { _id: req.body.id },
+        { _id: id },
         {
-          title: req.body.title,
-          description: req.body.description,
-          location: req.body.location,
-          route: req.body.route,
+          title: title,
+          description: description,
+          location: location,
+          route: route,
           author: req.session.userID
         }
       );
     } else {
       story = new Story();
-      story.title = req.body.title;
-      story.description = req.body.description;
-      story.genre = 'fiction';
-      story.community = 'seattle';
-      story.location = req.body.location;
-      story.route = req.body.route;
+      story.title = title;
+      story.description = description;
+      story.genre = genre;
+      story.location = location;
+      story.route = route;
       story.author = req.session.userID;
+      story.community = req.session.community;
     }
-
-    story = await story.save();
-
-    res.json('Created story: ' + story);
+    console.log(story)
+    await story.save();
+    res.json('Story Published');
   } catch (error) {
     res.status(500).json('Error: ' + error);
   }
