@@ -98,6 +98,7 @@ export const Map = props => {
         "id": story.id,
         "title": story.title,
         "description": story.description,
+        "genre": story.genre,
         "location": story.route[0].coordinates,
         "route": story.route
       })

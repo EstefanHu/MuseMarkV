@@ -7,6 +7,7 @@ export const Pitch = props => {
   const { story, setStory } = useContext(StoryContext);
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
+  const [genre, setGenre] = useState('');
 
   let history = useHistory();
 
@@ -15,6 +16,7 @@ export const Pitch = props => {
       setStory({
         "title": "",
         "description": "",
+        "genre": "",
         "route": []
       });
     } else {
@@ -29,13 +31,14 @@ export const Pitch = props => {
       "id": story.id,
       "title": title,
       "description": description,
+      "genre": genre,
       "route": story.route
     });
     props.togglePitch();
   }
 
   const cancelStory = () => {
-    setStory({"route": []});
+    setStory({ "route": [] });
     history.goBack();
   }
 
@@ -43,11 +46,11 @@ export const Pitch = props => {
     <div className='modal'>
       <div className='modal-content' id='storyNode__form'>
         <h1>Create Story Pitch</h1>
-        <form onSubmit={ handleSubmit }>
+        <form onSubmit={handleSubmit}>
           <input
             className='storyNode__input' //TODO: Updated className name for repeated CSS tags.
             type='text'
-            value={ title || '' }
+            value={title || ''}
             onChange={e => setTitle(e.target.value)}
             placeholder='Title the Story'
             required
@@ -55,9 +58,17 @@ export const Pitch = props => {
           <input
             className='storyNode__input'
             type='text'
-            value={ description || '' }
+            value={description || ''}
             onChange={e => setDescription(e.target.value)}
             placeholder='Describe the Story'
+            required
+          />
+          <input
+            className='storyNode__input'
+            type='text'
+            value={genre || ''}
+            onChange={e => setGenre(e.target.value)}
+            placeholder='Select Genre'
             required
           />
           <span className='storyNode__horizontal'>

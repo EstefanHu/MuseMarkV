@@ -76,9 +76,6 @@ const storySchema = new Schema({
 });
 
 storySchema.pre('validate', function (next) {
-  console.log('validating');
-  console.log(this.route);
-  console.log(this.title);
   for (let i = 0; i < this.route.length; i++) {
     if (this.route[i].markdown) {
       this.route[i].sanitizedHtml = dompurify.sanitize(marked(this.route[i].markdown));
