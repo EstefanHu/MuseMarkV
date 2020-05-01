@@ -1,7 +1,20 @@
-import React, { useState, useEffect } from 'react';
+import React, {
+  useState,
+  useContext
+} from 'react';
 
-export const Toolbar = () => {
+import { StoryContext } from '../../../../context';
+import { withRouter } from 'react-router-dom';
+
+export const Toolbar = withRouter(props => {
+  const { setStory } = useContext(StoryContext)
   const [isWriting, setIsWriting] = useState(false);
+
+  const createStory = () => {
+    setStory(null);
+    setIsWriting(isWriting => !isWriting);
+    props.history.push('/app/create');
+  }
 
   return (
     <nav id='toolbar' className='topNav'>
@@ -10,10 +23,11 @@ export const Toolbar = () => {
         <h1>Creating</h1>
       ) : (
           <button
-            onClick={() => setIsWriting(isWriting => !isWriting)}
+            className='button'
+            onClick={createStory}
           >Create Story</button>
         )
       }
     </nav >
   )
-}
+});

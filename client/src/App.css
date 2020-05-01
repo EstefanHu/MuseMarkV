@@ -1,7 +1,7 @@
 .topNav {
   height: 60px;
   width: 100vw;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   border-bottom: 1px solid lightgrey;
@@ -20,7 +20,13 @@
 #toolbar {
   display: flex;
   justify-content: left;
-  align-items: center
+  align-items: center;
+  background: white;
+  color: white;
+}
+
+#toolbar>* {
+  margin-left: 20px;
 }
 
 .primaryNav {
@@ -99,8 +105,8 @@
 .container {
   display: flex;
   flex-direction: column;
-  width: 600px;
-  margin-left: 300px;
+  width: 500px;
+  margin: 0 100px;
   padding: 20px 0;
 }
 
@@ -154,6 +160,19 @@
 
 .storycard button {
   border: none;
+}
+
+.button {
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 8px 15px;
+  border-radius: 5px;
+  background: white;
+}
+
+.button:hover,
+.button:focus {
+  background: rgb(245, 245, 245);
 }
 
 @media only screen and (max-width: 1200px) {}

@@ -5,19 +5,6 @@
   margin: 10px 0 20px 0;
 }
 
-.dashboard__actions button {
-  font-size: 1rem;
-  font-weight: bold;
-  padding: 8px 15px;
-  border-radius: 5px;
-  background: white;
-}
-
-.dashboard__actions button:hover,
-.dashboard__actions button:focus {
-  background: rgb(245, 245, 245);
-}
-
 #deleteStory__form {
   width: 400px;
   height: fit-content;

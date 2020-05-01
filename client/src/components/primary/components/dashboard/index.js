@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 
 import './dashboard.css';
 
-import { Actions } from './actions';
 import { Stories } from './stories';
 import { Delete } from './delete';
 
@@ -13,7 +12,6 @@ export const Dashboard = () => {
     return (
         <section className='container'>
             <h1>Dashboard</h1>
-            <Actions />
             <Stories
                 toggleIsDeleting={
                     () => setIsDeleting(isDeleting => !isDeleting)
