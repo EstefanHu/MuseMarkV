@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Route } from 'react-router-dom';
 
+import { Toolbar } from './layout/toolbar';
+import { Nav } from './layout/nav';
 import { Tour } from './components/tour';
 import { Dashboard } from './components/dashboard';
 import { Abstract } from './components/abstract';
@@ -9,8 +11,6 @@ import { Create } from './components/create';
 import { Settings } from './components/settings';
 import More from './components/more';
 
-import Nav from './layout/nav/nav';
-
 import { StoryContext } from '../../context';
 
 export const Primary = () => {
@@ -18,6 +18,7 @@ export const Primary = () => {
 
   return (
     <StoryContext.Provider value={{ story, setStory }}>
+      <Toolbar />
       <Nav />
       <main>
         <Route path='/app/tour' component={Tour} />
