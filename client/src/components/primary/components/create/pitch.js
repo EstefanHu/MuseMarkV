@@ -12,7 +12,6 @@ export const Pitch = props => {
   let history = useHistory();
 
   useEffect(() => {
-    console.log(story);
     if (story === null) {
       setStory({
         "title": "",
