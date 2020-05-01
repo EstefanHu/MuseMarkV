@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 import Loading from '../../layout/loading';
 
@@ -10,10 +11,7 @@ export const Stories = () => {
       credentials: 'include'
     })
       .then(res => res.json())
-      .then(res => {
-        console.log(res);
-        setStories(res)
-      })
+      .then(res => setStories(res))
       .catch(console.error);
   }, []);
 
@@ -31,7 +29,11 @@ export const Stories = () => {
           <h1>{item.title}</h1>
           <p>{item.description}</p>
           <span className='storycard--actions'>
-
+            <Link
+              to='/app/more'
+            >
+              Read More
+            </Link>
           </span>
         </article>
       ))}
