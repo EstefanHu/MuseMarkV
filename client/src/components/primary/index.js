@@ -6,6 +6,7 @@ import { Dashboard } from './components/dashboard';
 import { Abstract } from './components/abstract';
 import { Community } from './components/community';
 import { Create } from './components/create';
+import { Settings } from './components/settings';
 import More from './components/more';
 
 import Nav from './layout/nav/nav';
@@ -24,6 +25,7 @@ export const Primary = () => {
         <Route path='/app/create' component={Create} />
         <Route path='/app/abstract/:id' component={Abstract} />
         <Route path='/app/community' component={Community} />
+        <Route path='/app/settings' component={Settings} />
         <Route path='/app/more' component={More} />
       </main>
     </StoryContext.Provider>
