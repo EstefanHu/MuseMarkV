@@ -11,7 +11,6 @@ export const Dashboard = () => {
 
     return (
         <section className='container'>
-            <h1>Dashboard</h1>
             <Stories
                 toggleIsDeleting={
                     () => setIsDeleting(isDeleting => !isDeleting)

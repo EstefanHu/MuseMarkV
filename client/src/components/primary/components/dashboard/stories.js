@@ -13,7 +13,8 @@ export const Stories = props => {
       credentials: 'include',
     })
       .then(res => res.json())
-      .then(res => setStories(res))
+      .then(res => {setStories(res)
+      console.log(res)})
       .catch(console.error);
   }, []);
 
@@ -25,7 +26,7 @@ export const Stories = props => {
           className='storycard'
         >
           <span className='storycard--header'>
-            <p></p>
+            <p>{item.genre} by {item.author}</p>
             <p></p>
           </span>
           <h1>{item.title}</h1>
