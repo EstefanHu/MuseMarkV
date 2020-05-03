@@ -1,14 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import ReactMapGl from 'react-map-gl';
+import { LocationContext } from '../../../../context';
 
 export const Map = props => {
+  const { lng, lat } = useContext(LocationContext);
   const [viewport, setViewport] = useState({
-    latitude: 47.655548,
-    longitude: -122.3032,
+    latitude: lat,
+    longitude: lng,
     width: '100vw',
     height: '100vh',
-    zoom: 15
-  })
+    zoom: 14
+  });
 
   return (
     <div
