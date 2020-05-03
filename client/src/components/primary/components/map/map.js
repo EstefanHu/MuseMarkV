@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import ReactMapGl from 'react-map-gl';
+import { Route } from 'react-router-dom';
 
+import { Create } from './create';
 
 export const Map = props => {
   const [viewport, setViewport] = useState({
@@ -24,7 +26,9 @@ export const Map = props => {
         }}
         onClick={() => console.log('hello')}
       >
-        
+
+        <Route path='/app/create' component={Create} />
+
       </ReactMapGl>
     </div>
   )
