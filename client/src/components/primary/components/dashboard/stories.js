@@ -13,8 +13,7 @@ export const Stories = props => {
       credentials: 'include',
     })
       .then(res => res.json())
-      .then(res => {setStories(res)
-      console.log(res)})
+      .then(res => setStories(res))
       .catch(console.error);
   }, []);
 
