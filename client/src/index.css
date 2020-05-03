@@ -38,12 +38,3 @@ main {
   height: 100vh;
   position: relative;
 }
-
-aside {
-  position: absolute;
-  z-index: 10;
-  margin: 500px auto;
-  height: 100px;
-  width: 100px;
-  background: green;
-}

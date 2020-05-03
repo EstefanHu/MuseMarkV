@@ -3,7 +3,6 @@ import ReactMapGl from 'react-map-gl';
 import { LocationContext } from '../../../../context';
 import { Route } from 'react-router-dom';
 
-import {Test} from './test';
 
 export const Map = props => {
   const { lng, lat } = useContext(LocationContext);
@@ -28,7 +27,7 @@ export const Map = props => {
         }}
         onClick={() => console.log('hello')}
       >
-        <Route path='/app/community' component={Test} />
+        
       </ReactMapGl>
     </div>
   )
