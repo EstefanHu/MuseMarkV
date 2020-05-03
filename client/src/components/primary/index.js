@@ -8,7 +8,6 @@ import { Community } from './components/community';
 import { MapContainer } from './components/map';
 import { Create } from './components/create';
 import { Settings } from './components/settings';
-import More from './components/more';
 
 import { StoryContext } from '../../context';
 
@@ -25,7 +24,6 @@ export const Primary = () => {
         <Route path='/app/create' component={Create} />
         <Route path='/app/community' component={Community} />
         <Route path='/app/settings' component={Settings} />
-        <Route path='/app/more' component={More} />
       </main>
     </StoryContext.Provider>
   )
