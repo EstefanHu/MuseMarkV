@@ -7,7 +7,7 @@ import { Create } from './create';
 export const Map = props => {
   const [viewport, setViewport] = useState({
     latitude: props.lat,
-    longitude: props.lng,
+    longitude: props.lng - .01,
     width: '100vw',
     height: '100vh',
     zoom: 14

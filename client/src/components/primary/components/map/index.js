@@ -15,7 +15,7 @@ export const MapContainer = () => {
       .catch(console.error);
   }, []);
 
-  return api ? (
+  return api && lng && lat ? (
     <Map apikey={api} lng={lng} lat={lat} />
   ) : (
       <Loading />
