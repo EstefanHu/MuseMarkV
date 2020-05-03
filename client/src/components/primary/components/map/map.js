@@ -1,14 +1,11 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import ReactMapGl from 'react-map-gl';
-import { LocationContext } from '../../../../context';
-import { Route } from 'react-router-dom';
 
 
 export const Map = props => {
-  const { lng, lat } = useContext(LocationContext);
   const [viewport, setViewport] = useState({
-    latitude: lat,
-    longitude: lng,
+    latitude: props.lat,
+    longitude: props.lng,
     width: '100vw',
     height: '100vh',
     zoom: 14

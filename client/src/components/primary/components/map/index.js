@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 
 import { Map } from './map';
 import Loading from '../../layout/loading';
+import { LocationContext } from '../../../../context';
 
 export const MapContainer = () => {
+  const { lng, lat } = useContext(LocationContext);
   const [api, setApi] = useState('');
 
   useEffect(() => {
@@ -14,7 +16,7 @@ export const MapContainer = () => {
   }, []);
 
   return api ? (
-    <Map apikey={api} />
+    <Map apikey={api} lng={lng} lat={lat} />
   ) : (
       <Loading />
     )
