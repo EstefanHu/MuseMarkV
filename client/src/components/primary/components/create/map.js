@@ -13,13 +13,6 @@ import { Write } from './write';
 
 export const Map = props => {
   const { story, setStory } = useContext(StoryContext);
-  const [viewport, setViewport] = useState({
-    latitude: 47.655548,
-    longitude: -122.3032,
-    width: '100vw',
-    height: '100vh',
-    zoom: 15
-  });
   const [tempNode, setTempNode] = useState(null);
   const [action, setAction] = useState(null);
   const [isWriting, setIsWriting] = useState(false);
@@ -111,18 +104,6 @@ export const Map = props => {
 
   return (
     <>
-      <ReactMapGl
-        {...viewport}
-        mapboxApiAccessToken={props.apikey}
-        mapStyle='mapbox://styles/estefan074/ck002rku546481cnq4hc1buof'
-        onViewportChange={viewport => {
-          setViewport(viewport)
-        }}
-        onClick={e => addToMap(e)}
-      >
-        <StoryNodes engageNode={engageNode} />
-        <StoryRoute />
-      </ReactMapGl>
       <Banner togglePitch={() => props.togglePitch()} />
       <Actions
         triggerAction={chosenAction => setAction(chosenAction)}
