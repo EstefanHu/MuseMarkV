@@ -30,7 +30,9 @@ export const Stories = props => {
             <p></p>
           </span>
           <h1>{item.title}</h1>
-          <p>{item.description}</p>
+          <p
+            className='storycard__description'
+          >{item.description}</p>
           <span className='storycard--actions'>
             <Link
               to='/app/create'

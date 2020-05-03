@@ -23,11 +23,13 @@ export const Stories = () => {
           className='storycard'
         >
           <span className='storycard--header'>
-            <p></p>
+            <p>{item.genre} by {item.author}</p>
             <p></p>
           </span>
           <h1>{item.title}</h1>
-          <p>{item.description}</p>
+          <p
+            className='storycard__description'
+          >{item.description}</p>
           <span className='storycard--actions'>
             <Link
               to='/app/more'

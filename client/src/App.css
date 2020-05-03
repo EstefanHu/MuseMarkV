@@ -117,17 +117,27 @@
 .storycard {
   border-radius: 5px;
   border-bottom: 1px solid lightgrey;
-  padding: 30px 20px 10px 20px;
+  padding: 15px 20px 10px 20px;
   background: white;
 }
 
 .storycard--header {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 5px;
 }
 
 .storycard h1 {
   font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.storycard__description {
+  max-lines: 2;
+  overflow: hidden;
+  line-height: 22px;
+  text-indent: 20px;
 }
 
 .storycard--actions {
