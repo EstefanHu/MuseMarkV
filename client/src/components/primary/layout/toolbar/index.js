@@ -19,14 +19,14 @@ export const Toolbar = withRouter(props => {
   const createStory = () => {
     setStory(null);
     setIsWriting(isWriting => !isWriting);
-    // props.history.push('/app/create');
+    props.history.push('/app/create');
   }
 
   return (
     <nav id='toolbar' className='topNav'>
       <h1 className='logo'>:M</h1>
       <span>
-        {!isWriting ? (
+        {isWriting ? (
           <>
             <GoLocation
               className='toolbar__icons'

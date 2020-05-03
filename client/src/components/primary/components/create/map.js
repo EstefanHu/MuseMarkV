@@ -35,22 +35,6 @@ export const Map = props => {
     setAction(null);
   }
 
-  const updateStory = node => {
-    let update;
-
-    if (story.route.length < node.position + 1) {
-      update = [...story.route, node];
-    } else {
-      let newstory = story.route;
-      newstory[node.position] = node;
-      update = newstory;
-    }
-    setStory({
-      ...story,
-      "route": update
-    });
-  }
-
   const engageNode = nodeId => {
     if (action === 'Remove') {
       story.route.splice(nodeId, 1);

@@ -1,6 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import { StoryContext, LocationContext } from '../../../../context';
 
 export const Write = props => {
+  const { story, setStory } = useContext(LocationContext);
   const [name, setName] = useState(props.tempNode.name);
   const [markdown, setMarkdown] = useState(props.tempNode.markdown);
   const [longitude, setLongitude] = useState(props.tempNode.coordinates[0]);
@@ -31,8 +33,24 @@ export const Write = props => {
       "markdown": markdown,
       "coordinates": [longitude, latitude]
     }
-    props.updateStory(newNode);
+    updateStory(newNode);
     props.toggleIsWriting();
+  }
+
+  const updateStory = node => {
+    let update;
+
+    if(story.route.length < node.position + 1) {
+      update = [...story.route, node];
+    } else {
+      let newStory = story.route;
+      newStory[node.position] = node;
+      update = newStory;
+    }
+    setStory({
+      ...story,
+      "route": update
+    });
   }
 
   return (
