@@ -1,14 +1,10 @@
 import React, { useState, useContext } from 'react';
 import { StoryContext } from '../../../../context';
 import { useHistory } from 'react-router-dom';
-import ReactMapGl from 'react-map-gl';
 
 import './create.css';
-import { Banner } from './banner';
 import { Actions } from './actions';
 import { Story } from './story';
-import { StoryNodes } from './storyNodes';
-import { StoryRoute } from './storyRoute';
 import { Write } from './write';
 
 export const Map = props => {
@@ -104,7 +100,6 @@ export const Map = props => {
 
   return (
     <>
-      <Banner togglePitch={() => props.togglePitch()} />
       <Actions
         triggerAction={chosenAction => setAction(chosenAction)}
         action={action}
