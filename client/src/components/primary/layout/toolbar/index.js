@@ -19,15 +19,17 @@ export const Toolbar = withRouter(props => {
   return (
     <nav id='toolbar' className='topNav'>
       <h1 className='logo'>:M</h1>
-      {isWriting ? (
-        <h1>Creating</h1>
-      ) : (
-          <button
-            className='button'
-            onClick={createStory}
-          >Create Story</button>
-        )
-      }
+      <span>
+        {isWriting ? (
+          <h1>Creating</h1>
+        ) : (
+            <button
+              className='button'
+              onClick={createStory}
+            >Create Story</button>
+          )
+        }
+      </span>
     </nav >
   )
 });
