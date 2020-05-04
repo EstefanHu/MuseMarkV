@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { StoryContext, LocationContext } from '../../../../context';
+import { StoryContext } from '../../../../context';
 
 export const Write = props => {
-  const { story, setStory } = useContext(LocationContext);
+  const { story, setStory } = useContext(StoryContext);
   const [name, setName] = useState(props.tempNode.name);
   const [markdown, setMarkdown] = useState(props.tempNode.markdown);
   const [longitude, setLongitude] = useState(props.tempNode.coordinates[0]);
@@ -22,6 +22,7 @@ export const Write = props => {
     });
   });
 
+  // submit to story
   const handleSubmit = e => {
     e.preventDefault();
     if (name === '') return alert('Story Nodes must have a name')
@@ -33,24 +34,19 @@ export const Write = props => {
       "markdown": markdown,
       "coordinates": [longitude, latitude]
     }
-    updateStory(newNode);
-    props.toggleIsWriting();
-  }
 
-  const updateStory = node => {
     let update;
 
-    if(story.route.length < node.position + 1) {
-      update = [...story.route, node];
+    if (story.route.length === newNode.position) {
+      update = [...story.route, newNode];
     } else {
       let newStory = story.route;
-      newStory[node.position] = node;
+      newStory[newNode.position] = newNode;
       update = newStory;
     }
-    setStory({
-      ...story,
-      "route": update
-    });
+
+    setStory({ ...story, "route": update });
+    props.toggleIsWriting();
   }
 
   return (

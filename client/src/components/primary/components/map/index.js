@@ -1,23 +1,35 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState } from 'react';
+import ReactMapGl from 'react-map-gl';
+import { Route } from 'react-router-dom';
 
-import { Map } from './map';
-import Loading from '../../layout/loading';
-import { LocationContext } from '../../../../context';
+import { Create } from './create';
 
-export const MapContainer = () => {
-  const { lng, lat } = useContext(LocationContext);
-  const [api, setApi] = useState('');
+export const Map = props => {
+  const [viewport, setViewport] = useState({
+    latitude: props.lat,
+    longitude: props.lng - .01,
+    width: '100vw',
+    height: '100vh',
+    zoom: 14
+  });
 
-  useEffect(() => {
-    fetch('http://localhost:4000/api')
-      .then(res => res.json())
-      .then(res => setApi(res))
-      .catch(console.error);
-  }, []);
+  return (
+    <div
+      id='mapboxView'
+    >
+      <ReactMapGl
+        {...viewport}
+        mapboxApiAccessToken={props.apikey}
+        mapStyle='mapbox://styles/estefan074/ck002rku546481cnq4hc1buof'
+        onViewportChange={viewport => {
+          setViewport(viewport)
+        }}
+        onClick={() => console.log('hello')}
+      >
 
-  return api && lng && lat ? (
-    <Map apikey={api} lng={lng} lat={lat} />
-  ) : (
-      <Loading />
-    )
+        <Route path='/app/create' component={Create} />
+
+      </ReactMapGl>
+    </div>
+  )
 }
