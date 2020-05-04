@@ -20,7 +20,10 @@ const geoLocate = (setLng, setLat, times) => {
     .getCurrentPosition(position => {
       setLng(position.coords.longitude);
       setLat(position.coords.latitude);
-      console.log('User located.');
+      // console.log('from algorithm: ' + position.coords.longitude);
+      // localStorage.setItem('longitude', position.coords.longitude);
+      // localStorage.setItem('latitude', position.coords.latitude);
+      console.log('Geolocation Successful');
     }, error => {
       if (error.code === 3) {
         if (times === 5) console.log('Locating failed...');
@@ -53,6 +56,14 @@ export const App = () => {
   const [lat, setLat] = useState(null);
 
   useEffect(() => {
+    // const localLng = localStorage.getItem('longitude');
+    // const localLat = localStorage.getItem('latitude');
+    // console.log(localLng);
+    // console.log(localLat);
+    // if (localLng === null || localLat === null) return geoLocate(setLng, setLat, 0);
+
+    // setLng(parseInt(localLng));
+    // setLat(parseInt(localLat));
     geoLocate(setLng, setLat, 0);
   }, []);
 

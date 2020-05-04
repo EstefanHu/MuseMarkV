@@ -6,10 +6,6 @@ import { StoryContext } from '../../../context';
 import { withRouter } from 'react-router-dom';
 
 import { FiPlusSquare } from 'react-icons/fi';
-import { FaRegSave, FaRegDotCircle } from 'react-icons/fa';
-import { GoLocation } from 'react-icons/go';
-import { RiDeleteBin2Line } from 'react-icons/ri';
-import { MdModeEdit } from 'react-icons/md';
 
 export const Toolbar = withRouter(props => {
   const { story, setStory } = useContext(StoryContext)
@@ -62,26 +58,26 @@ export const Toolbar = withRouter(props => {
           />
         ) : (
             <>
-              <GoLocation
-                className='toolbar__icons'
+              <button
+                className='toolbar__button'
                 onClick={() => setAction('node')}
-              />
-              <FaRegDotCircle
-                className='toolbar__icons'
+              >Add Node</button>
+              <button
+                className='toolbar__button'
                 onClick={() => setAction('turn')}
-              />
-              <RiDeleteBin2Line
-                className='toolbar__icons'
-                onClick={() => setAction('remove')}
-              />
-              <MdModeEdit
-                className='toolbar__icons'
+              >Add Turn</button>
+              <button
+                className='toolbar__button'
                 onClick={() => setAction('edit')}
-              />
-              <FaRegSave
-                className='toolbar__icons'
+              >Edit</button>
+              <button
+                className='toolbar__button'
+                onClick={() => setAction('remove')}
+              >Remove</button>
+              <button
+                className='toolbar__button'
                 onClick={saveStory}
-              />
+              >Save</button>
             </>
           )
         }

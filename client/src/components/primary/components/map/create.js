@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { StoryContext } from '../../../../context';
+import { StoryContext, NodeContext } from '../../../../context';
 import { MdLocationOn } from 'react-icons/md';
 import { FaDotCircle } from 'react-icons/fa';
 import {
@@ -10,6 +10,7 @@ import {
 
 export const Create = () => {
   const { story, setStory } = useContext(StoryContext);
+  const { setNode } = useContext(NodeContext);
 
   const engageNode = nodePosition => {
     const action = sessionStorage.getItem('action');
@@ -22,7 +23,7 @@ export const Create = () => {
     } else if (action === 'edit') {
       let node = story.route[nodePosition];
       if (node.type === 'node') {
-        console.log('edit');
+        setNode(node);
       }
     }
     sessionStorage.removeItem('action');

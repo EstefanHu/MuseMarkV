@@ -13,7 +13,7 @@ export const Write = props => {
     const modal = document.getElementById('writeModal');
     const modalToggle = e => {
       if (e.target === modal) {
-        props.toggleIsWriting();
+        props.toggleNode();
       }
     }
     modal.addEventListener('click', modalToggle);
@@ -53,7 +53,7 @@ export const Write = props => {
   return (
     <div className='modal' id='writeModal'>
       <div className='modal-content' id='storyNode__form'>
-        <span className='close' onClick={() => { props.toggleIsWriting() }}>&times;</span>
+        <span className='close' onClick={() => { props.toggleNode() }}>&times;</span>
         <h1>Add Node to Story</h1>
         <form onSubmit={handleSubmit} >
           <label>Title for Story Node</label>
@@ -102,7 +102,7 @@ export const Write = props => {
           />
           <span className='storyNode__horizontal'>
             <input className='plotNode' type='submit' value='Plot Node' />
-            <button className='cancelNode' onClick={() => { props.toggleIsWriting() }}>Cancel</button>
+            <button className='cancelNode' onClick={() => props.toggleNode()}>Cancel</button>
           </span>
         </form>
       </div>

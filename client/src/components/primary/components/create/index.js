@@ -15,9 +15,7 @@ export const Create = props => {
         <Pitch togglePitch={() => setPitch(pitch => !pitch)} />
       }
       {node !== null &&
-        <Write
-          setNode={node => setNode(!node)}
-        />
+        <Write toggleNode={() => setNode(null)}/>
       }
     </>
   )
