@@ -1,15 +1,13 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { useHistory } from 'react-router-dom';
 
+import { withRouter } from 'react-router-dom';
 import { StoryContext } from '../../../../context';
 
-export const Pitch = props => {
+export const Pitch = withRouter(props => {
   const { story, setStory } = useContext(StoryContext);
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [genre, setGenre] = useState('');
-
-  let history = useHistory();
 
   useEffect(() => {
     if (story === null) {
@@ -39,8 +37,8 @@ export const Pitch = props => {
   }
 
   const cancelStory = () => {
-    setStory({ "route": [] });
-    history.goBack();
+    setStory(null);
+    props.history.push('/app/home');
   }
 
   return (
@@ -84,4 +82,4 @@ export const Pitch = props => {
       </div>
     </div>
   )
-}
+});

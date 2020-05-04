@@ -1,5 +1,4 @@
 import React, {
-  useState,
   useContext
 } from 'react';
 
@@ -14,11 +13,9 @@ import { MdModeEdit } from 'react-icons/md';
 
 export const Toolbar = withRouter(props => {
   const { story, setStory } = useContext(StoryContext)
-  const [isWriting, setIsWriting] = useState(false);
 
   const createStory = () => {
     setStory(null);
-    setIsWriting(isWriting => !isWriting);
     props.history.push('/app/create');
   }
 
@@ -57,34 +54,34 @@ export const Toolbar = withRouter(props => {
     <nav id='toolbar' className='topNav'>
       <h1 className='logo'>:M</h1>
       <span>
-        {isWriting ? (
-          <>
-            <GoLocation
-              className='toolbar__icons'
-              onClick={() => setAction('node')}
-            />
-            <FaRegDotCircle
-              className='toolbar__icons'
-              onClick={() => setAction('turn')}
-            />
-            <RiDeleteBin2Line
-              className='toolbar__icons'
-              onClick={() => setAction('remove')}
-            />
-            <MdModeEdit
-              className='toolbar__icons'
-              onClick={() => setAction('edit')}
-            />
-            <FaRegSave
-              className='toolbar__icons'
-              onClick={saveStory}
-            />
-          </>
+        {story === null ? (
+          <FiPlusSquare
+            className='toolbar__icons'
+            onClick={createStory}
+          />
         ) : (
-            <FiPlusSquare
-              className='toolbar__icons'
-              onClick={createStory}
-            />
+            <>
+              <GoLocation
+                className='toolbar__icons'
+                onClick={() => setAction('node')}
+              />
+              <FaRegDotCircle
+                className='toolbar__icons'
+                onClick={() => setAction('turn')}
+              />
+              <RiDeleteBin2Line
+                className='toolbar__icons'
+                onClick={() => setAction('remove')}
+              />
+              <MdModeEdit
+                className='toolbar__icons'
+                onClick={() => setAction('edit')}
+              />
+              <FaRegSave
+                className='toolbar__icons'
+                onClick={saveStory}
+              />
+            </>
           )
         }
       </span>

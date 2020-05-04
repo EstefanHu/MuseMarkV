@@ -1,10 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import ReactMapGl from 'react-map-gl';
 import { Route } from 'react-router-dom';
 
 import { Create } from './create';
 
+import { StoryContext } from '../../../../context';
+
 export const Map = props => {
+  const { story, setStory } = useContext(StoryContext);
   const [viewport, setViewport] = useState({
     latitude: props.lat,
     longitude: props.lng - .01,
@@ -22,8 +25,14 @@ export const Map = props => {
         console.log('node');
         break;
       case 'turn':
-        console.log('turn');
-        break;
+        const route = [...story.route, {
+          "type": "turn",
+          "position": story.route.length,
+          "coordinates": e.lnglat
+        }];
+        setStory()
+
+      break;
       case 'edit':
         console.log('edit');
         break;
