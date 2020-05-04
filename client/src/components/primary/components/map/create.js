@@ -14,12 +14,11 @@ export const Create = () => {
   const engageNode = nodePosition => {
     const action = sessionStorage.getItem('action');
     if (action === 'remove') {
-      const route = story.route;
-      route.splice(nodePosition, 1);
-      for (let i = 0; i < route.length; i++) {
-        route[i].position = i;
+      story.route.splice(nodePosition, 1);
+      for (let i = 0; i < story.route.length; i++) {
+        story.route[i].position = i;
       }
-      setStory({...story, "route": route});
+      setStory({ ...story});
     } else if (action === 'edit') {
       let node = story.route[nodePosition];
       if (node.type === 'node') {
