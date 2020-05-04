@@ -4,10 +4,11 @@ import { Route } from 'react-router-dom';
 
 import { Create } from './create';
 
-import { StoryContext } from '../../../../context';
+import { StoryContext, NodeContext } from '../../../../context';
 
 export const Map = props => {
   const { story, setStory } = useContext(StoryContext);
+  const { setNode } = useContext(NodeContext);
   const [viewport, setViewport] = useState({
     latitude: props.lat,
     longitude: props.lng - .01,
@@ -20,24 +21,37 @@ export const Map = props => {
     const action = sessionStorage.getItem('action');
     if (action === null) return;
 
+
     switch (action) {
       case 'node':
-        console.log('node');
+        setNode({
+          "type": "node",
+          "position": story.route.length,
+          "name": '',
+          "markdown": '',
+          "coordinates": e.lngLat
+        })
         break;
       case 'turn':
-        const route = [...story.route, {
-          "type": "turn",
-          "position": story.route.length,
-          "coordinates": e.lnglat
-        }];
-        setStory()
-
-      break;
+        setStory({
+          ...story,
+          "route": [
+            ...story.route,
+            {
+              "type": "turn",
+              "position": story.route.length,
+              "coordinates": e.lngLat
+            }]
+        });
+        break;
       case 'edit':
         console.log('edit');
         break;
       case 'remove':
-        console.log('remove');
+        // story.route.splice(position, 1);
+        // for (let i = 0; i < story.route.length; i++) {
+        //   story.route[i].position = i;
+        // }
         break;
       default:
         break;

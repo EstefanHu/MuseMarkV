@@ -35,6 +35,7 @@ router.post('/create', async (req, res) => {
       story.community = req.session.community;
     }
     await story.save();
+
     res.json('Story Published');
   } catch (error) {
     res.status(500).json('Error: ' + error);

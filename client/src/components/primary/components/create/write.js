@@ -1,12 +1,13 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { StoryContext } from '../../../../context';
+import { StoryContext, NodeContext } from '../../../../context';
 
 export const Write = props => {
   const { story, setStory } = useContext(StoryContext);
-  const [name, setName] = useState(props.tempNode.name);
-  const [markdown, setMarkdown] = useState(props.tempNode.markdown);
-  const [longitude, setLongitude] = useState(props.tempNode.coordinates[0]);
-  const [latitude, setLatitude] = useState(props.tempNode.coordinates[1]);
+  const { node, setNode} = useContext(NodeContext);
+  const [name, setName] = useState(node.name);
+  const [markdown, setMarkdown] = useState(node.markdown);
+  const [longitude, setLongitude] = useState(node.coordinates[0]);
+  const [latitude, setLatitude] = useState(node.coordinates[1]);
 
   useEffect(() => {
     const modal = document.getElementById('writeModal');
@@ -28,8 +29,8 @@ export const Write = props => {
     if (name === '') return alert('Story Nodes must have a name')
 
     const newNode = {
-      "type": props.tempNode.type,
-      "position": props.tempNode.position,
+      "type": node.type,
+      "position": node.position,
       "name": name,
       "markdown": markdown,
       "coordinates": [longitude, latitude]
@@ -46,7 +47,7 @@ export const Write = props => {
     }
 
     setStory({ ...story, "route": update });
-    props.toggleIsWriting();
+    setNode(null);
   }
 
   return (
@@ -71,7 +72,7 @@ export const Write = props => {
                 type='text'
                 value={longitude}
                 onChange={e => setLongitude(e.target.value)}
-                placeholder={props.tempNode.coordinates[0]}
+                placeholder={node.coordinates[0]}
                 disabled
               />
             </span>
@@ -82,7 +83,7 @@ export const Write = props => {
                 type='text'
                 value={latitude}
                 onChange={e => setLatitude(e.target.value)}
-                placeholder={props.tempNode.coordinates[1]}
+                placeholder={node.coordinates[1]}
                 disabled
               />
             </span>

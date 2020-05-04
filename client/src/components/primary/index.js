@@ -9,13 +9,14 @@ import { Create } from './components/create';
 import { Settings } from './components/settings';
 import { Map } from './components/map';
 
-import { StoryContext, LocationContext } from '../../context';
+import { StoryContext, LocationContext, NodeContext } from '../../context';
 import Loading from './layout/loading';
 
 export const Primary = () => {
   const { lng, lat } = useContext(LocationContext);
   const [api, setApi] = useState('');
   const [story, setStory] = useState(null);
+  const [node, setNode] = useState(null);
 
   useEffect(() => {
     fetch('http://localhost:4000/api')
@@ -26,24 +27,28 @@ export const Primary = () => {
 
   return (
     <StoryContext.Provider value={{ story, setStory }}>
+      
       <Toolbar />
       <Nav />
-      <main>
-        <Route path='/app/dashboard' component={Dashboard} />
+
+      <NodeContext.Provider value={{ node, setNode }}>
+        {api && lng && lat ? (
+          <Map
+            apikey={api}
+            lng={lng}
+            lat={lat}
+          />
+        ) : (
+            <Loading />
+          )
+        }
         <Route path='/app/create' component={Create} />
-        <Route path='/app/community' component={Community} />
-        <Route path='/app/settings' component={Settings} />
-      </main>
-      {api && lng && lat ? (
-        <Map
-          apikey={api}
-          lng={lng}
-          lat={lat}
-        />
-      ) : (
-          <Loading />
-        )
-      }
+      </NodeContext.Provider>
+
+      <Route path='/app/dashboard' component={Dashboard} />
+      <Route path='/app/community' component={Community} />
+      <Route path='/app/settings' component={Settings} />
+
     </StoryContext.Provider>
   )
 }

@@ -29,7 +29,7 @@ export const Toolbar = withRouter(props => {
 
     fetch('http://localhost:4000/story/create', {
       credentials: 'include',
-      mehtod: 'POST',
+      method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         "id": story.id,
@@ -42,6 +42,7 @@ export const Toolbar = withRouter(props => {
     })
       .then(res => res.json())
       .catch(console.error);
+
     setStory(null);
     props.history.push('/app/home');
   }

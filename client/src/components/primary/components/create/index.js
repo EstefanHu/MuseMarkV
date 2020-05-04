@@ -1,22 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 
 import './create.css';
 import { Pitch } from './pitch';
 import { Write } from './write';
+import { NodeContext } from '../../../../context';
 
 export const Create = props => {
   const [pitch, setPitch] = useState(true);
-  const [isWriting, setIsWriting] = useState(false);
+  const { node, setNode } = useContext(NodeContext);
 
   return (
     <>
-      
       {pitch &&
         <Pitch togglePitch={() => setPitch(pitch => !pitch)} />
       }
-      {isWriting &&
+      {node !== null &&
         <Write
-          toggleIsWriting={() => setIsWriting(isWriting => !isWriting)}
+          setNode={node => setNode(!node)}
         />
       }
     </>
