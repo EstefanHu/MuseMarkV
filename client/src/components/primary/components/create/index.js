@@ -17,7 +17,7 @@ export const Create = props => {
     return () => {
       setStory(null);
     }
-  }, [])
+  });
 
   return (
     <>
