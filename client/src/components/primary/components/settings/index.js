@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
+import { Logout } from './logout';
+
 export const Settings = () => {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
@@ -45,6 +47,7 @@ export const Settings = () => {
           onClick={sendUpdate}
         >Update</button>
       }
+      <Logout />
     </section>
   )
 }

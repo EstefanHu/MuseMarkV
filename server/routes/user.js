@@ -115,6 +115,7 @@ router.get('/logout', (req, res) => {
     req.session.destroy(err => {
       if (err) throw err
     });
+    res.json({ Message: 'User logged out.' });
   } catch (error) {
     res.type('text').status(500).send('Error:  ' + error);
   }
