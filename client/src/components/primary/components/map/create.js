@@ -22,7 +22,6 @@ export const Create = () => {
     } else if (action === 'edit') {
       let node = story.route[nodePosition];
       if (node.type === 'node') {
-        // editNode(node);
         console.log('edit');
       }
     }

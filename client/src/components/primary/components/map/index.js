@@ -44,15 +44,6 @@ export const Map = props => {
             }]
         });
         break;
-      case 'edit':
-        console.log('edit');
-        break;
-      case 'remove':
-        // story.route.splice(position, 1);
-        // for (let i = 0; i < story.route.length; i++) {
-        //   story.route[i].position = i;
-        // }
-        break;
       default:
         break;
     }
