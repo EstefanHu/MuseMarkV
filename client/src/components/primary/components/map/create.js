@@ -9,10 +9,25 @@ import {
 } from 'react-map-gl';
 
 export const Create = () => {
-  const { story } = useContext(StoryContext);
+  const { story, setStory } = useContext(StoryContext);
 
-  const engageNode = position => {
-    console.log(position);
+  const engageNode = nodePosition => {
+    const action = sessionStorage.getItem('action');
+    if (action === 'remove') {
+      const route = story.route;
+      route.splice(nodePosition, 1);
+      for (let i = 0; i < route.length; i++) {
+        route[i].position = i;
+      }
+      setStory({...story, "route": route});
+    } else if (action === 'edit') {
+      let node = story.route[nodePosition];
+      if (node.type === 'node') {
+        // editNode(node);
+        console.log('edit');
+      }
+    }
+    sessionStorage.removeItem('action');
   }
 
   return story && (
