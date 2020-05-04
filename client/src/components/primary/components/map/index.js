@@ -13,6 +13,29 @@ export const Map = props => {
     zoom: 14
   });
 
+  const engage = e => {
+    const action = sessionStorage.getItem('action');
+    if (action === null) return;
+
+    switch (action) {
+      case 'node':
+        console.log('node');
+        break;
+      case 'turn':
+        console.log('turn');
+        break;
+      case 'edit':
+        console.log('edit');
+        break;
+      case 'remove':
+        console.log('remove');
+        break;
+      default:
+        break;
+    }
+    sessionStorage.removeItem('action');
+  }
+
   return (
     <div
       id='mapboxView'
@@ -24,7 +47,7 @@ export const Map = props => {
         onViewportChange={viewport => {
           setViewport(viewport)
         }}
-        onClick={() => console.log('hello')}
+        onClick={engage}
       >
 
         <Route path='/app/create' component={Create} />

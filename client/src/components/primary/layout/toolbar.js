@@ -49,6 +49,10 @@ export const Toolbar = withRouter(props => {
     props.history.push('/app/home');
   }
 
+  const setAction = action => {
+    sessionStorage.setItem('action', action);
+  }
+
   return (
     <nav id='toolbar' className='topNav'>
       <h1 className='logo'>:M</h1>
@@ -57,15 +61,19 @@ export const Toolbar = withRouter(props => {
           <>
             <GoLocation
               className='toolbar__icons'
+              onClick={() => setAction('node')}
             />
             <FaRegDotCircle
               className='toolbar__icons'
+              onClick={() => setAction('turn')}
             />
             <RiDeleteBin2Line
               className='toolbar__icons'
+              onClick={() => setAction('remove')}
             />
             <MdModeEdit
               className='toolbar__icons'
+              onClick={() => setAction('edit')}
             />
             <FaRegSave
               className='toolbar__icons'
