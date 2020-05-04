@@ -72,7 +72,7 @@ export const App = () => {
       <Router>
         <Switch>
           <Route exact path='/(|register|login|privacy|terms|forgot)' component={Landing} />
-          <AuthRoute exact path='/app/(|home|dashboard|create|community|settings)' component={Primary} />
+          <AuthRoute exact path='/app/(|dashboard|create|community|settings)' component={Primary} />
           <Route component={FourOhFour} />
         </Switch>
       </Router>

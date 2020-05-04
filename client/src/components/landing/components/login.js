@@ -31,8 +31,6 @@ const Login = props => {
         props.history.push('/app/dashboard');
       })
       .catch(console.error);
-
-    props.history.push('/app/dashboard');
   }
 
   return (

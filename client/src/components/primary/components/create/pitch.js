@@ -38,7 +38,7 @@ export const Pitch = withRouter(props => {
 
   const cancelStory = () => {
     setStory(null);
-    props.history.push('/app/home');
+    props.history.push('/app/dashboard');
   }
 
   return (
