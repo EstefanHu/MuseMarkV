@@ -22,7 +22,7 @@ export const Primary = () => {
       .then(res => res.json())
       .then(res => setApi(res))
       .catch(console.error)
-  })
+  }, []);
 
   return (
     <StoryContext.Provider value={{ story, setStory }}>
