@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { Route } from 'react-router-dom';
 
-import { Toolbar } from './layout/toolbar';
-import { Nav } from './layout/nav';
+import { Toolbar } from './layout/toolbar.js';
+import { Nav } from './layout/nav.js';
 import { Dashboard } from './components/dashboard';
 import { Community } from './components/community';
 import { Create } from './components/create';
