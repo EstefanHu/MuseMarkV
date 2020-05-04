@@ -8,16 +8,21 @@ import {
   Layer
 } from 'react-map-gl';
 
-export const Create = props => {
+export const Create = () => {
   const { story } = useContext(StoryContext);
+
+  const engageNode = position => {
+    console.log(position);
+  }
 
   return story && (
     <>
       {story.route.map((node, index) => (
-        <>
+        <span
+          key={node.position}
+        >
           {node.type === 'node' ? (
             <Marker
-              key={node.position}
               latitude={node.coordinates[1]}
               longitude={node.coordinates[0]}
               offsetLeft={-25}
@@ -25,12 +30,11 @@ export const Create = props => {
             >
               <MdLocationOn
                 className='map__icon'
-                onClick={() => props.engageNode(node.position)}
+                onClick={() => engageNode(node.position)}
               />
             </Marker>
           ) : (
               <Marker
-                key={node.position}
                 latitude={node.coordinates[1]}
                 longitude={node.coordinates[0]}
                 offsetLeft={-6.5}
@@ -38,15 +42,15 @@ export const Create = props => {
               >
                 <FaDotCircle
                   className='map__icon--turn'
-                  onClick={() => props.engageNode(node.position)}
+                  onClick={() => engageNode(node.position)}
                 />
               </Marker>
             )
           }
 
           {story.route[index + 1] &&
-            <Source type='geojson'
-              key={node.position}
+            <Source
+              type='geojson'
               data={{
                 "type": "FeatureCollection",
                 "features": [
@@ -71,7 +75,7 @@ export const Create = props => {
               />
             </Source>
           }
-        </>
+        </span>
       ))}
     </>
   )
