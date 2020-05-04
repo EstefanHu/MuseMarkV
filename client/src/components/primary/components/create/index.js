@@ -11,7 +11,7 @@ import {
 export const Create = props => {
   const [pitch, setPitch] = useState(true);
   const { node, setNode } = useContext(NodeContext);
-  const { setStory } = useContext(StoryContext);
+  const { story, setStory } = useContext(StoryContext);
 
   useEffect(() => {
     return () => {
@@ -21,11 +21,23 @@ export const Create = props => {
 
   return (
     <>
+      {story &&
+        <section className='container'>
+          <div
+            id='storyPitch'
+            onClick={() => setPitch(true)}
+          >
+            <p>{story.genre}</p>
+            <h1>{story.title}</h1>
+            <p>{story.description}</p>
+          </div>
+        </section>
+      }
       {pitch &&
         <Pitch togglePitch={() => setPitch(pitch => !pitch)} />
       }
       {node !== null &&
-        <Write toggleNode={() => setNode(null)}/>
+        <Write toggleNode={() => setNode(null)} />
       }
     </>
   )

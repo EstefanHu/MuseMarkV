@@ -1,3 +1,29 @@
+#storyPitch {
+  width: calc(100% - 20px);
+  margin: 10px;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  overflow: hidden;
+  position: relative;
+}
+
+#storyPitch:focus::before,
+#storyPitch:hover::after {
+  content: 'Edit Pitch';
+  background: rgba(0,0,0,.1);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  position: absolute;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+}
+
 .map__icon {
   width: 50px; height: 50px;
   cursor: pointer;
