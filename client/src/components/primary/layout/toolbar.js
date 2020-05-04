@@ -42,7 +42,7 @@ export const Toolbar = withRouter(props => {
     })
       .then(res => res.json())
       .catch(console.error);
-    setStory({ "route": [] });
+    setStory(null);
     props.history.push('/app/home');
   }
 
