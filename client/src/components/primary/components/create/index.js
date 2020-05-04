@@ -1,13 +1,23 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 
 import './create.css';
 import { Pitch } from './pitch';
 import { Write } from './write';
-import { NodeContext } from '../../../../context';
+import {
+  StoryContext,
+  NodeContext
+} from '../../../../context';
 
 export const Create = props => {
   const [pitch, setPitch] = useState(true);
   const { node, setNode } = useContext(NodeContext);
+  const { setStory } = useContext(StoryContext);
+
+  useEffect(() => {
+    return () => {
+      setStory(null);
+    }
+  }, [])
 
   return (
     <>
