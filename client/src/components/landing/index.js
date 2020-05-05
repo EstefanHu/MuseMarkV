@@ -15,23 +15,25 @@ import { Forgot } from './views/forgot';
 export const Landing = () => {
   return (
     <>
-      <nav id='landing__nav' className='topNav'>
-        <Link to='/' className='logo'>:Muse</Link>
-        <span>
-          {Cookie.get('museCookie') ? (
-            <Link to='/app/dashboard'>
-              <button id='login'>Log in</button>
-            </Link>
-          ) : (
-            <>
-            <Link to='/login'>
-              <button id='login'>Log in</button>
-            </Link>
-            <Link to='/register'>
-              <button id='register'>Sign up</button>
-            </Link>
-            </>
-          )}
+      <nav className='topNav'>
+        <span id='landing__nav'>
+          <Link to='/' className='logo'>:Muse</Link>
+          <span>
+            {Cookie.get('museCookie') ? (
+              <Link to='/app/dashboard'>
+                <button id='login'>Log in</button>
+              </Link>
+            ) : (
+                <>
+                  <Link to='/login'>
+                    <button id='login'>Log in</button>
+                  </Link>
+                  <Link to='/register'>
+                    <button id='register'>Sign up</button>
+                  </Link>
+                </>
+              )}
+          </span>
         </span>
       </nav>
       <main id='landing__body'>
