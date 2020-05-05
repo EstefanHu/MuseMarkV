@@ -1,11 +1,9 @@
 import React from 'react';
 
-const Loading = () => {
-    return (
-        <div>
-            Loading...
-        </div>
-    )
-}
+export const Loading = () => {
+  return (
+    <div id='loading' >
 
-export default Loading;
+    </div>
+  )
+}

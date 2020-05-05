@@ -10,7 +10,7 @@ import { Settings } from './components/settings';
 import { Map } from './components/map';
 
 import { StoryContext, LocationContext, NodeContext } from '../../context';
-import Loading from './layout/loading';
+import { Loading } from './layout/loading';
 
 export const Primary = () => {
   const { lng, lat } = useContext(LocationContext);

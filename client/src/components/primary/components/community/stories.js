@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-import Loading from '../../layout/loading';
+import { Loading } from '../../layout/loading';
 
 export const Stories = () => {
   const [stories, setStories] = useState([]);
