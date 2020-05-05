@@ -4,6 +4,12 @@
   align-items: center;
 }
 
+#landingContainer {
+  max-width: 1200px;
+  height: 100vh;
+  margin: 0 auto;
+}
+
 #login,
 #register {
   border-radius: 20px;

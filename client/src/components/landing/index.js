@@ -4,12 +4,12 @@ import Cookie from 'js-cookie';
 
 import './landing.css';
 
-import { Index } from './components';
-import Register from './components/register';
-import Login from './components/login';
-import { Privacy } from './components/privacy';
-import { Terms } from './components/terms';
-import { Forgot } from './components/forgot';
+import { Index } from './views/landing';
+import Register from './views/register';
+import Login from './views/login';
+import { Privacy } from './views/privacy';
+import { Terms } from './views/terms';
+import { Forgot } from './views/forgot';
 
 
 export const Landing = () => {
