@@ -12,17 +12,34 @@
   height: 100vh;
   margin: 0 auto;
   padding-top: 100px;
+  position: relative;
 }
 
 #landingContainer>h1 {
   font-size: 23.5rem;
-  /* color: var(--color-accent); */
   background: -webkit-linear-gradient(var(--color-accent), #eee);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-family: 'Heebo';
   line-height: 1;
   text-align: right;
+  position: absolute;
+  z-index: 0;
+}
+
+.landingContent:nth-of-type(1) {
+  margin-top: 500px;
+}
+
+.landingContent {
+  position: relative;
+  color: var(--color-accent-dark);
+}
+
+.landingContent h2 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  font-size: 2rem;
 }
 
 #login,
