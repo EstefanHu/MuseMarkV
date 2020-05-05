@@ -5,10 +5,7 @@
   --color-accent-secondary: rgb(250, 0, 0);
   --color-accent-tertiary: rgb(252, 240, 240);
   font-size: 16px;
-  --text-primary: black;
-  --text-secondary: grey;
-  --bg-primary: white;
-  --bg-secondary: grey;
+  --color-accent-dark: #444;
 }
 
 *, *::before, *::after {
