@@ -65,6 +65,8 @@ export const App = () => {
     // setLng(parseInt(localLng));
     // setLat(parseInt(localLat));
     geoLocate(setLng, setLat, 0);
+
+    // TODO: Translate to primary community assignment
     fetch('http://ip-api.com/json')
       .then(res=>res.json())
       .then(console.log)
