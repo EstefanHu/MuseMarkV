@@ -12,6 +12,8 @@ import { Map } from './components/map';
 import { StoryContext, LocationContext, NodeContext } from '../../context';
 import { Loading } from './layout/loading';
 
+import './primary.css';
+
 export const Primary = () => {
   const { lng, lat } = useContext(LocationContext);
   const [api, setApi] = useState('');
