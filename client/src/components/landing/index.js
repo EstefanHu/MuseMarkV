@@ -36,14 +36,12 @@ export const Landing = () => {
           </span>
         </span>
       </nav>
-      <main>
-        <Route exact path='/' component={Index} />
-        <Route path='/login' component={Login} />
-        <Route path='/register' component={Register} />
-        <Route path='/privacy' component={Privacy} />
-        <Route path='/terms' component={Terms} />
-        <Route path='/forgot' component={Forgot} />
-      </main>
+      <Route exact path='/' component={Index} />
+      <Route path='/login' component={Login} />
+      <Route path='/register' component={Register} />
+      <Route path='/privacy' component={Privacy} />
+      <Route path='/terms' component={Terms} />
+      <Route path='/forgot' component={Forgot} />
     </>
   )
 }

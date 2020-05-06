@@ -1,16 +1,20 @@
 import React from 'react';
 
+import { LandingContent } from '../components/landingcontent';
+import { Buildings } from '../components/buildings'
+
 export const Index = () => {
   return (
-    <section id='landingContainer'>
-      {/* <h1>Project<br />:Muse</h1> */}
-      {/* <section className='landingContent'>
-        <h2>Welcome to the Muse Project</h2>
-        <p>Project:Muse is an experimental story telling platform <br />
-          that accentuates the world around us.</p>
-      </section> */}
+    <main id='landingContainer'>
+      <div
+        className='parallax__layer parallax__back'
+      >
+        <h1
+          id='hero__text'
+        >Project<br />:Muse</h1>
+      </div>
 
-      <h1>Join the future of story telling</h1>
-    </section>
+      <LandingContent />
+    </main>
   )
 }
