@@ -48,6 +48,17 @@
   font-weight: 500;
 } */
 
+#landingContainer>h1 {
+  font-family: 'Roboto', sans-serif;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--color-accent-secondary);
+  -webkit-text-fill-color: white; /* Will override color (regardless of order) */
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: var(--color-accent-secondary);
+}
+
 #login,
 #register {
   border-radius: 20px;

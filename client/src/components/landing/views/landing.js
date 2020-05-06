@@ -9,6 +9,8 @@ export const Index = () => {
         <p>Project:Muse is an experimental story telling platform <br />
           that accentuates the world around us.</p>
       </section> */}
+
+      <h1>Join the future of story telling</h1>
     </section>
   )
 }
