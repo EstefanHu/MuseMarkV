@@ -18,7 +18,7 @@
 #landingContainer>h1 {
   font-size: 23rem;
   color: var(--color-accent);
-  background: -webkit-linear-gradient(black, rgba(0,0,0,0));
+  background: -webkit-linear-gradient(var(--color-accent), rgba(0,0,0,0));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-family: 'Heebo';
@@ -31,7 +31,6 @@
 .landingContent {
   position: relative;
   font-family: 'Roboto', sans-serif;
-  /* color: var(--color-accent-dark); */
   border-radius: 25px;
   background: rgb(255, 195, 195);
   width: fit-content;
