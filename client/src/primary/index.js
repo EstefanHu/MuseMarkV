@@ -9,7 +9,7 @@ import { Create } from './components/create';
 import { Settings } from './components/settings';
 import { Map } from './components/map';
 
-import { StoryContext, LocationContext, NodeContext } from '../../context';
+import { StoryContext, LocationContext, NodeContext } from '../context';
 import { Loading } from './layout/loading';
 
 import './primary.css';

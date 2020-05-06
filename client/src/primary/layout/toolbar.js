@@ -2,7 +2,7 @@ import React, {
   useContext
 } from 'react';
 
-import { StoryContext } from '../../../context';
+import { StoryContext } from '../../context';
 import { withRouter } from 'react-router-dom';
 
 import { FiPlusSquare } from 'react-icons/fi';

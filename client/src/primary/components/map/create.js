@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { StoryContext, NodeContext } from '../../../../context';
+import { StoryContext, NodeContext } from '../../../context';
 import { MdLocationOn } from 'react-icons/md';
 import { FaDotCircle } from 'react-icons/fa';
 import {

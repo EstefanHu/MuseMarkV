@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import { LocationContext } from '../../../context';
+import { LocationContext } from '../../context';
 
 export const Register = withRouter(props => {
   const { lng, lat } = useContext(LocationContext);

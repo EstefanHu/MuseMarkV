@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { withRouter, Link } from 'react-router-dom';
 
-import { LocationContext } from '../../../context';
+import { LocationContext } from '../../context';
 
 export const Login = withRouter(props => {
   const { lng, lat } = useContext(LocationContext);

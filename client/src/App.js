@@ -10,9 +10,9 @@ import Cookie from 'js-cookie';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import './App.css';
 
-import { Landing } from './components/landing';
-import { Primary } from './components/primary';
-import { FourOhFour } from './components/fourohfour';
+import { Landing } from './landing';
+import { Primary } from './primary';
+import { FourOhFour } from './ERROR/fourohfour';
 import { LocationContext } from './context';
 
 const geoLocate = (setLng, setLat, times) => {

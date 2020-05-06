@@ -6,9 +6,9 @@ import { Write } from './write';
 import {
   StoryContext,
   NodeContext
-} from '../../../../context';
+} from '../../../context';
 
-export const Create = props => {
+export const Create = () => {
   const [pitch, setPitch] = useState(true);
   const { node, setNode } = useContext(NodeContext);
   const { story, setStory } = useContext(StoryContext);
@@ -17,7 +17,7 @@ export const Create = props => {
     return () => {
       setStory(null);
     }
-  }, []);
+  }, [setStory]);
 
   return (
     <>

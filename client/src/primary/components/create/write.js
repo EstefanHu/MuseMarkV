@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { StoryContext, NodeContext } from '../../../../context';
+import { StoryContext, NodeContext } from '../../../context';
 
 export const Write = props => {
   const { story, setStory } = useContext(StoryContext);

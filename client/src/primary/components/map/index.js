@@ -4,7 +4,7 @@ import { Route } from 'react-router-dom';
 
 import { Create } from './create';
 
-import { StoryContext, NodeContext } from '../../../../context';
+import { StoryContext, NodeContext } from '../../../context';
 
 export const Map = props => {
   const { story, setStory } = useContext(StoryContext);

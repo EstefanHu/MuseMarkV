@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { StoryContext } from '../../../../context';
+import { StoryContext } from '../../../context';
 
 import { Loading } from '../../layout/loading';
 

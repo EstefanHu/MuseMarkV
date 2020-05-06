@@ -1,7 +1,6 @@
 import React from 'react';
 
 import { LandingContent } from '../components/landingcontent';
-import { Buildings } from '../components/buildings'
 
 export const Index = () => {
   return (

@@ -48,7 +48,7 @@
 .parallax__back {
   display: flex;
   flex-direction: column-reverse;
-  justify-content: start;
+  justify-content: flex-start;
   height: 100vh;
   transform: translateZ(-1px) scale(2);
 }
