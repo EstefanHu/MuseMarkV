@@ -3,7 +3,7 @@ import { withRouter, Link } from 'react-router-dom';
 
 import { LocationContext } from '../../../context';
 
-const Login = props => {
+export const Login = withRouter(props => {
   const { lng, lat } = useContext(LocationContext);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -64,6 +64,4 @@ const Login = props => {
       </div>
     </section>
   )
-}
-
-export default withRouter(Login);
+})

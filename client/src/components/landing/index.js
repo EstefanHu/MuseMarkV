@@ -5,8 +5,8 @@ import Cookie from 'js-cookie';
 import './landing.css';
 
 import { Index } from './views/landing';
-import Register from './views/register';
-import Login from './views/login';
+import { Register } from './views/register';
+import { Login } from './views/login';
 import { Privacy } from './views/privacy';
 import { Terms } from './views/terms';
 import { Forgot } from './views/forgot';
