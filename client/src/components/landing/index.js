@@ -36,7 +36,7 @@ export const Landing = () => {
           </span>
         </span>
       </nav>
-      <main id='landing__body'>
+      <main>
         <Route exact path='/' component={Index} />
         <Route path='/login' component={Login} />
         <Route path='/register' component={Register} />
