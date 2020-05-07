@@ -1,0 +1,12 @@
+.settings__logout {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.settings__logout button {
+  width: 49%;
+  height: 35px;
+  border-radius: 5px;
+  font-size: 1rem;
+  padding: 8px 0;
+}

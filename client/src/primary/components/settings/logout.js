@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Cookie from 'js-cookie';
 import { withRouter } from 'react-router-dom';
 
 export const Logout = withRouter(props => {
+  const [doLogout, setDoLogout] = useState(false);
+
   const logout = () => {
     fetch('http://localhost:4000/user/logout', {
       credentials: 'include'
@@ -18,10 +20,24 @@ export const Logout = withRouter(props => {
   }
 
   return (
-    <button
-      onClick={logout}
+    <span
+      className='settings__logout'
     >
-      Logout
-    </button>
+      <button
+        onClick={() => setDoLogout(doLogout => !doLogout)}
+        className='button'
+      >
+        {doLogout ? (
+          <p>No, stay logged in</p>
+        ) : (
+            <p>Logout</p>
+          )}
+      </button>
+      {doLogout &&
+        <button
+          onClick={logout}
+        >Yes I'm sure!</button>
+      }
+    </span>
   )
 });

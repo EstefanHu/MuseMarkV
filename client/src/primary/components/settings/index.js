@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 
 import { Logout } from './logout';
 
+import './settings.css';
+
 export const Settings = () => {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
