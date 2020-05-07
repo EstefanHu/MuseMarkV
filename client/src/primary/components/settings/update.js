@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export const Form = props => {
+export const Update = props => {
   const [firstName, setFirstName] = useState(props.firstName);
   const [lastName, setLastName] = useState(props.lastName);
   const [email, setEmail] = useState(props.email);

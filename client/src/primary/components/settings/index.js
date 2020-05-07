@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 
+import { Profile } from './profile';
+import { Update } from './update';
 import { Logout } from './logout';
+import { Delete } from './delete';
 
 import './settings.css';
 
@@ -8,7 +11,7 @@ export const Settings = () => {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
-  const [doUpdate, setDoUpdate] = useState(true);
+  const [doUpdate, setDoUpdate] = useState(false);
 
   useEffect(() => {
     fetch('http://localhost:4000/user/profile', {
@@ -26,13 +29,18 @@ export const Settings = () => {
   return (
     <section className='container'>
       <h1>Hello from Settings</h1>
-      {doUpdate &&
-        // TODO: May be suseptable to passive sends from spiders.
-        <button
-          onClick={sendUpdate}
-        >Update</button>
-      }
+      {!doUpdate ? (
+        <Profile
+          firstName={firstName}
+          lastName={lastName}
+          email={email}
+        />
+      ) : (
+          <Update />
+
+        )}
       <Logout />
+      <Delete />
     </section>
   )
 }
