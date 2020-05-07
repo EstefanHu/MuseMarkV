@@ -23,23 +23,6 @@ export const Settings = () => {
       .catch(console.error);
   }, []);
 
-  // TODO: Insecure endpoint needs update
-  const sendUpdate = () => {
-    fetch('http://localhost:4000/user/update', {
-      credentials: 'include',
-      method: 'POST',
-      body: {
-        firstName,
-        lastName,
-        email,
-      }
-    })
-      .then(res => res.json())
-      .then(console.log)
-      .catch(console.err);
-    setDoUpdate(doUpdate => !doUpdate);
-  }
-
   return (
     <section className='container'>
       <h1>Hello from Settings</h1>
