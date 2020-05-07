@@ -1,3 +1,5 @@
+
+/* LOGOUT BUTTON */
 .settings__logout {
   display: flex;
   justify-content: space-evenly;
@@ -9,4 +11,11 @@
   border-radius: 5px;
   font-size: 1rem;
   padding: 8px 0;
+  font-weight: bold;
+}
+
+.settings__logout button:nth-of-type(2) {
+  background: var(--color-accent);
+  border: none;
+  color: white;
 }
