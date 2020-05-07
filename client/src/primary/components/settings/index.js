@@ -3,7 +3,6 @@ import React, { useState, useEffect } from 'react';
 import { Profile } from './profile';
 import { Location } from './location';
 import { Logout } from './logout';
-import { Delete } from './delete';
 
 import './settings.css';
 
@@ -34,7 +33,6 @@ export const Settings = () => {
       />
       <Location />
       <Logout />
-      <Delete />
     </section>
   )
 }
