@@ -36,7 +36,7 @@ export const Profile = (props) => {
       <input
         className='settings__update-input'
         type='text'
-        value={firstName}
+        value={props.firstName}
         onChange={e => setFirstName(e.target.value)}
         placeholder='First Name'
         required
@@ -44,7 +44,7 @@ export const Profile = (props) => {
       <input
         className='settings__update-input'
         type='text'
-        value={lastName}
+        value={props.lastName}
         onChange={e => setLastName(e.target.value)}
         placeholder='Last Name'
         required
@@ -52,7 +52,7 @@ export const Profile = (props) => {
       <input
         className='settings__update-input'
         type='email'
-        value='email'
+        value={props.email}
         onChange={e => setEmail(e.target.value)}
         placeholder='Email Address'
         required
