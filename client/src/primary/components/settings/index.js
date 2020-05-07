@@ -37,8 +37,8 @@ export const Settings = () => {
         />
       ) : (
           <Update />
-
-        )}
+        )
+      }
       <Location />
       <Logout />
       <Delete />
