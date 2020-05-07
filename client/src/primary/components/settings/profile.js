@@ -6,5 +6,6 @@ export const Profile = ({firstName, lastName, email}) => (
   >
     <h1>{firstName} {lastName}</h1>
     <h2>{email}</h2>
+    
   </section>
 )
