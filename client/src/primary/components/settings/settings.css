@@ -1,11 +1,15 @@
+.settings {
+  padding: 20px 30px;
+  display: flex;
+  flex-direction: column;
+}
 
-/* LOGOUT BUTTON */
-.settings__logout {
+.settings>span {
   display: flex;
   justify-content: space-evenly;
 }
 
-.settings__logout button {
+.settings button {
   width: 49%;
   height: 35px;
   border-radius: 5px;
@@ -14,8 +18,24 @@
   font-weight: bold;
 }
 
-.settings__logout button:nth-of-type(2) {
+.settings>span>button:nth-of-type(2) {
   background: var(--color-accent);
   border: none;
   color: white;
+}
+
+.settings>* {
+  margin-bottom: 20px;
+}
+
+.settings__profile {
+  background: silver;
+}
+
+.settings__profile h1 {
+  font-size: 2rem;
+}
+
+.settings__profile h2 {
+  font-size: 1.5rem;
 }

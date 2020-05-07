@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 import { Profile } from './profile';
 import { Update } from './update';
+import { Location } from './location';
 import { Logout } from './logout';
 import { Delete } from './delete';
 
@@ -27,8 +28,7 @@ export const Settings = () => {
   }, []);
 
   return (
-    <section className='container'>
-      <h1>Hello from Settings</h1>
+    <section className='container settings'>
       {!doUpdate ? (
         <Profile
           firstName={firstName}
@@ -39,6 +39,7 @@ export const Settings = () => {
           <Update />
 
         )}
+      <Location />
       <Logout />
       <Delete />
     </section>

@@ -20,12 +20,10 @@ export const Logout = withRouter(props => {
   }
 
   return (
-    <span
-      className='settings__logout'
-    >
+    <span>
       <button
         onClick={() => setDoLogout(doLogout => !doLogout)}
-        className='button'
+
       >
         {doLogout ? (
           <p>No, stay logged in</p>
